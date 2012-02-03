@@ -1,0 +1,328 @@
+%% 
+%% Optical Tweezer in a Volume Holographic Application
+%% @author Y.Chevallier <me@yves-chevallier.com>
+%% @language LaTeX2e
+%% @date Jan 2012
+%% --------------------------------------------------------------------------
+\documentclass{kepfl}
+\usepackage{glossaries}
+\makeglossaries
+
+\lstset{%
+language=C,
+breaklines=true, 
+breakatwhitespace=false, 
+basicstyle=\footnotesize}
+
+\begin{document}
+
+%% Define title page
+%% --------------------------------------------------------------------------
+\pagenumbering{empty}
+\date     {\today}
+\author   {Yves Chevallier}
+\title    {Holographic Optical Tweezers for a \\Volume Hologram Imaging application}
+\subtitle {Masters thesis 2011-2012}
+\teacher  {Prof. C. Moser (EPFL)\\Prof. G. Barbastathis (MIT)\\Prof. Yuan Yao (SMART)}
+\maketitle
+\clearpage
+
+%% Abstract page
+%% --------------------------------------------------------------------------
+\pagenumbering{roman}
+\begin{abstract}
+\noindent
+
+\noindent
+%% --------------------------------------------------------------------------
+\end{abstract}
+
+%% Table of contents, list of figures and tables and glossary
+%% --------------------------------------------------------------------------
+\clearemptydoublepage
+\tableofcontents
+\clearpage
+\listoffigures
+\listoftables
+
+\clearemptydoublepage
+\pagenumbering{arabic}
+
+%% Content
+%% --------------------------------------------------------------------------
+\section{Introduction}
+
+\section{Thin Lens}
+
+\begin{equation}
+\Delta \varphi (x,y) = \Delta {\varphi _0} - {R_1}\left( {1 - \sqrt {1 - \frac{{{x^2} + {y^2}}}{{{R_1}^2}}} } \right) + {R_2}\left( {1 - \sqrt {1 - \frac{{{x^2} + {y^2}}}{{{R_2}^2}}} } \right)
+\end{equation}
+
+\begin{equation}
+\Delta \varphi (x,y) \approx \Delta {\varphi _0} - \frac{{{x^2} + {y^2}}}{2}\left( {\frac{1}{{{R_1}}} - \frac{1}{{{R_2}}}} \right)
+\end{equation}
+
+
+\begin{equation}
+	\begin{array}{c}
+L(x,y) = {e^{ - i\frac{{2\pi }}{\lambda }\left( {n\Delta \varphi (x,y) + \Delta {\varphi _0} - \Delta \varphi (x,y)} \right)}}\\
+ = {e^{i\frac{{2\pi }}{\lambda }\Delta {\varphi _0}}}{e^{ - i\frac{{2\pi }}{\lambda }(n - 1)\Delta \varphi (x,y)}}\\
+ = {e^{i\frac{{2\pi }}{\lambda }\Delta {\varphi _0}}}{e^{ - i\frac{{2\pi }}{{\lambda f}}({x^2} + {y^2})}}
+\end{array}
+\end{equation}
+
+
+\begin{equation}
+\frac{1}{f} = (n - 1)\left( {\frac{1}{{{R_1}}} - \frac{1}{{{R_2}}}} \right)	
+\end{equation}
+
+\begin{equation}
+L(x,y) = {e^{ - i\frac{{2\pi }}{{\lambda f}}({x^2} + {y^2})}}
+\end{equation}
+
+\begin{equation}	
+% MathType!MTEF!2!1!+-
+% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaGaamitaiaacI
+% cacaWG4bGaaiilaiaadMhacaGGPaGaeyypa0JaamyzamaaCaaaleqa
+% baGaeyOeI0IaamyAamaalaaabaGaaGOmaiabec8aWbqaaiabeU7aSj
+% aadAgaaaGaaiikaiaadIhadaahaaadbeqaaiaaikdaaaWccqGHRaWk
+% caWG5bWaaWbaaWqabeaacaaIYaaaaSGaaiykaaaaaaa!4A09!
+L(x,y) = {e^{ - i\frac{{2\pi }}{{\lambda f}}({x^2} + {y^2})}}
+\end{equation}
+
+\section{Fresnel Propagation}
+\begin{equation}
+	% MathType!MTEF!2!1!+-
+	% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+	% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+	% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+	% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+	% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaGaamyvamaaBa
+	% aaleaacaaIWaaabeaakiaacIcacaWG4bGaaiilaiaadMhacaGGPaGa
+	% eyypa0JaeqiTdqMaaiikaiaadIhacqGHsislcaWG4bWaaSbaaSqaai
+	% aad2gaaeqaaOGaaiykaiabes7aKjaacIcacaWG5bGaeyOeI0IaamyE
+	% amaaBaaaleaacaWGTbaabeaakiaacMcaaaa!4AE4!
+	{U_0}(x,y) = \delta (x - {x_m})\delta (y - {y_m})
+\end{equation}
+
+\begin{equation}
+	% MathType!MTEF!2!1!+-
+	% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+	% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+	% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+	% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+	% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaGaamyvamaaBa
+	% aaleaacaaIXaaabeaakiaacIcacaWG4bGaaiilaiaadMhacaGGPaGa
+	% eyypa0ZaaSaaaeaacaWGLbWaaWbaaSqabeaacaWGPbGaaGOmaiabec
+	% 8aWjaacIcacaWGMbGaey4kaSIaamOEamaaBaaameaacaWGTbaabeaa
+	% liaacMcacaGGVaGaeq4UdWgaaaGcbaGaamyAaiabeU7aSjaacIcaca
+	% WGMbGaey4kaSIaamOEamaaBaaaleaacaWGTbaabeaakiaacMcaaaWa
+	% a8GuaeaacaWGvbWaaSbaaSqaaiaaicdaaeqaaOGaaiikaiabe67a4j
+	% aacYcacqaH3oaAcaGGPaGaciyzaiaacIhacaGGWbWaaeWaaeaadaWc
+	% aaqaaiaadMgacqaHapaCaeaacqaH7oaBcaGGOaGaamOzaiabgUcaRi
+	% aadQhadaWgaaWcbaGaamyBaaqabaGccaGGPaaaamaabmaabaGaaiik
+	% aiaadIhacqGHsislcqaH+oaEcaGGPaWaaWbaaSqabeaacaaIYaaaaO
+	% Gaey4kaSIaaiikaiaadMhacqGHsislcqaH3oaAcaGGPaWaaWbaaSqa
+	% beaacaaIYaaaaaGccaGLOaGaayzkaaaacaGLOaGaayzkaaGaamizai
+	% abe67a4jaadsgacqaH3oaAaSqaaiabfo6atbqab0Gaey4kIiVaey4k
+	% Iipaaaa!7F8A!
+	{U_1}(x,y) = \frac{{{e^{i2\pi (f + {z_m})/\lambda }}}}{{i\lambda (f + {z_m})}}\iint\limits_\Sigma  {{U_0}(\xi ,\eta )\exp \left( {\frac{{i\pi }}{{\lambda (f + {z_m})}}\left( {{{(x - \xi )}^2} + {{(y - \eta )}^2}} \right)} \right)d\xi d\eta }
+\end{equation}
+
+\begin{equation}
+	% MathType!MTEF!2!1!+-
+	% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+	% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+	% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+	% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+	% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaGaamyvamaaBa
+	% aaleaacaaIXaaabeaakiaacIcacaWG4bGaaiilaiaadMhacaGGPaGa
+	% eyypa0ZaaSaaaeaacaWGLbWaaWbaaSqabeaacaaIYaGaeqiWdaNaam
+	% yAaiaacIcacaWGMbGaey4kaSIaamOEamaaBaaameaacaWGTbaabeaa
+	% liaacMcacaGGVaGaeq4UdWgaaaGcbaGaamyAaiabeU7aSjaacIcaca
+	% WGMbGaey4kaSIaamOEamaaBaaaleaacaWGTbaabeaakiaacMcaaaGa
+	% ciyzaiaacIhacaGGWbWaaeWaaeaadaWcaaqaaiaadMgacqaHapaCae
+	% aacqaH7oaBaaWaaSaaaeaacaGGOaGaamiEaiabgkHiTiaadIhadaWg
+	% aaWcbaGaamyBaaqabaGccaGGPaWaaWbaaSqabeaacaaIYaaaaOGaey
+	% 4kaSIaaiikaiaadMhacqGHsislcaWG5bWaaSbaaSqaaiaad2gaaeqa
+	% aOGaaiykamaaCaaaleqabaGaaGOmaaaaaOqaaiaacIcacaWGMbGaey
+	% 4kaSIaamOEamaaBaaaleaacaWGTbaabeaakiaacMcaaaaacaGLOaGa
+	% ayzkaaaaaa!6CD0!
+	{U_1}(x,y) = \frac{{{e^{2\pi i(f + {z_m})/\lambda }}}}{{i\lambda (f + {z_m})}}\exp \left( {\frac{{i\pi }}{\lambda }\frac{{{{(x - {x_m})}^2} + {{(y - {y_m})}^2}}}{{(f + {z_m})}}} \right)
+\end{equation}
+
+\begin{equation}
+	% MathType!MTEF!2!1!+-
+	% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+	% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+	% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+	% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+	% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaGaamitaiaacI
+	% cacaWG4bGaaiilaiaadMhacaGGPaGaeyypa0JaamyzamaaCaaaleqa
+	% baGaeyOeI0IaamyAamaalaaabaGaeqiWdahabaGaeq4UdWMaamOzaa
+	% aacaGGOaGaamiEamaaCaaameqabaGaaGOmaaaaliabgUcaRiaadMha
+	% daahaaadbeqaaiaaikdaaaWccaGGPaaaaaaa!494D!
+	L(x,y) = {e^{ - i\frac{\pi }{{\lambda f}}({x^2} + {y^2})}}
+\end{equation}
+
+\begin{equation}
+% MathType!MTEF!2!1!+-
+% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaGaamyvamaaBa
+% aaleaacaaIYaaabeaakiaacIcacaWG4bGaaiilaiaadMhacaGGPaGa
+% eyypa0JaamyvamaaBaaaleaacaaIXaaabeaakiaacIcacaWG4bGaai
+% ilaiaadMhacaGGPaGaeyyXICTaamitaiaacIcacaWG4bGaaiilaiaa
+% dMhacaGGPaaaaa!49B8!
+{U_2}(x,y) = {U_1}(x,y) \cdot L(x,y)
+\end{equation}
+
+\begin{equation}
+% MathType!MTEF!2!1!+-
+% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaGaamyvamaaBa
+% aaleaacaaIYaaabeaakiaacIcacaWG4bGaaiilaiaadMhacaGGPaGa
+% eyypa0deaaaaaaaaa8qadaWcaaqaaiaadwgadaahaaWcbeqaaiaaik
+% dacqaHapaCcaGGOaGaamOzaiabgUcaRiaadQhadaWgaaadbaGaamyB
+% aaqabaWccaGGPaGaai4laiabeU7aSbaaaOqaaiaadMgacqaH7oaBca
+% GGOaGaamOzaiabgUcaRiaadQhadaWgaaWcbaGaamyBaaqabaGccaGG
+% PaaaaiGacwgacaGG4bGaaiiCamaabmaabaGaeyOeI0IaamyAamaabm
+% aabaWaaSaaaeaacqaHapaCaeaacqaH7oaBcaWGMbaaaiaacIcacaWG
+% 4bWdamaaCaaaleqabaWdbiaaikdaaaGccqGHRaWkcaWG5bWdamaaCa
+% aaleqabaWdbiaaikdaaaGcpaGaaiyka8qacqGHRaWkdaWcaaqaaiab
+% ec8aWbqaaiabeU7aSbaadaWcaaWdaeaapeGaaiikaiaadIhacqGHsi
+% slcaWG4bWaaSbaaSqaaiaad2gaaeqaaOGaaiyka8aadaahaaWcbeqa
+% a8qacaaIYaaaaOGaey4kaSIaaiikaiaadMhacqGHsislcaWG5bWaaS
+% baaSqaaiaad2gaaeqaaOGaaiyka8aadaahaaWcbeqaa8qacaaIYaaa
+% aaGcpaqaa8qacaGGOaGaamOzaiabgkHiTiaadQhadaWgaaWcbaGaam
+% yBaaqabaGccaGGPaaaaaGaayjkaiaawMcaaaGaayjkaiaawMcaaaaa
+% !7AC7!
+{U_2}(x,y) = \frac{{{e^{2\pi (f + {z_m})/\lambda }}}}{{i\lambda (f + {z_m})}}\exp \left( { - i\left( {\frac{\pi }{{\lambda f}}({x^2} + {y^2}) + \frac{\pi }{\lambda }\frac{{{{(x - {x_m})}^2} + {{(y - {y_m})}^2}}}{{(f - {z_m})}}} \right)} \right)
+\end{equation}
+
+\begin{equation}
+% MathType!MTEF!2!1!+-
+% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcqaaaaaaaaaWdbe
+% aapaGaamyvamaaBaaaleaacaaIZaaabeaakiaacIcacaWG4bGaaiil
+% aiaadMhacaGGPaGaeyypa0ZaaSaaaeaacaWGLbWaaWbaaSqabeaaca
+% WGPbGaaGOmaiabec8aWjaadAgacaGGVaGaeq4UdWgaaaGcbaGaamyA
+% aiabeU7aSjaadAgaaaWaa8GuaeaacaWGvbWaaSbaaSqaaiaaikdaae
+% qaaOGaaiikaiabe67a4jaacYcacqaH3oaAcaGGPaGaciyzaiaacIha
+% caGGWbWaaeWaaeaadaWcaaqaaiaadMgacqaHapaCaeaacqaH7oaBca
+% WGMbaaamaabmaabaGaaiikaiaadIhacqGHsislcqaH+oaEcaGGPaWa
+% aWbaaSqabeaacaaIYaaaaOGaey4kaSIaaiikaiaadMhacqGHsislcq
+% aH3oaAcaGGPaWaaWbaaSqabeaacaaIYaaaaaGccaGLOaGaayzkaaaa
+% caGLOaGaayzkaaGaamizaiabe67a4jaadsgacqaH3oaAaSqaaiabfo
+% 6atbqab0Gaey4kIiVaey4kIipaaaa!7295!
+{U_3}(x,y) = \frac{{{e^{i2\pi f/\lambda }}}}{{i\lambda f}}\iint\limits_\Sigma  {{U_2}(\xi ,\eta )\exp \left( {\frac{{i\pi }}{{\lambda f}}\left( {{{(x - \xi )}^2} + {{(y - \eta )}^2}} \right)} \right)d\xi d\eta }
+\end{equation}
+
+\begin{equation}
+% MathType!MTEF!2!1!+-
+% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaaeaaaaaaaaa8
+% qacaWGvbWaaSbaaSqaaiaaiodaaeqaaOGaaiikaiaadIhacaGGSaGa
+% amyEaiaacMcacqGH9aqpdaWcaaqaaiaadwgadaahaaWcbeqaamaala
+% aabaGaaGOmaiabec8aWbqaaiabeU7aSbaadaqadaqaaiaaikdacaWG
+% MbGaey4kaSIaamOEamaaBaaameaacaWGTbaabeaaaSGaayjkaiaawM
+% caaaaaaOqaaiaadMgacqaH7oaBcaWGMbaaaiaadwgadaahaaWcbeqa
+% aiabgkHiTiaadMgadaqadaqaamaalaaabaGaaGOmaiabec8aWbqaai
+% aadAgacqaH7oaBaaGaaiikaiaadIhacqGHflY1caWG4bWaaSbaaWqa
+% aiaad2gaaeqaaSGaey4kaSIaamyEaiabgwSixlaadMhadaWgaaadba
+% GaamyBaaqabaWccaGGPaGaey4kaSYaaSaaaeaacqaHapaCcaWG6bWa
+% aSbaaWqaaiaad2gaaeqaaaWcbaGaamOzamaaCaaameqabaGaaGOmaa
+% aaliabeU7aSbaacaGGOaGaamiEa8aadaahaaadbeqaa8qacaaIYaaa
+% aSGaey4kaSIaamyEa8aadaahaaadbeqaa8qacaaIYaaaaSGaaiykaa
+% GaayjkaiaawMcaaaaakiabg2da9maalaaabaGaamyzamaaCaaaleqa
+% baWaaSaaaeaacaaIYaGaeqiWdahabaGaeq4UdWgaamaabmaabaGaaG
+% OmaiaadAgacqGHRaWkcaWG6bWaaSbaaWqaaiaad2gaaeqaaaWccaGL
+% OaGaayzkaaaaaaGcbaGaamyAaiabeU7aSjaadAgaaaGaamyzamaaCa
+% aaleqabaGaeyOeI0IaamyAaiabfs5aenaaBaaameaacaWGTbaabeaa
+% aaaaaa!8764!
+{U_3}(x,y) = \frac{{{e^{\frac{{2\pi }}{\lambda }\left( {2f + {z_m}} \right)}}}}{{i\lambda f}}{e^{ - i\left( {\frac{{2\pi }}{{f\lambda }}(x \cdot {x_m} + y \cdot {y_m}) + \frac{{\pi {z_m}}}{{{f^2}\lambda }}({x^2} + {y^2})} \right)}} = \frac{{{e^{\frac{{2\pi }}{\lambda }\left( {2f + {z_m}} \right)}}}}{{i\lambda f}}{e^{ - i{\Delta _m}}}
+\end{equation}
+
+\begin{equation}
+% MathType!MTEF!2!1!+-
+% feaagCart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+% hiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr
+% 4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8F4rqqrFfpeea0xe9Lq-Jc9
+% vqaqpepm0xbba9pwe9Q8fs0-yqaqpepae9pg0FirpepeKkFr0xfr-x
+% fr-xb9adbaqaaeGaciGaaiaabeqaamaabaabaaGcqaaaaaaaaaWdbe
+% aacqqHuoardaWgaaWcbaGaamyBaaqabaGccqGH9aqpdaagaaqaamaa
+% laaabaGaaGOmaiabec8aWbqaaiaadAgacqaH7oaBaaGaaiikaiaadI
+% hacqGHflY1caWG4bWaaSbaaSqaaiaad2gaaeqaaOGaey4kaSIaamyE
+% aiabgwSixlaadMhadaWgaaWcbaGaamyBaaqabaGccaGGPaaaleaaca
+% WGHbaakiaawIJ-aiabgUcaRmaayaaabaWaaSaaaeaacqaHapaCcaWG
+% 6bWaaSbaaSqaaiaad2gaaeqaaaGcbaGaamOzamaaCaaaleqabaGaaG
+% OmaaaakiabeU7aSbaacaGGOaGaamiEa8aadaahaaWcbeqaa8qacaaI
+% YaaaaOGaey4kaSIaamyEa8aadaahaaWcbeqaa8qacaaIYaaaaOGaai
+% ykaaWcbaGaamOyaaGccaGL44paaaa!6074!
+{\Delta _m} = \underbrace {\frac{{2\pi }}{{f\lambda }}(x \cdot {x_m} + y \cdot {y_m})}_a + \underbrace {\frac{{\pi {z_m}}}{{{f^2}\lambda }}({x^2} + {y^2})}_b	
+\end{equation}
+
+\section{Hologram generation}
+\subsection{Gratings and Lenses algorithm}
+
+\subsection{Gerchberg-Saxton algorithm}
+\subsubsection{Original algorithm in two dimensions}
+The Gerchberg-Saxton algorithm is an iterative method originally developed for recovering the phase of an electron of light beam from its intensity distributions in two transverse planes. 
+
+It can be applied to shape a light beam with calculating the phase pattern which light at one plane would require to form an almost diffraction-limited approximation to any desired intensity pattern at the second plane:
+
+
+\[u_n^H=\sqrt{I_H}\exp{i\varphi_{n-1}^H}\]
+
+\[\varphi_n^T = \arg\left(FFT\left(u_n^H\right)\right)\]
+
+\[u_n^T=\sqrt{I_T}\exp{i\varphi_n^T}\]
+
+\[\varphi_n^H = \arg{FFT^{-1}\left(u_n^T\right)}\]
+
+\subsubsection{Algorithm in three dimensions}
+
+\subsection{Comparaison}
+We use the error: 
+\[\epsilon_n = \sqrt{\frac{\sum_{x,y,z}\|\sqrt{I_n}-\sqrt{I_T}\|^2}{\sum_{x,y,z}I_T}}\]
+
+\clearpage
+%\bibliographystyle{plain}
+%\bibliography{biblio}
+
+\fig{slm-setup}{Optical setup used for calibrating the Spatial Light Modulator}
+
+\fig{slm-setup3D}{3D view of the setup}
+
+\fig{slm-interferences}{(a) Mask, (b) Interference pattern at the focal point of the lens L}
+
+\fig{slm-shiftwide}{}
+
+\fig{slm-shift}{}
+
+\fig{slm-flickr}{}
+
+\fig{slm-curve}{}
+
+%\fig{slm-gamma}{532 nm}
+\clearpage
+\appendix
+
+\end{document}
+
+
