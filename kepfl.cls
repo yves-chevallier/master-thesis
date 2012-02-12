@@ -2,23 +2,21 @@
 
 % Declare Class
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{kepfl}[2011/05/15 Extension pour RAPPORT EPFL]   
+\ProvidesClass{kepfl}[2012/02/12 EPFL Masters Thesis]   
 
 % Load mother's class
-\LoadClass[10pt,onecolumn,a4paper,twoside,final]{article}
+\LoadClass[11pt,a4paper,twoside,final]{book}
 
 % Include some packages
 \usepackage[latin1]{inputenc}   
 \usepackage[T1]{fontenc} 	
 \usepackage[english]{babel} 	
 \usepackage[nofancy]{svninfo} 	
-%\usepackage{aeguill}
 \usepackage{lmodern}
 \usepackage{graphicx}		
 \usepackage{fancyhdr}		
-\usepackage{lastpage} 		
-%\usepackage{helvet}             
-%\usepackage{courier}            
+\usepackage{lastpage} 	
+\usepackage{makeidx} 		
 \usepackage{framed}             
 \usepackage{tabularx}
 \usepackage{color}
@@ -27,13 +25,14 @@
 \usepackage{parskip}  
 \usepackage{multicol}
 \usepackage{listings}
+\usepackage{lipsum}
 \usepackage[fleqn]{amsmath} 
 
 \usepackage[dvips, 
 	    a4paper, 
-	    top=1cm, 
-	    bottom=2cm, 
-	    left=2cm, 
+	    top=2.5cm, 
+	    bottom=3cm, 
+	    left=3cm, 
 	    headheight=6mm, 
 	    headsep=5mm, 
 	    marginparwidth=2cm, 
@@ -49,11 +48,14 @@
 	    citecolor=black,
 	    urlcolor=black]{hyperref}  
 
-% Some specific changes
+% Specific changes
 \AtBeginDocument{\renewcommand{\labelitemi}{\textbullet}}
 
 \newcommand{\clearemptydoublepage}{%
 	\newpage{\pagestyle{empty}\cleardoublepage}}
+
+\setlength{\parindent}{0pt}
+\setlength\parskip{\medskipamount}
 
 % Figures macros
 \def\graphicsExt{eps}
@@ -97,7 +99,7 @@
 \newcommand\subtitle[1]{\def\@subtitle{#1}}
 \newcommand\teacher[1]{\def\@teacher{#1}}
 
-\renewcommand\@maketitle{%
+\renewcommand\maketitle{%
 \null
 \vskip 2em%
 \begin{center}%
@@ -105,17 +107,15 @@
 \vspace{4cm}
 \let \footnote \thanks
 \reset@font
-{\usefont{T1}{cmr}{bx}{n}\fontsize{29.86pt}{29.86pt}\selectfont\@title\\\vspace{0.5em}
+{\usefont{T1}{cmr}{bx}{n}\fontsize{20pt}{20pt}\selectfont\@title\\\vspace{0.5em}
 \large{\@subtitle}\par}%
-%{\LARGE \@title \par}%
 \vskip 10em% 
 {\large
 \lineskip .5em%
 \begin{tabular}[t]{c}%
-\@author
+\@author%
 \end{tabular}\par}%
 \vskip 1em%
-
 {\large \@date}%
 \vskip 4cm%
 Supervised by:\\
@@ -133,4 +133,143 @@ Supervised by:\\
 }
 
 \newcommand{\todo}[1]{\textcolor{red}{\begin{center}\textbf{TODO:} \emph{#1}\end{center}}}
+
+% Acknowledgements
+\newcommand\ackname{Acknowledgements}
+\if@titlepage
+  \newenvironment{acknowledgements}{%
+      \titlepage
+      \null\vfil
+      \@beginparpenalty\@lowpenalty
+      \begin{center}%
+        \bfseries \ackname
+        \@endparpenalty\@M
+      \end{center}}%
+     {\par\vfil\null\endtitlepage}
+\else
+  \newenvironment{acknowledgements}{%
+      \if@twocolumn
+        \section*{\abstractname}%
+      \else
+        \small
+        \begin{center}%
+          {\bfseries \ackname\vspace{-.5em}\vspace{\z@}}%
+        \end{center}%
+        \quotation
+      \fi}
+      {\if@twocolumn\else\endquotation\fi}
+\fi
+
+% Abstract
+
+\newenvironment{abstract}
+{\chapter*{Abstract}}
+{}
+
+% Asterism
+\newcommand{\asterism}{\hfill\smash{% 
+    \raisebox{-.5ex}{% 
+      \setlength{\tabcolsep}{-.5pt}% 
+      \begin{tabular}{@{}cc@{}}% 
+        \multicolumn2c*\\[-2ex]*&*% 
+      \end{tabular}}}\hfill}
+
+
+% headers and footers
+% 	% Tables des matières, liste des figures...
+	\fancypagestyle{empty}{
+	\fancyhf{}
+   \renewcommand{\headrulewidth}{0pt}  	
+   \renewcommand{\footrulewidth}{0pt}} 
+
+	\fancypagestyle{heading}{
+	\fancyhf{}
+   \renewcommand{\headrulewidth}{0pt}  	
+   \renewcommand{\footrulewidth}{0pt}} 
+	
+	% Première page de chapitre
+   \fancypagestyle{plain}{
+   \fancyhead{}
+   \fancyfoot{}	
+   \renewcommand{\headrulewidth}{0.4pt}  	
+   \renewcommand{\footrulewidth}{0pt}}
+	
+
+	% Corps du document
+	\pagestyle{fancy}
+	\fancyhf{}
+	\fancyhead[LE,RO]{\textbf{\thepage}}
+	\fancyhead[LO]{\textsl{\rightmark}}
+	\fancyhead[RE]{\textsl{\leftmark}}
+	\fancyfoot{}	
+	\renewcommand{\headrulewidth}{0.4pt}  	
+	\renewcommand{\footrulewidth}{0pt} 
+
+%///////////////////////////////////////////////////////////////////////////////
+% Redéfinition des chapitres                                                    
+%///////////////////////////////////////////////////////////////////////////////
+\renewcommand{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{plain}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}												  
+						  
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace*{2\p@}%
+  {\parindent \z@ \raggedleft \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+		\fontsize{72pt}{12pt}\selectfont{\textbf\thechapter}
+        \par\nobreak
+        \vskip 20\p@
+      \fi
+    \fi
+    \interlinepenalty\@M			   
+		{\itshape\Huge\textbf{#1}}\par\nobreak
+    \vskip 40\p@
+  }}
+
+%///////////////////////////////////////////////////////////////////////////////
+% Redéfinition des sections et sous sections                                    
+%///////////////////////////////////////////////////////////////////////////////
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-2.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.0ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries\itshape}}
+\renewcommand\subsection{\@startsection{subsection}{6}{\z@}%
+                                     {-1.5ex\@plus -1ex \@minus -.2ex}%
+                                     {1.0ex \@plus .2ex}%
+                                     {\normalfont\large\bfseries\itshape}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-2.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.0ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries\itshape}}
+
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+					{1.25ex \@plus1ex \@minus.2ex}%
+					{1.0ex}%
+					{\normalfont\normalsize\itshape}}
+%\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+%                                    {3.25ex \@plus1ex \@minus.2ex}%
+%                                    {2.5ex \@plus .2ex}%
+%                                    {\normalfont\normalsize\bfseries\itshape}}
+%\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+%                                       {3.25ex \@plus1ex \@minus .2ex}%
+%                                       {1.5ex \@plus .2ex}%
+%                                      {\normalfont\normalsize\bfseries\itshape}}
+												  
+%///////////////////////////////////////////////////////////////////////////////
+% Redéfinition de Tables des matières & Liste des figures ...                   
+%///////////////////////////////////////////////////////////////////////////////
+\renewcommand{\@makeschapterhead}[1]{%
+  \thispagestyle{empty}
+  \vspace*{50\p@}%
+  {\parindent \z@ 
+    \normalfont
+    \interlinepenalty\@M
+	 \begin{center}
+	 \Huge\textit{#1}\par\nobreak
+	 \end{center}
+    \vskip 40\p@
+  }}   
 

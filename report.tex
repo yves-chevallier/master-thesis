@@ -23,34 +23,86 @@ basicstyle=\footnotesize}
 \author   {Yves Chevallier}
 \title    {Holographic Optical Tweezers for a \\Volume Hologram Imaging application}
 \subtitle {Masters thesis 2011-2012}
-\teacher  {Prof. C. Moser (EPFL)\\Prof. G. Barbastathis (MIT)\\Prof. Yuan Yao (SMART)}
+\teacher  {Prof. C. Moser (EPFL)\\Prof. G. Barbastathis (MIT)\\Prof. Yuan Yao (National Taiwan University)}
 \maketitle
-\clearpage
+\newpage
+
+\frontmatter 
+
+%% Acknowledgements
+%% --------------------------------------------------------------------------
+\begin{acknowledgements}
+	\input{0.acknowledgements}
+\end{acknowledgements}
+\clearemptydoublepage
 
 %% Abstract page
 %% --------------------------------------------------------------------------
-\pagenumbering{roman}
 \begin{abstract}
-\noindent
+	% English
+	\lipsum[1]
 
-\noindent
-%% --------------------------------------------------------------------------
+	\vspace{1em}
+	\asterism
+	\vspace{1em}
+
+	% French
+	\lipsum[2]
 \end{abstract}
 
 %% Table of contents, list of figures and tables and glossary
 %% --------------------------------------------------------------------------
 \clearemptydoublepage
 \tableofcontents
-\clearpage
-\listoffigures
-\listoftables
-
 \clearemptydoublepage
 \pagenumbering{arabic}
 
 %% Content
 %% --------------------------------------------------------------------------
-\section{Introduction}
+\mainmatter
+\chapter{Introduction}
+SMART developped VHIS 
+Wants to do Tomography of cells, they needs to rotate and move the sample with a good accuracy. 
+Focused laser beam can trap small particles. This technique called Optical Tweezers and pionered by ashkins in 1970 is today well known. 
+If few industrials systems exists, this area is still active in research. 
+Censam never used optical tweezers and want to assess the feasability of using optical tweezer to rotate cells for doing VH TIE Tomography
+
+This masters project was conducted at S.M.A.R.T (Singapore MIT Alliance for Research and Technology) and MIT Boston. 
+In collaboration with Yuan Luo from University \ldots and supervised by Prof. George Barbastathis.
+
+\subsection{Context}
+Tomography is a well known imaging technique that allows three-dimentional reconstruction of object by sectionning the object. 
+
+Projected tomography such as Computed tomography (CT) uses for instance X-ray to create projection.
+The sample is need to be rotated along a fixed axis. 
+
+Electron Tomography is almost the only method available to image small structures such as bacterias or biological cells. 
+However projected images are created by the absorption of electrons in the material. Cells are mainly transparent and it is then difficult to get a contrasted tomogram
+SMART wants to leverage its volume holography system with the transport intensity equations to get three dimensional images from biological phase objects. 
+
+Within the need of rotating the sample along a fixed axis, very precise rotation stage is needed and high magnification reduce the working distance. 
+
+Some commercial systems require to place the sample in a small glass tube which can be an issue for certain type of samples. 
+
+The main idea is to use the base of a regular brightfield microscope and use optical tweezers to hold and rotate the sample.
+
+\subsection{Project goal}
+- optical tweezers system
+- build an optical tweezers setup
+- allow multitrapping
+- allow rotation of the sample
+- merge the optical tweezers setup with the VHIS
+- get images and restults
+- propose futur actions
+
+\chapter{Optical Trapping}
+\chapter{VHIS}
+\chapter{Holographic Optical Tweezers}
+\chapter{Hologram Generation}
+\chapter{Optical Setup}
+
+\chapter{Microstructures}
+
 
 \section{Thin Lens}
 
@@ -323,6 +375,10 @@ We use the error:
 \clearpage
 \appendix
 
+
+\backmatter
+	\listoffigures
+	\listoftables
 \end{document}
 
 
