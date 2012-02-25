@@ -30,7 +30,7 @@ basicstyle=\footnotesize}
 \subtitle {Masters thesis 2011-2012}
 \teacher  {Prof. C. Moser (EPFL)\\
 	   Prof. G. Barbastathis (MIT)\\
-	   Prof. Y. Yao (National Taiwan University)}
+	   Prof. Y. Yao (?? National Taiwan University)}
 \maketitle
 \newpage
 
@@ -178,6 +178,8 @@ F = \frac{g}{\rho }\left[ {\frac{{4\pi }}{3}{{\left( {\frac{d}{2}} \right)}^3}} 
 \label{force}
 \end{equation}
 
+\todo{Expliquer mieux la notion de force scattering et force gradient}
+
 \section{Optical Forces for Mie particles}
 Ashkin created the ray optics model to describe the forces for a sphere of size > $10\lambda$. 
 
@@ -209,7 +211,9 @@ F=\frac{\Delta p}{\Delta t}=\frac{\sum_i^N\Delta p_i }{\Delta t}
 \label{forceinv}
 \end{equation}
  
-Hence a simple two light ray diagram can be used to explain the optical forces by a refractive micro sphere using Snell-Descartes law and assuming a focused gaussian laser beam. The figure \ref{ro} shows the path of a ray striking a microsphere.  
+Hence a simple two light ray diagram can be used to explain the optical forces by a refractive micro sphere using Snell-Descartes law and assuming a focused gaussian laser beam. The figure \ref{ro} shows the path of a ray striking a microsphere. The sum of all the forces caused by each individual ray is divided into two components: the gradient force which draws the object into the center of the beam due two the Gaussian intensity profile and the high numerical aperture of the objective. The second component, the scattering force, pushes the object along the direction of light propagation. 
+
+Without gradient force, the scattering force will push the object out of the trap. Balancing the scattering force with a steep enough gradient force component is therefore a condition. Given this, it can be seen the trap location will always be above the focal pont of the objective. 
 
 \begin{equation}
 {Q_s} = 1 + R\cos 2{\theta _1} - \frac{{{T^2}\left( {\cos 2({\theta _1} - {\theta _2}) + R\cos (2{\theta _1})} \right)}}{{1 + {R^2} + 2R\cos {\theta _2}}}
@@ -240,6 +244,9 @@ We also need to consider, for the simplest case, a Gaussian distribution of the 
 
 An important note is the importance of the numerical aperture of the objective used for optical trapping. In the case where the edge of the beam is not focused at steep enough angle, it results a dominant scattering force that push the particle out of the focal point. Practically, it can be seen that most optical tweezers setup use a high {N.A.} objective \emph{i.e.} $>0.8$. However, increasing the {N.A.} reduce the trapping depth and the power losses. 
 
+\todo{parler de la figure rays} 
+\fig{rays}{}
+
 \fig{axial}{Qualitative axial efficiency for a 10 micron sphere}
 
 \todo{Expliquer et montrer l'ordre de grandeur des forces en jeu, quelques graphiques et montrer que 100mW par trap est une valeur raisonnable}
@@ -250,6 +257,8 @@ Electromagnetic radiation carries both energy and momentum. The momentum may hav
 For the most simple cases, a trap beam has a Gaussian intensity distribution and doesn't carry any angular momentum. However, by using higher mode of a laser beam, it is possible to transfer not only forces but also torque to the trapped object. Allen and \emph{al.} showed that a Laguerre-Gaussian amplitude distribution pocesses an angular momentum \cite{ALLEN1992}.
 
 In 1995, Rubinsztien-Dunlop and co-workers used Laguerre-Gaussian beams to hold an absorbing particle at the center of a doughnut beam. This work aroused great interest for biology where all the cells are not fully transparent. Moreover, using an annular beam instead of a standard Gaussian distribution protects cells from overheating. 
+
+\fig{oam}{Poynting vector of a linearly polarized Laguerre-Gaussian mode of radius $w(z)$}
 
 This area of optical trapping is called optical spanners. The figure \ref{lg} shows, on the left, the conventional Hermite-Gaussian distribution where $HG_{00}$ is the regular Gaussian distribution. On the right, there is illustrated different Laguerre-Gaussian (LG) modes which carry angular momentum and can induce a torque on an isotropic particle. 
 
@@ -288,80 +297,53 @@ Considering what was we have referred. It is therefore possible to list the comp
 The figure \ref{setup-simple} shows a simple aparatus for optical trapping. A laser source produce a laser beam enlarged by the beam expander formed of L1 and L2 in order to fit the back aperture of the objective. An half wave plate (HWP) followed by a linear polarized (LP) allow to adjust the beam power by rotating the HWP. A dichroic filter (DF) reflect the laser beam to the objective and allow the illumination to go through it. A white light source is focused the back aperture of the objective with a convergeant lens (L) and a condenser (C). This forms a Köhler illumination and avoid to image the light source on the camera. The objective and its tube lens formed an infinite corrected system (ICS) which ensure telecentricity of the imaging part. An electronic camera is positionned at the focal distance of the tube lens. An additional filter (F) can notch the spectrum to eliminate the residual laser component.
 
 \subsection{Force measurement}
-When a bead is moved from the trap center due to an external force, the trapping laser beam is deflected. This deflection can be directly measured using a four quadrant  photodiode detector (QPD). 
+When a bead is moved from the trap center due to an external force, the trapping laser beam is deflected. This deflection can be directly measured using a four quadrant  position detector (QPD). 
 
-\fig{forcemeas}{Force detector principle}
+The figure \ref{forcemeas} shows the basic principle of the light deflection caused by an external force applied on the microsphere trapped. It is worth to remember that this system need to be calibrated. 
 
-\chapter{VHIS}
-\section{Background}
-\section{Principle of operation}
-\section{Adaptation from previous setup}
+\fig{forcemeas}{Principle of force evaluation with a Quadrant Position Detector}
 
 \chapter{Holographic Optical Tweezers}
 \section{Introduction}
-\section{Hologram Generation}
-\subsection{Fresnel Propagation}
-\subsection{Algoritms}
+The basic setup shown in figure \ref{setup-simple} suffers from a major drawback. The trapping beam is centered at the middle of the imaging plane and cannot be moved. This elementary setup can of course be improved by adding a galvano mirror that give an additional degree of freedom. Placed right before the beam expander telescope, the galvano mirror can be driven not only for moving the trap on the sample plane but also to create multiple traps with a fast scanning algorithm. However, if this solution works for few traps, the scanning speed become rapidly a limitation of performance as the number of traps increase. 
 
-\section{Spatial Light Modulator}
-\subsection{Parallal Nematic LCoS}
-\subsection{Calibration}
+\fig{hotsetup}{Holographic optical tweezers setup}
 
-\chapter{Microfabrication}
-\section{Background}
-Several publications talk about micrometer size structures such as rotors produced by light induced polymerization of light curing resin \cite{GALAJDA2001}\cite{ASAVEI2009}. Such micro structures can be used for measuring the viscosity of the surrounding medium by applying a constant torque with either an directional optical trap or by inducing an optical momentum (high order Laguerre-Gaussian beam) of the trapping light. 
+The figure \ref{hotsetup} shows a schematic representation of a standard holographic optical tweezers (HOT) setup. This time instead of using a galvano mirror, a diffractive optical element (DOE) is inserted at the Fourier plane of the light path in order to get an image of its gratings at the back focal plane of the objective. 
 
-Those ideas. 
+A DOE is a purely transparent phase object usually fabricated by microlithographic technology. Its micro relief will alter the wavefront of the input illumination supposed to be a planar wave. 
 
-\section{Two-photons photopolymerization}
-\section{Microstructures}
+The size of the illuminating Gaussian beam is a compromise between power efficiency and resolution. On the one hand, the larget the beam, the better use it makes of the area of the DOE in which it lead to higher resolution of the procuded image. On the other hand, if the illuminating beam is too large, a fraction of the incident power is lost outside of the active area of the DOE. This light, will go in the zeroth order \emph{i.e.} a bright spot on the middle of the image. 
 
-\chapter{Expriments}
-\section{Optical trapping of a single particle}
-\subsection{Protocol}
-\begin{itemize}
-\item First step.
-\end{itemize}
-\subsection{Making a slide}
+\fig{doe}{Diffractive optical element in a 2-f system}
 
-\subsection{Maximum Distance}
+The figure \ref{doe} illustrates how works a DOE. The top row shows the intensity of the complex electric field at different position along the light path while the bottom row shows the phase of the electric field. The diffractive optical element positionned at the focal distance of a convex lens. A screen is placed at the same distance after the lens. A fundamental $TEM_{00}$ Gaussian illumination strikes the DOE from the left. Along the propagation, the wavefront of the beam is distorded. The lens acts as a quadratic phase object which will focus the beam on the screen. We can observe on the screen the image wanted herein a cross, a square and a circle. 
 
-\section{Rotation of multiple particles}
-\section{Holographic Optical Tweezers}
-\section{Rotation with HOT}
-\section{Hologram efficiency}
-\section{VHIS}
-\section{Volume Hologram with Holographic Optical Tweezers}
+The main benefit of this method is the use of a transparent phase object. In this way, none of the power of the illumination is lost during the propagation if the DOE is supposed perfect. 
 
-\chapter{Software, optical tweezers interface}
+In this example, we can imagine to create a specific DOE to create an array of traps that can be used to entrap different biological cells. Nevertheless, the traps location is still static. The objective for holographic optical tweezers is to use a dynamic diffractive optical element. Such devices are call Spatial Light Modulator (SLM). They can work either in transmission or in reflexion. Some of them can modulate the amplitude of the incoming light, others can modulate the phase. As we have seen, using an amplitude SLM would be a bad choice because most of the light may be absorbed by the device. This lead to a very bad global efficiency. 
 
-\chapter{Discussion}
-\section{Results}
-\section{Further investigations}
-Most biological materials absorb only weakly in the near infrared region of the electromagnetic spectrum. 
-\section{Conclusion}
+From now, let's call the phase object (SLM or DOE) a phase hologram. Generating this hologram is not a straight forward process because only half of the information can be encoded at the time. The 2-f system 
+illustrated above performs a Fourier transform between the hologram and the object plane. If we want to generate a two arbitrary positionned traps and we compute the inverse Fourier transform of the desired  amplitude, we will get two components. A phase component which is somehow the phase hologram and an amplitude component. But, the hologram can not modulate the amplitude of the light. Without any optimization, we can simply ignore the amplitude part. However, a question may arise: is it possible to get a better hologram if we suppose the phase component at the object plane non uniform and, the amplitude of the hologram has a Gaussian profile ? Iterative algorithms are usually used to improve the hologram efficiency. 
 
+Holographic optical tweezers generally use Spatial Light Modulators to create and move optical traps. They usually require a dedicated computation unit to get efficient holograms and thus, good traps quality. Moreover, with more complex algorithms, it is possible to create off plane traps and also optical angular momentum. This leads to a powerful and versatil optical tweezers system. However, the global efficiency of such systems are quite low regarding to a conventional galvano mirror setup. 
 
-\chapter{Annexe A: Optical setup drawings}
-\section{drawings}
+\section{Simple trap study}
+Under the paraxial approximation, we can study the 2-f system illustrated previously. As showed on the figure \ref{2f}, the objective here is to analyse analytically the hologram equation for a single trap located at an arbitrary position where the reference is the image plane on the right.  
 
-\chapter{Annexe B: Custom parts drawings}
-\section{drawings}
-\chapter{Annexe C: Equipement, type and serial}
-\section{Mechanical components}
-\section{Optical parts}
-\section{Mechatronic components}
+\fig{2f}{2-f system showing a Spatial Light Modulator creating a diffraction limited trap located above the object plane}
 
-\chapter{Annexe D: Kodak interface}
-\section{Background}
+Let's first describe the trap as a diffraction limited spot projected to the object plane at the location $(x_m, y_m)$: 
 
+\begin{equation}
+{U_0}(x,y) = \delta (x - {x_m},y - {y_m})
+\end{equation}
 
-\chapter{Optical Setup}
+Because the Fourier transform of a Dirac is a linear phase, our hologram will be a purely phase object which allow back propagation. 
 
-\chapter{Microstructures}
+\subsection{Thin Lens}
 
-
-\section{Thin Lens}
+\fig{tlens}{A biconvex glass lens}
 
 \begin{equation}
 \Delta \varphi (x,y) = \Delta {\varphi _0} - {R_1}\left( {1 - \sqrt {1 - \frac{{{x^2} + {y^2}}}{{{R_1}^2}}} } \right) + {R_2}\left( {1 - \sqrt {1 - \frac{{{x^2} + {y^2}}}{{{R_2}^2}}} } \right)
@@ -586,6 +568,95 @@ L(x,y) = {e^{ - i\frac{{2\pi }}{{\lambda f}}({x^2} + {y^2})}}
 {\Delta _m} = \underbrace {\frac{{2\pi }}{{f\lambda }}(x \cdot {x_m} + y \cdot {y_m})}_a + \underbrace {\frac{{\pi {z_m}}}{{{f^2}\lambda }}({x^2} + {y^2})}_b	
 \end{equation}
 
+\section{Hologram Generation}
+
+\subsection{Algoritms}
+
+\section{Spatial Light Modulator}
+\subsection{Parallal Nematic LCoS}
+\subsection{Calibration}
+
+
+\chapter{VHIS}
+
+\section{Background}
+\section{Principle of operation}
+\fig{vhsetup}{volume hologram setup currently in use at SMART}
+
+\section{Adaptation from previous setup}
+
+
+\chapter{Microfabrication}
+\section{Background}
+Several publications talk about micrometer size structures such as rotors produced by light induced polymerization of light curing resin \cite{GALAJDA2001}\cite{ASAVEI2009}. Such micro structures can be used for measuring the viscosity of the surrounding medium by applying a constant torque with either an directional optical trap or by inducing an optical momentum (high order Laguerre-Gaussian beam) of the trapping light. 
+
+Those ideas. 
+
+\section{Two-photons photopolymerization}
+\section{Microstructures}
+
+\chapter{Expriments}
+\section{Optical trapping of a single particle}
+\subsection{Protocol}
+\begin{itemize}
+\item First step.
+\end{itemize}
+\subsection{Making a slide}
+
+\subsection{Maximum Distance}
+
+\section{Rotation of multiple particles}
+\section{Holographic Optical Tweezers}
+\section{SLM Calibration}
+\fig{slm-setup}{Optical setup used for calibrating the Spatial Light Modulator}
+
+\fig{slm-setup3D}{3D view of the setup}
+
+\fig{slm-interferences}{(a) Mask, (b) Interference pattern at the focal point of the lens L}
+
+\fig{slm-shiftwide}{}
+
+\fig{slm-shift}{}
+
+\fig{slm-flickr}{}
+
+\fig{slm-curve}{}
+
+\section{Rotation with HOT}
+\section{Hologram efficiency}
+\section{VHIS}
+\section{Volume Hologram with Holographic Optical Tweezers}
+
+\chapter{Software, optical tweezers interface}
+
+\chapter{Discussion}
+\section{Results}
+\section{Further investigations}
+Most biological materials absorb only weakly in the near infrared region of the electromagnetic spectrum. 
+\section{Conclusion}
+
+
+\chapter{Annexe A: Optical setup drawings}
+\section{drawings}
+
+\chapter{Annexe B: Custom parts drawings}
+\section{drawings}
+\chapter{Annexe C: Equipement, type and serial}
+\section{Mechanical components}
+\section{Optical parts}
+\section{Mechatronic components}
+
+\chapter{Annexe D: Kodak interface}
+\section{Background}
+
+
+\chapter{Optical Setup}
+
+\chapter{Microstructures}
+
+
+
+
 \section{Hologram generation}
 \subsection{Gratings and Lenses algorithm}
 
@@ -610,28 +681,29 @@ It can be applied to shape a light beam with calculating the phase pattern which
 We use the error: 
 \[\epsilon_n = \sqrt{\frac{\sum_{x,y,z}\|\sqrt{I_n}-\sqrt{I_T}\|^2}{\sum_{x,y,z}I_T}}\]
 
-\clearpage
-%\bibliographystyle{plain}
-%\bibliography{biblio}
-
-\fig{slm-setup}{Optical setup used for calibrating the Spatial Light Modulator}
-
-\fig{slm-setup3D}{3D view of the setup}
-
-\fig{slm-interferences}{(a) Mask, (b) Interference pattern at the focal point of the lens L}
-
-\fig{slm-shiftwide}{}
-
-\fig{slm-shift}{}
-
-\fig{slm-flickr}{}
-
-\fig{slm-curve}{}
 
 %\fig{slm-gamma}{532 nm}
 \clearpage
 \appendix
 
+\chapter{Hologram Generation Matlab Algorithms}
+\section{Random Mask}
+\section{Superposition and Random Superposition}
+\section{Weighted Gerchberg-Saxton}
+
+\chapter{Vertex Shader implementation of random superposition algorithm}
+
+\chapter{List of the Equipement used}
+\section{Opto-mechanical elements}
+\section{Electronic elements}
+
+\chapter{Custom mechanical parts}
+
+\chapter{Kodak Adapter}
+
+\chapter{Backup Plan}
+
+\chapter{Experimental setup pictures}
 
 \backmatter
 

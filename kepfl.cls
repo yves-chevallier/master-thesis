@@ -25,6 +25,7 @@
 \usepackage{parskip}  
 \usepackage{multicol}
 \usepackage{listings}
+\usepackage{fix-cm}
 \usepackage{siunitx}
 \usepackage{lipsum}
 \usepackage[fleqn]{amsmath} 
@@ -112,8 +113,8 @@
 \vspace{4cm}
 \let \footnote \thanks
 \reset@font
-%{\usefont{T1}{cmr}{bx}{n}\fontsize{20pt}{20pt}\selectfont\@title\\\vspace{0.5em}
-{\usefont{T1}{cmr}{bx}{n}\Large\selectfont\@title\\\vspace{0.5em}
+{\usefont{T1}{cmr}{bx}{n}\fontsize{20pt}{20pt}\selectfont\@title\\\vspace{0.5em}
+%{\usefont{T1}{cmr}{bx}{n}\Large\selectfont\@title\\\vspace{0.5em}
 \large{\@subtitle}\par}%
 \vskip 10em% 
 {\large
