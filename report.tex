@@ -1,4 +1,10 @@
-%% 
+%%  _________________ _     
+%% |  ___| ___ \  ___| |    
+%% | |__ | |_/ / |_  | |    
+%% |  __||  __/|  _| | |    
+%% | |___| |   | |   | |____
+%% \____/\_|   \_|   \_____/
+%%                         
 %% Optical Tweezer in a Volume Holographic Application
 %% @author Y.Chevallier <me@yves-chevallier.com>
 %% @language LaTeX2e
@@ -7,7 +13,6 @@
 \documentclass{kepfl}
 \usepackage{glossaries}
 \makeglossaries
-
 \lstset{%
 language=C,
 breaklines=true, 
@@ -25,7 +30,7 @@ basicstyle=\footnotesize}
 \subtitle {Masters thesis 2011-2012}
 \teacher  {Prof. C. Moser (EPFL)\\
 	   Prof. G. Barbastathis (MIT)\\
-	   Prof. Yuan Yao (National Taiwan University)}
+	   Prof. Y. Yao (National Taiwan University)}
 \maketitle
 \newpage
 
@@ -63,47 +68,229 @@ basicstyle=\footnotesize}
 %% --------------------------------------------------------------------------
 \mainmatter
 \chapter{Introduction}
-SMART developped VHIS 
-Wants to do Tomography of cells, they needs to rotate and move the sample with a good accuracy. 
-Focused laser beam can trap small particles. This technique called Optical Tweezers and pionered by ashkins in 1970 is today well known. 
-If few industrials systems exists, this area is still active in research. 
-Censam never used optical tweezers and want to assess the feasability of using optical tweezer to rotate cells for doing VH TIE Tomography
+\maraja{Microscopy, in perpetual growth}
+Microscopy imaging techniques are a growing industry and research in this domain is still pretty active. A significant need exist, therefore, for better images. Biologists want to see deeper \emph{in vivo}, they want to get a large field of view and acquire images faster. But, above all they covet a better global view of their samples. Three-dimensional imaging techniques are nowadays pretty limited to amplitude objects in the domain of visible wavelength. With this, many researchers try to use advanced optical techniques to offer more suitable instruments to enhance research in life science.  
 
-This masters project was conducted at S.M.A.R.T (Singapore MIT Alliance for Research and Technology) and MIT Boston. 
-In collaboration with Yuan Luo from University \ldots and supervised by Prof. George Barbastathis.
+\maraja{SMART built an promising aparatus for multiplane phase imaging}
+Singapore MIT Alliance for Research and Technology and Massachusetts Institute of Technology developed in 2010 a new Volume Holography Imaging System (VHIS) \cite{VH}. With the benefit of the Transport Intensity Equations (TIE) \cite{TIE-Diamond}, phase biological samples can be imaged on different planes simultaneously. Assuming the imaging system is relatively telecentric and the depth of focus is high regarding to the object size, different cross-section projection can be obtained by rotating the sample along an axis normal to the imaging direction and regarding to a fixed point. A Three-Dimensional representation of the object can subsequently be reconstruct from the acquired data using standard tomography techniques.
 
-\subsection{Context}
-Tomography is a well known imaging technique that allows three-dimentional reconstruction of object by sectionning the object. 
+\maraja{Optical Tweezers, favored for rotation}
+With this in mind, the center for environmental sensing and modeling {(Censam)} based in Singapore was looking for a method to enable the rotation of a transparent microscopic sample with precise control of the angle. Optical Tweezers pioneered by Askin in 1986 have been increasingly used for manipulation of microscopic biological objects for studying varied biological processes. A highly focused laser beam going through the objective of the imaging system can trap, move and rotate microscopic objects. 
 
-Projected tomography such as Computed tomography (CT) uses for instance X-ray to create projection.
-The sample is need to be rotated along a fixed axis. 
+\maraja{Acquire the knowledge}
+Although this seems more complex to implement than using a mechanical microsystem such as a glass tube mounted on a precision rotational stage as it was previously done by Mark Fauver and Eric J. Seibel in 2005 \cite{FAUVER2005}. SMART wants to assess the feasibility of these technique and at the same time acquire the knowledge in optical trapping, an area where the research group lacks experience. 
+ 
+Consequently, this work is above all an attempt to bring the expertise of optical tweezers and holographic optical tweezers to SMART. 
 
-Electron Tomography is almost the only method available to image small structures such as bacterias or biological cells. 
-However projected images are created by the absorption of electrons in the material. Cells are mainly transparent and it is then difficult to get a contrasted tomogram
-SMART wants to leverage its volume holography system with the transport intensity equations to get three dimensional images from biological phase objects. 
+\clearpage
+\section{Context}
+\maraja{Projected Tomography}
+Tomography is a major imaging technology that allows three-dimensional reconstruction obtained by sectioning an object using a penetrating wave. Projected tomography such as Computed Tomography (CT) uses for example X-ray to get a image projection through the matter. Most often, the target or the imaging instrument needs to be rotated along a fixed axis in order to get multiple image projections. Then, sophisitcated software algorithms including Radon transform allow to build a three-dimensional view from the cross-sectional scans of the object. 
 
-Within the need of rotating the sample along a fixed axis, very precise rotation stage is needed and high magnification reduce the working distance. 
+In the microscopic world, Electron Tomography is almost the only method available to image structures such as bacterias, biological cells or body tissues. Figure \ref{ET} shows the basic principle of electron tomography. An electron beam crossing the sample get partially absorbed depending on its composition. A sensor placed after the sample retrieves the cross-sectional projection for each angle. 
 
-Some commercial systems require to place the sample in a small glass tube which can be an issue for certain type of samples. 
+\fig{ET}{Electron Tomography principle}
 
-The main idea is to use the base of a regular brightfield microscope and use optical tweezers to hold and rotate the sample.
+\maraja{TIE for phase retrieval}
+Three-dimentional imaging techniques in the visible range is a field pretty active in research. SMART wants to leverage its volume holography system with the transport intensity equations to get three-dimensional images from biological phase objects. TIE Tomography already demonstrated promising results by showing 3D-reconstruction of pyrex diamond placed in an index-matching fluid \cite{TIE-Diamond}. The figure \ref{tie} summarize the result they obtained.
 
-\subsection{Project goal}
-- optical tweezers system
-- build an optical tweezers setup
-- allow multitrapping
-- allow rotation of the sample
-- merge the optical tweezers setup with the VHIS
-- get images and restults
-- propose futur actions
+\fig{tie}{TIE Tomography, (a) Sample image in focus, (b) TIE phase retrival (c) Volumetric recontruction of the phase object}
 
+\maraja{VHIS for imaging}
+The Volume Holographic Imaging System uses a thick hologram to record different two-dimentional planes located at different depth simultaniously without scanning. Each plane appears as a vertical narrow band on the camera plane. With varing the type of grating of the hologram, it is possible to get a different number of planes and define the spacing between each plane. The figure \ref{vh} shows the kind of image we can expect with this system. 
+
+\fig{vh}{VHIS Imaging, (a) Onion skin, 5 planes, (b) 3D stack of the image a (c) mouse fat, 2 planes}
+
+\maraja{VHIS + TIE for tomography}
+Because TIE needs two images out of focus above and before the object, VHIS provide a suitable solution to get these images simutaniously. In 2010, Laura Waller and coworkers put the two systems together \cite{TIE-VH}. Yuan Yuo from the National Taiwan University, wants to make a step further and achieve tomography of biological phase objects. 
+
+\maraja{But, we still need to rotate}
+Demonstrate the feasibility of this technique could offer a versatile solution for imaging living cells in the range of few micrometers size. However, to reach this objective, rotation of the specimen must be perfectly controlled. 
+
+\maraja{Optical Tweezers for rotation}
+Optical tweezers demonstrated their capabilities for moving, stretching and rotating microscopic living objects. A significant amount of research groups have designed different solution to rotate such objects. For example, in 2008 M. K. Kreysing and al. from University of Leipzig, Germany used a modified dual-beam laser trap delivered by two optical fibers to rotate around an axis perpendicular to the optical axis a red blood cell \cite{KREYSING2008}. However, this solution is complex to implement and not very veratile. It was therefore chosen for this project to focus on the rotation of microorganisms with optical tweezers.  
+
+\clearpage
+\subsection{Project goals}
+Unlike other EPFL masters project, this work has not begun with specified goals. More a research project, the objectives changed many time following our weekly meetings. To give some consistency to this work and although other investigations have been undertaken, some objectives were favored as shown below.
+
+\begin{itemize}
+\item State of the art in optical trapping
+\item Build a conventional optical tweezers system
+\item Allow multitrapping
+\item Achieve rotation of particles
+\item Build a volume hologram setup 
+\item Combine the optical tweezers with the volume hologram system
+\item Move particles simultaniously on different planes of the VH system
+\item Get image and results
+\item Propose a solution for rotation of bological samples along an axis normal to the imaging direction 
+\item Propose further investigations
+\end{itemize}
+
+As required by EPFL, this masters project has a duration of 25 weeks starting September 17, 2011. The submission of this final report has to be donc by March 16th, noon. The oral defense is scheduled few weeks later. 
+ 
 \chapter{Optical Trapping}
 \section{Introduction}
+Optical tweezers, also called single-beam gradient force trap are a scientific instrument that use a highly focused laser beam to trap microscopic dielectric objects by creating attractive or repulsive force explained in terms of the conservation of momentum when light is scattered or reflected by the object. These forces depend greatly on the refractive index mismatch between the object and the surrounding medium. 
+
+Already in the seventeenth century Johannes Kepler noticed that light interacts with particles. In 1873, James Clerk Maxwell gave a proof that light can exerts a physical force on matter, phenomenon known as radiation pressure which let dreamed of utopics projects such as a solar sail.  
+
+The detection of optical scattering and gradient forces on micrometer sized particles was first reported in 1970 by Arthur Ashkin, a scientist working at Bell Laboratories. His work was used ten year later by Steven Chu in a laser cooling technique called optical molasses that can cool down neutral atoms by slowing them down with laser light. This research earned Steven Chu the Nobel Prize in Physics in 1997. 
+
+Since Ashkin published his work in the 80s, many researchers have got a close interest for the use of optical tweezers for biology or micro mechanics. So, today one has a wide range of techniques, some complex, others simples, for stretching, sorting, moving, rotating or staking objects that cannot be easily held with physical tools. 
+ 
 \section{Application in Biology}
-Optical Tweezers are suitable for many studies in biology because they can readily produce forces of between 0.1 to 500pN.
-150pN can break an actin filament and 60pN is sufficient to unravel the DNA double helix. 
-\section{Optical Forces}
-\section{Setup requirements}
+In 1987, Arthur Ashkin and JM Dziedzic demonstrated the first application of optical trapping to life science by publishing an article that shows a successful attempt to trap tobacco mosaic viruses and living Escherichia coli bacteria without any damage with an argon laser of tens of milliwatts \cite{ASHKIN1987}. Today, optical tweezers have emerged as an essential tool for manipulating biological cells and performing sophisticated biophysical or bio-mechanical characterizations. The principal advantage of optical tweezers besides the fact that micrometer size particle can be moved, is the possibility to interact with microorganisms without any physical contact and therefore, with no risk of cross contamination. 
+
+Nowadays optical tweezers have been increasingly used in biology to hold, move, stretch and sort cells \cite{DHOLAKIA2006}. For example, the figure \ref{stretch} shows an attempt to measure the deformation of a erythrocyte (human red blood cell) for different forces \cite{LIM2004}. 
+
+\fig{stretch}{Stretching a red blood cell with optical tweezers with two silica spheres of 4.1 micrometers}
+
+Another important application is forces estimation. Optical tweezers can becomes a microsofrce transducer or a tensometer when calibrated. Spermatozoa for instance use mechanical force for motion. By trapping them and gradually releasing the power of the trap, we can measure the propulsion force of the zygote's tail. The same principle can be applied to Kinesin motors \cite{KUO1993} or other molecular motors. 
+
+Without going into details, it is worth mentioning other applications of optical tweezers in biology such as chromosome dissection, chromosome manipulation during mitosis, microsurgery and manipulation of cells \emph{in vivo}, controlled cell fusion or kinetic studies of DNA. 
+
+In biophysics, another complication is the need to manipulate particles without damaging them. This is the reason why most of the tweezers setup used in biology use infrared lasers. At such wavelengths, the absorption of living microorganism is less important than in the visible range. Nonetheless, working in the near infrared range provide some additional problems for experimental setups because the laser beam can not be seen without the use of dedicated tools and all the optical elements has to be adapted accordingly to the wavelength range. 
+
+Optical tweezers can produce forces of between \SI{0.1}{\pico\newton} and \SI{500}{\pico\newton}. For a better representation of these values, it can be helpful to consider such forces within a biological context. \SI{1000}{\pico\newton} can break a covalent bond while  \SI{60}{\pico\newton} is sufficient to unravel DNA. However, only \SI{10}{\pico\newton} are enough to stall motor proteins \cite{OT}. 
+
+In our simple case, which is to rotate a biological cell, the main force involved is the gravitational and the buoyant forces which are proportional to the object size and in the range of few tens of pico Newtons. 
+
+\section{Basic Princples}
+In this work we will focus mainly on particles that scatter light in Mie regime. This happen basically when the particle is bigger than the wavelength of the light used. Mie scattering is responsible for the white appearance of the clouds. In contrast, we can consider particles in Rayleigh regime when their diameter is smaller than the wavelength of the light. Those two approach are illustrated with the figure \ref{mie}. 
+
+\fig{mie}{Graphic illustration of the operational regime regarding the wavelength of the light and the diameter of the particle}
+
+Ashkin proposed a ray optics model (RO) \cite{ASHKIN1992} which can be shown to be highly accuarate for the prediction of axial forces and resonably accurate for rediction in the case of transverse forces for microspheres bigger than $20\lambda$ \cite{WRIGHT1993}. For more accuracy an electromagnetic-field model also exists. However discrepancies between the measured forces and the theoretical models may indicate the presence of other forces such as radiometric forces (interactions of the particle with its surrounding). We can note that the principal relationshi between the trapping force and power if: 
+
+\begin{equation}
+F = \frac{n Q P}{c}
+\end{equation}
+
+where $n$ is the refractive index of the surrounding medium, $Q$ is a nondimensional efficiency parameter,  $P$ is the power of the laser trap and $c$ the speed of light. 
+
+Optical forces involved in optical trapping are in range of pico Newtons which may be considered very small. Howver, if we consider a \SI{10}{\um} silica sphere of density of \SI{2.6}{\gram\cm^3}, its mass is only $\SI{1.3}{\nano\gram}$. The force needed to cancel the gravity force is about $\SI{13}{\pico\newton}$. It's important to remember that the \emph{scale law} play an important role here. If the diameter of the particle is divided by a factor of 2, the force needed is divided by a factor 8. The relation (\ref{force}), shows the relation between the diameter of a particle and its weight. 
+
+Naturally, the laser power can be increased to get a stronger and more stable trap. However at a certain level, the absorption of the particle or of the surrounding medium can cause significant heat and subsequent thermal damage. 
+
+\begin{equation}
+F = \frac{g}{\rho }\left[ {\frac{{4\pi }}{3}{{\left( {\frac{d}{2}} \right)}^3}} \right]
+\label{force}
+\end{equation}
+
+\section{Optical Forces for Mie particles}
+Ashkin created the ray optics model to describe the forces for a sphere of size > $10\lambda$. 
+
+An incident ray that pass through the objective back aperture is focused to a spot on the focal plane of this objective. The maximum convergeance angle the the rays is determined by the numerical aperture of the microscope objective. When the ray strikes the particle that we consider here as a perfect transparent sphere of index of refraction $n_s$, a fraction of the momentum carried by the light is deflected by reflexion and refraction. We assume there is no absorption.
+
+\fig{ro}{Ray-optics model after Ashkin}
+
+The linear momentum of light issue from a laser beam of wavelength $\lambda$ can be expressed as:
+\begin{equation}
+p=\frac{E}{c}
+\label{linearmom}
+\end{equation}
+
+where $p$ is the momentum of light, $E$ its energy and $c$ the speed of light. From the quantum mechanics, we know the energy can be expressed with the Plank constant as:
+\begin{equation}
+E=h\nu=\frac{hc}{\lambda}
+\label{energy}
+\end{equation}
+
+The momentum of a single photon is given by combining \ref{linearmom} and \ref{energy}. 
+\begin{equation}
+p=\frac{E}{c}=\frac{h}{\lambda}
+\label{photonmom}
+\end{equation}
+
+From Newton's second law, assuming the mass is constant, the force involved can be expressed as: 
+\begin{equation}
+F=\frac{\Delta p}{\Delta t}=\frac{\sum_i^N\Delta p_i }{\Delta t}
+\label{forceinv}
+\end{equation}
+ 
+Hence a simple two light ray diagram can be used to explain the optical forces by a refractive micro sphere using Snell-Descartes law and assuming a focused gaussian laser beam. The figure \ref{ro} shows the path of a ray striking a microsphere.  
+
+\begin{equation}
+{Q_s} = 1 + R\cos 2{\theta _1} - \frac{{{T^2}\left( {\cos 2({\theta _1} - {\theta _2}) + R\cos (2{\theta _1})} \right)}}{{1 + {R^2} + 2R\cos {\theta _2}}}
+\end{equation}
+
+\begin{equation}
+{Q_g} = R\sin 2{\theta _1} - \frac{{{T^2}\left( {\sin 2({\theta _1} - {\theta _2}) + R\sin (2{\theta _1})} \right)}}{{1 + {R^2} + 2R\cos {\theta _2}}}
+\end{equation}
+
+\begin{equation}
+{F_s} = \frac{{n{Q_s}P}}{c}
+\end{equation}
+\begin{equation}
+{F_g} = \frac{{n{Q_g}P}}{c}
+\end{equation}
+
+where $R$ and $T$ are the Fresnel reflection and transmission coefficients and $p_i$ the incident momentum. We note the trapping efficiency $Q$ is the fraction of the momentum transferred to the sphere by the emergent rays. 
+
+To get a complete approximation we need to sum all the contribution of all rays with convergeance angle ranging from 0 to $\alpha$ where alpha is taken from: 
+
+\begin{equation}
+N.A. = n\sin\alpha
+\end{equation}
+
+Because it is mainly the rays with maximum angle of convergence that contribute to the optical trap, we assume the objective lens is completely filled by the incoming beam. However, if the beam is too large and overlap the back aperture of the objective lens, it can induce some optical aberrations affecting the quality of the trap. 
+
+We also need to consider, for the simplest case, a Gaussian distribution of the intensity profile linerarly polarized. Its intensity needs to be taken for the rays summation. 
+
+An important note is the importance of the numerical aperture of the objective used for optical trapping. In the case where the edge of the beam is not focused at steep enough angle, it results a dominant scattering force that push the particle out of the focal point. Practically, it can be seen that most optical tweezers setup use a high {N.A.} objective \emph{i.e.} $>0.8$. However, increasing the {N.A.} reduce the trapping depth and the power losses. 
+
+\fig{axial}{Qualitative axial efficiency for a 10 micron sphere}
+
+\todo{Expliquer et montrer l'ordre de grandeur des forces en jeu, quelques graphiques et montrer que 100mW par trap est une valeur raisonnable}
+
+\section{Angular Momentum}
+Electromagnetic radiation carries both energy and momentum. The momentum may have both linear and angular contributions. The angular momentum has a spin part associated with polarization ($\sigma=\pm1$ for circular and $\sigma=0$ for linear polarization) and an orbital part associated with spatial distribution. As we saw for optical tweezers, trapped objects induce a change of momentum. 
+
+For the most simple cases, a trap beam has a Gaussian intensity distribution and doesn't carry any angular momentum. However, by using higher mode of a laser beam, it is possible to transfer not only forces but also torque to the trapped object. Allen and \emph{al.} showed that a Laguerre-Gaussian amplitude distribution pocesses an angular momentum \cite{ALLEN1992}.
+
+In 1995, Rubinsztien-Dunlop and co-workers used Laguerre-Gaussian beams to hold an absorbing particle at the center of a doughnut beam. This work aroused great interest for biology where all the cells are not fully transparent. Moreover, using an annular beam instead of a standard Gaussian distribution protects cells from overheating. 
+
+This area of optical trapping is called optical spanners. The figure \ref{lg} shows, on the left, the conventional Hermite-Gaussian distribution where $HG_{00}$ is the regular Gaussian distribution. On the right, there is illustrated different Laguerre-Gaussian (LG) modes which carry angular momentum and can induce a torque on an isotropic particle. 
+
+\fig{lg}{Overview of differents amplitude distribution of laser beams} 
+
+The orbital angular momentum is present in wave-front with helical shapes and is intensity is proportional to $\ell$, the order of the Laguerre-Gaussian mode.
+
+Although it is possible to create an optical angular momentum with a combinaison of cylindrical lenses. A more versatile solution consist of using a diffractive optical element such as a fork grating shown on figure \ref{fork}
+
+\fig{fork}{Fork-like grating to induce OAM}
+
+\section{Rotation of particles}
+If angular momentum can be use to induce a continuous spinning of trapped samples, no position control can be achieved unless of the use of a feedback look my measuring the current position of the sample. Another approach is to reduce symmetry of the trapping beam. Such rotation has been realized by the use of high order cavity modes by generating higher order of the Hermite-Gaussian beam. Or, it can be achieved also with cylindrical lenses \cite{DASGUPTA2003} or rectangular apertures \cite{ONEIL2001}. 
+
+\fig{am}{Different methods to apply a torque}
+
+\todo{Refaire cette figure joliement avec SW}
+
+The figure \ref{am} illustrates different solution to give a torque to a trapped object. A circularly polarized beam (a) features a spin angular momentum which can rotate birefringent objects. Using an orbital angular momentum (OAM), herein $LG_{10}$ (b), particles can be trapped on the doughnout shape of the beam forced to circulate in the direction of the angular momentum. Asymmetric objects such as bacterias (E-coli), can be held using two beams or a shaped beam (c). Eventually, an irregular object can scatter light into an OAM-containing mode
+
+\todo{Ajouter des illustration des micro rotors. Citer les deux applications, le paddle et l'autre}
+
+\section{Basic Apparatus requirements}
+Considering what was we have referred. It is therefore possible to list the components needed to build a basic optical tweezers setup. 
+
+\begin{itemize}
+\item Laser of hunderds milliwatts near infrared prefered
+\item High N.A. objective
+\item Beam size adapter to the back aperture of the objective
+\item A 3-axis micrometric stage
+\item An imaging device
+\end{itemize}
+
+\fig{setup-simple}{Simple optical tweezers setup}
+
+The figure \ref{setup-simple} shows a simple aparatus for optical trapping. A laser source produce a laser beam enlarged by the beam expander formed of L1 and L2 in order to fit the back aperture of the objective. An half wave plate (HWP) followed by a linear polarized (LP) allow to adjust the beam power by rotating the HWP. A dichroic filter (DF) reflect the laser beam to the objective and allow the illumination to go through it. A white light source is focused the back aperture of the objective with a convergeant lens (L) and a condenser (C). This forms a Köhler illumination and avoid to image the light source on the camera. The objective and its tube lens formed an infinite corrected system (ICS) which ensure telecentricity of the imaging part. An electronic camera is positionned at the focal distance of the tube lens. An additional filter (F) can notch the spectrum to eliminate the residual laser component.
+
+\subsection{Force measurement}
+When a bead is moved from the trap center due to an external force, the trapping laser beam is deflected. This deflection can be directly measured using a four quadrant  photodiode detector (QPD). 
+
+\fig{forcemeas}{Force detector principle}
 
 \chapter{VHIS}
 \section{Background}
@@ -122,11 +309,21 @@ Optical Tweezers are suitable for many studies in biology because they can readi
 
 \chapter{Microfabrication}
 \section{Background}
+Several publications talk about micrometer size structures such as rotors produced by light induced polymerization of light curing resin \cite{GALAJDA2001}\cite{ASAVEI2009}. Such micro structures can be used for measuring the viscosity of the surrounding medium by applying a constant torque with either an directional optical trap or by inducing an optical momentum (high order Laguerre-Gaussian beam) of the trapping light. 
+
+Those ideas. 
+
 \section{Two-photons photopolymerization}
 \section{Microstructures}
 
 \chapter{Expriments}
 \section{Optical trapping of a single particle}
+\subsection{Protocol}
+\begin{itemize}
+\item First step.
+\end{itemize}
+\subsection{Making a slide}
+
 \subsection{Maximum Distance}
 
 \section{Rotation of multiple particles}
@@ -144,8 +341,12 @@ Optical Tweezers are suitable for many studies in biology because they can readi
 Most biological materials absorb only weakly in the near infrared region of the electromagnetic spectrum. 
 \section{Conclusion}
 
+
 \chapter{Annexe A: Optical setup drawings}
+\section{drawings}
+
 \chapter{Annexe B: Custom parts drawings}
+\section{drawings}
 \chapter{Annexe C: Equipement, type and serial}
 \section{Mechanical components}
 \section{Optical parts}
@@ -434,8 +635,13 @@ We use the error:
 
 \backmatter
 
-	\listoffigures
-	\listoftables
+\bibliographystyle{plain}
+\bibliography{biblio}
+
+\listoffigures
+\listoftables
+
+\input{Z.colophon}
 \end{document}
 
-
+%vim: set spell:

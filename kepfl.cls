@@ -25,17 +25,22 @@
 \usepackage{parskip}  
 \usepackage{multicol}
 \usepackage{listings}
+\usepackage{siunitx}
 \usepackage{lipsum}
 \usepackage[fleqn]{amsmath} 
+%\usepackage{silence}
+%\WarningFilter{latexfont}{Font shape}
+%\WarningFilter{latexfont}{Size substitutions}
 
 \usepackage[dvips, 
 	    a4paper, 
 	    top=2.5cm, 
 	    bottom=3cm, 
 	    left=3cm, 
+	    right=4cm,
 	    headheight=6mm, 
 	    headsep=5mm, 
-	    marginparwidth=2cm, 
+	    marginparwidth=3cm, 
 	    marginparsep=4mm, 
 	    heightrounded, 
 	    includehead]{geometry} 
@@ -107,7 +112,8 @@
 \vspace{4cm}
 \let \footnote \thanks
 \reset@font
-{\usefont{T1}{cmr}{bx}{n}\fontsize{20pt}{20pt}\selectfont\@title\\\vspace{0.5em}
+%{\usefont{T1}{cmr}{bx}{n}\fontsize{20pt}{20pt}\selectfont\@title\\\vspace{0.5em}
+{\usefont{T1}{cmr}{bx}{n}\Large\selectfont\@title\\\vspace{0.5em}
 \large{\@subtitle}\par}%
 \vskip 10em% 
 {\large
@@ -191,19 +197,19 @@ Supervised by:\\
    \fancypagestyle{plain}{
    \fancyhead{}
    \fancyfoot{}	
-   \renewcommand{\headrulewidth}{0.4pt}  	
+   \renewcommand{\headrulewidth}{0pt}  	
    \renewcommand{\footrulewidth}{0pt}}
 	
 
-	% Corps du document
-	\pagestyle{fancy}
-	\fancyhf{}
-	\fancyhead[LE,RO]{\textbf{\thepage}}
-	\fancyhead[LO]{\textsl{\rightmark}}
-	\fancyhead[RE]{\textsl{\leftmark}}
-	\fancyfoot{}	
-	\renewcommand{\headrulewidth}{0.4pt}  	
-	\renewcommand{\footrulewidth}{0pt} 
+% Corps du document
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\textbf{\thepage}}
+\fancyhead[LO]{\textsl{\rightmark}}
+\fancyhead[RE]{\textsl{\leftmark}}
+\fancyfoot{}	
+\renewcommand{\headrulewidth}{0pt}  	
+\renewcommand{\footrulewidth}{0pt} 
 
 %///////////////////////////////////////////////////////////////////////////////
 % Redéfinition des chapitres                                                    
@@ -236,7 +242,7 @@ Supervised by:\\
                                    {-2.5ex \@plus -1ex \@minus -.2ex}%
                                    {2.0ex \@plus.2ex}%
                                    {\normalfont\Large\bfseries\itshape}}
-\renewcommand\subsection{\@startsection{subsection}{6}{\z@}%
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
                                      {-1.5ex\@plus -1ex \@minus -.2ex}%
                                      {1.0ex \@plus .2ex}%
                                      {\normalfont\large\bfseries\itshape}}
@@ -273,3 +279,4 @@ Supervised by:\\
     \vskip 40\p@
   }}   
 
+\newcommand{\maraja}[1]{\mbox{}\marginpar{\raggedright\tiny#1}\hspace{-0.5em}}
