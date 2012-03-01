@@ -25,7 +25,7 @@
 \usepackage{parskip}  
 \usepackage{multicol}
 \usepackage{listings}
-\usepackage{fix-cm}
+%\usepackage{fix-cm}
 \usepackage{siunitx}
 \usepackage{lipsum}
 \usepackage[fleqn]{amsmath} 
@@ -33,10 +33,10 @@
 %\WarningFilter{latexfont}{Font shape}
 %\WarningFilter{latexfont}{Size substitutions}
 
-\usepackage[dvips, 
+\usepackage[pdftex, 
 	    a4paper, 
 	    top=2.5cm, 
-	    bottom=3cm, 
+	    bottom=2.5cm, 
 	    left=3cm, 
 	    right=4cm,
 	    headheight=6mm, 
@@ -46,7 +46,7 @@
 	    heightrounded, 
 	    includehead]{geometry} 
 
-\usepackage[dvips, 
+\usepackage[pdftex, 
 	    pagebackref=true, 
 	    colorlinks=true, 
 	    plainpages=true, 
@@ -64,7 +64,7 @@
 \setlength\parskip{\medskipamount}
 
 % Figures macros
-\def\graphicsExt{eps}
+\def\graphicsExt{pdf}
 \newcommand{\figi}[3]{
    \begin{figure}[!h]
    \begin{center}
@@ -92,6 +92,15 @@
    \end{figure}   
 }
 
+\newcommand{\figc}[3]{
+   \begin{figure}[!ht]
+   \begin{center}
+   \includegraphics[width=\textwidth]{fig/#1.\graphicsExt}
+   \end{center}
+   \caption[#2]{\label{#1}#3}
+   \end{figure}   
+}
+
 \newcommand{\figh}[2]{
    \begin{figure}[H]
    \begin{center}
@@ -109,12 +118,12 @@
 \null
 \vskip 2em%
 \begin{center}%
-\includegraphics[width=5cm]{fig/epfl-logo.eps}\par%	  
+\includegraphics[width=5cm]{fig/epfl-logo.pdf}\par%	  
 \vspace{4cm}
 \let \footnote \thanks
 \reset@font
-{\usefont{T1}{cmr}{bx}{n}\fontsize{20pt}{20pt}\selectfont\@title\\\vspace{0.5em}
-%{\usefont{T1}{cmr}{bx}{n}\Large\selectfont\@title\\\vspace{0.5em}
+%{\usefont{T1}{cmr}{bx}{n}\fontsize{20pt}{20pt}\selectfont\@title\\\vspace{0.5em}
+{\usefont{T1}{cmr}{bx}{n}\huge\selectfont\@title\\\vspace{0.5em}
 \large{\@subtitle}\par}%
 \vskip 10em% 
 {\large
@@ -244,7 +253,7 @@ Supervised by:\\
                                    {2.0ex \@plus.2ex}%
                                    {\normalfont\Large\bfseries\itshape}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-                                     {-1.5ex\@plus -1ex \@minus -.2ex}%
+                                     {-2.5ex\@plus -1ex \@minus -.2ex}%
                                      {1.0ex \@plus .2ex}%
                                      {\normalfont\large\bfseries\itshape}}
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
