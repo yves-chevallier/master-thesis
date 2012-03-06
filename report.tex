@@ -6,6 +6,7 @@
 \usepackage[small,bf]{caption}
 \usepackage{glossaries}
 \usepackage{appendix}
+\usepackage{morefloats}
 \makeglossaries
 \lstset{%
 language=C,
@@ -22,11 +23,11 @@ basicstyle=\footnotesize}
 \pagenumbering{empty}
 \date     {\today}
 \author   {Yves Chevallier}
-\title    {Holographic Optical Tweezers for a \\Volume Hologram Imaging application}
-\subtitle {Masters thesis 2011-2012}
+\title    {Holographic Optical Tweezers for a \\Volume Hologram Imaging Application}
+\subtitle {Master's Thesis 2011-2012}
 \teacher  {Prof. C. Moser (EPFL)\\
 	   Prof. G. Barbastathis (MIT)\\
-	   Prof. Y. Yao (?? National Taiwan University)}
+	   Prof. Y. Luo (National Taiwan University)}
 \maketitle
 \newpage
 \setlength{\parskip}{1em}
@@ -35,7 +36,13 @@ basicstyle=\footnotesize}
 %% Acknowledgements
 %% --------------------------------------------------------------------------
 \begin{acknowledgements}
-	\input{0.acknowledgements}
+I would like to thank my supervisor Prof. Yuan Luo form National Taiwan University for his help and continued supervision during my project. 
+
+I am heartily thankful to Chen Zhi, for his encouragement, guidance and support throughout my work at SMART. 
+
+Also many thanks to Prof. George Barbastathis and Prof. Christophe Moser for allowing me to pursue a project in a subject that is relevant to my interests. 
+
+Lastly I offer my regards and blessings to all of those who have supported me in any respect during this master's project. 
 \end{acknowledgements}
 \clearemptydoublepage
 
@@ -43,14 +50,14 @@ basicstyle=\footnotesize}
 %% --------------------------------------------------------------------------
 \begin{abstract}
 % English
-The Singapore-MIT Alliance for Research and Technology (SMART) and the Massachusetts Institute of Technology (MIT) have developed new imaging techniques for multi-plane imaging and phase retrieving for transparent objects. The objective is to assess the feasibility for three-dimensional reconstruction of biological cells with projected tomography. In order to achieve this, they have proposed to use optical tweezers, which are currently in the domain of a little-known field for these research groups. This master project is an opportunity to explore this area and develop new skills with optical trapping. 
+The Singapore-MIT Alliance for Research and Technology (SMART) and the Massachusetts Institute of Technology (MIT) have developed new imaging techniques for multi-plane imaging and phase retrieving for transparent objects. The objective is to assess the feasibility for three-dimensional reconstruction of biological cells with projected tomography. In order to achieve this, they have proposed to use optical tweezers, which are currently in the domain of a little-known field for these research groups. This master's project is an opportunity to explore this area and develop new skills with optical trapping. 
 
 \vspace{1em}
 \asterism
 \vspace{1em}
 
 % French
-L'alliance MIT-Singapour pour la recherche et la technologie (SMART) ainsi que le  Massachusetts Institute of Technology (MIT) ont développé une nouvelle technique d'imagerie à plusieurs plans permettant la reconstruction d'objets de phase donc pratiquement transparent. Ils souhaitent à présent démontrer la faisabilité d'une reconstruction en trois dimensions, par tomographie, de cellules biologiques en utilisant des pincettes optiques, un domaine encore peu connu de ces groupes de recherche. Ce projet de master est une chance pour acquérir de nouvelles compétences dans ce domaine. 
+L'alliance MIT-Singapour pour la recherche et la technologie (SMART) ainsi que le  Massachusetts Institute of Technology (MIT) ont développé une nouvelle technique d'imagerie à plusieurs plans permettant la reconstruction d'objets de phase donc pratiquement transparents. Ils souhaitent à présent démontrer la faisabilité d'une reconstruction en trois dimensions, par tomographie, de cellules biologiques en utilisant des pincettes optiques, un domaine encore peu connu de ces groupes de recherche. Ce projet de master est une chance pour acquérir de nouvelles compétences dans ce domaine. 
 
 \end{abstract}
 
@@ -66,55 +73,61 @@ L'alliance MIT-Singapour pour la recherche et la technologie (SMART) ainsi que l
 \mainmatter
 \chapter{Introduction}
 \maraja{Microscopy, in perpetual growth}
-Microscopy imaging techniques are belong to a growing industry and \index{research} in this domain (what domain?) continues to be active. Therefore, there exists a significant need for better images. Besides wanting to see deeper \emph{in vivo}, biologists want to get a large wider field of view and acquire images faster. But above all, they covet a better global view of their samples. Nowadays, three-dimensional \index{3D} imaging techniques for living objects are rather limited to the amplitude of objects in the domain of visible wavelengths. With this in mind, many researchers are attempting to use advanced optical techniques to offer more suitable instruments to enhance their research in life sciences.  
+Microscopy imaging techniques  belong to a growing industry and research in this domain continues to be active. Therefore, there exists a significant need for better images. Besides wanting to see deeper \emph{in vivo}, biologists want to get a wider field of view and acquire images faster. But above all, they covet a better global view of their samples. Nowadays, three-dimensional \index{3D} imaging techniques for living objects are rather limited to the amplitude of objects in the domain of visible wavelengths. With this in mind, many researchers are attempting to use advanced optical techniques to offer more suitable instruments to enhance their research in life sciences.  
+
+\todo{Expliquer qu'un objet de phase n'est pas visible et il faurdrait simplifier ce paragraphe. Je parle de VHIS et TIE mais je n'utilise pas tellement ca dans le projet. Peut-être référer au chapitre vhis pour mieux expliquer ca.s. This introduction is not clear for readers}
 
 \maraja{SMART built a promising apparatus for multi-plane phase imaging}
-In 2010, SMART and MIT developed a new Volume Holography Imaging System (VHIS) \cite{VH}. With the benefit of provided by the Transport Intensity Equations (TIE \index{TIE}) \cite{TIE-Diamond}, phase biological samples can be imaged on different planes simultaneously. Assuming the imaging system is relatively telecentric and the depth of focus is high regarding to the object size, different cross-section projections can be obtained by rotating the sample along an axis normal to the imaging direction and relative to a fixed point. A Three-Dimensional representation of the object can subsequently be reconstructed from the acquired data using standard tomography techniques.
+In 2010, SMART and MIT developed a new Volume Holography Imaging System (VHIS) \cite{VH}. With the benefit provided by the Transport Intensity Equations (TIE \index{TIE}) \cite{TIE-Diamond}, phase biological samples can be imaged on different planes simultaneously. Assuming the imaging system is relatively telecentric and the depth of focus is high regarding to the object size, different cross-section projections can be obtained by rotating the sample along an axis normal to the imaging direction and relative to a fixed point. A Three-Dimensional representation of the object can subsequently be reconstructed from the acquired data using standard tomography techniques.
 
-\maraja{Optical Tweezers, favoured for rotation}
+\maraja{Optical Tweezers, favored for rotation}
 With this in mind, the Center for Environmental Sensing and Modeling (CENSAM) based in Singapore is now looking for a method to enable the rotation of a transparent microscopic sample with precise control of the angle. Optical tweezers pioneered by Askin in 1986 have been increasingly used for micro-manipulation and particularly for biological objects in order to study the varied biological processes. A highly focused laser beam going through the objective of a regular microscope can trap, move and rotate micrometric scale objects. 
 
+\todo{phase object and 3d imaging tomography not a lot of people did it. Diamond but at a microscopic. Cite fauver c'est pas assez. marketinkg stratégie. il audrait trouver le point unique et dire ce qu'on veux faire le truc vaiment spécial c'est de faire la phase et la tomography\ldots. Stronger statement about our motivation}
+
 \maraja{Acquire the knowledge}
-Although this seems more complex to implement than using an electro-mechanical microstage such as a glass tube mounted on a precision rotational stage as it was previously done by Mark Fauver and Eric J. Seibel in 2005 \cite{FAUVER2005}, SMART wants to assess the feasibility of these techniques and at the same time acquire the knowledge in optical trapping. This is an area where this the research group is lacking in experience. 
+Although this seems more complex to implement than using an electro-mechanical microstage such as a glass tube mounted on a precision rotational stage as it was previously done by Mark Fauver and Eric J. Seibel in 2005 \cite{FAUVER2005}, SMART wants to assess the feasibility of these techniques and at the same time acquire the knowledge of optical trapping. This is an area where the research group is lacking in experience. 
  
 Consequently, this project is above all an attempt to bring the expertise of optical tweezers and holographic optical tweezers to SMART.
 
-\maraja{Masters project}
-Prof. Christophe Moser from EPFL in Lausanne, Switzerland contacted Prof. George Barbastathis of MIT 3D Optical Systems Group, in Boston, U.S., for my participation in this project to pursue my master's thesis. I was invited to work for 25 weeks in Singapore under the responsibility of SMART and CENSAM, and to collaborate with Prof. Yuan Luo and Eng. Chen Zhi.
+\maraja{Master's project}
+Prof. Christophe Moser from EPFL in Lausanne, Switzerland contacted Prof. George Barbastathis of MIT 3D Optical Systems Group, in Boston, U.S., for my participation in this project to pursue my master's thesis. I was invited to work for 25 weeks in Singapore under the responsibility of SMART and CENSAM, and to collaborate with Prof. Yuan Luo and Chen Zhi.
 
 \section{Context}
+\todo{Explain more that the goal is to do tomography but before we need to do optical tweezers}
+
 \maraja{Projected Tomography}
 Tomography is a major imaging technology that allows three-dimensional reconstruction obtained by sectioning an object using a penetrating wave. Projected Tomography like Computed Tomography (CT) uses X-rays to get an image projection through the matter. Often, the target or the imaging instrument needs to be rotated along a fixed axis in order to get multiple image projections. The post-treatment requires sophisticated algorithms including the Radon transform that allows building of a three-dimensional view from the cross-sectional scans of the object. 
 
 In the microscopic world, Electron Tomography is the only available method to image structures such as bacteria, biological cells or body tissues. Figure \ref{ET} shows the basic principle of electron tomography. An electron beam crossing the sample gets partially absorbed depending on its composition. A sensor placed after the sample retrieves the cross-sectional projection for each angle. 
 
-\figc{ET}{Electron Tomography principle}{Electron Tomography principle. (a) Projected tomography with microscope and (b) projected electron tomography with glass tube containing the sample.}
+\figc{ET}{Electron Tomography principle}{Electron Tomography principle. (a) Projected tomography with microscope and (b) Projected electron tomography with glass tube containing the sample.}
 
 \maraja{TIE for phase retrieval}
-Three-dimensional imaging techniques in the visible range belong to a growing field, which is in intense development in research. SMART wants to leverage its volume holography system with the transport intensity equations to obtain three-dimensional images from biological phase objects. TIE Tomography already demonstrated promising results by showing 3D-reconstruction of a Pyrex diamond placed in an index-matching fluid \cite{TIE-Diamond}. The figure \ref{tie} illustrates some of the published results.
+Three-dimensional imaging techniques in the visible range belong to a growing field, which is in intense development in research. SMART wants to leverage its volume holography system with the transport intensity equations to obtain three-dimensional images from biological phase objects. TIE Tomography already demonstrated promising results by showing a 3D-reconstruction of a Pyrex diamond placed in an index-matching fluid \cite{TIE-Diamond}.  Figure \ref{tie} illustrates some of the published results.
 
-\figc{tie}{TIE Tomography}{Principle of TIE Tomography showing in (a) a simple image in focus of the diamond immersed. (b) TIE phase retrieval from two images out of focus. (c) Three-dimensional reconstruction of the phase object obtained with Radon transform}
+\figc{tie}{TIE Tomography}{Principle of TIE Tomography showing in (a) A simple image in focus of the diamond immersed. (b) TIE phase retrieval from two images out of focus. (c) Three-dimensional reconstruction of the phase object obtained with Radon transform}
 
 \maraja{VHIS for imaging}
-The Volume Holographic Imaging System uses a thick hologram to record different two-dimensional planes located at different depths simultaneously without scanning. Each plane appears as a vertical narrow band on the camera plane. By varying the type of grating of the hologram, it is possible to get a different number of planes with a defined spacing between each plane. The figure \ref{vh} shows the type of image we can expect to obtain with this system. 
+The Volume Holographic Imaging System uses a thick hologram to record different two-dimensional planes located at different depths simultaneously without scanning. Each plane appears as a vertical narrow band on the camera plane. By varying the type of grating of the hologram, it is possible to get a different number of planes with a defined spacing between each plane.  Figure \ref{vh} shows the type of image we can expect to obtain with this system. 
 
-\figc{vh}{VHIS Images}{VHIS Imaging, (a) Onion skin, 5 planes, (b) 3D stack of the image a (c) mouse fat, 2 planes}
+\figc{vh}{VHIS Images}{VHIS Imaging, (a) Onion skin, 5 planes, (b) 3D stack of image a (c) Mouse fat, 2 planes}
 
 \maraja{VHIS + TIE for tomography}
 As TIE requires at least two out-of-focused images slightly above and before the object to reconstruct the phase information, VHIS provided a suitable solution to obtain these images simultaneously. In 2010, Laura Waller and co-workers combined these two techniques \cite{TIE-VH}. Now, Yuan Yuo from the National Taiwan University would like to take a step further to achieve tomography of biological phase objects. 
 
-\maraja{But, we still need to rotate}
-Providing a demonstration of the feasibility of this technique could offer a versatile solution for imaging living cells in the micro-metric scale. However, in order to reach this objective, the rotation of the specimen must be perfectly controlled first. 
+\maraja{But we still need to rotate}
+Providing a demonstration of the feasibility of this technique could offer a versatile solution for imaging living cells in the micrometric scale. However, in order to reach this objective, the rotation of the specimen must be perfectly controlled first. 
 
 \maraja{Optical Tweezers for rotation}
-Optical tweezers have proven their capabilities for moving, stretching and rotating microscopic living objects. A significant number of research groups have designed different solutions to rotate such objects. For example, in 2008 M. K. Kreysing and \emph{al.} from University of Leipzig, Germany, used a modified dual-beam laser trap delivered by two optical fibers to rotate a red blood cell around an axis perpendicular to the optical axis \cite{KREYSING2008}. Nevertheless, this solution is challenging to implement and not very versatile because the alignment of the two fibers must be exact. Therefore, this project will focus on the rotation of micro-organisms with standard optical tweezers. 
+Optical tweezers have proven their capabilities for moving, stretching and rotating microscopic living objects. A significant number of research groups have designed different solutions to rotate such objects. For example, in 2008, M. K. Kreysing \emph{et al.} from University of Leipzig, Germany, used a modified dual-beam laser trap delivered by two optical fibers to rotate a red blood cell around an axis perpendicular to the optical axis \cite{KREYSING2008}. Nevertheless, this solution is challenging to implement and is not very versatile because the alignment of the two fibers must be exact. Therefore, this project will focus on the rotation of micro-organisms with standard optical tweezers. 
+
+\section{Project goals}
+Unlike other EPFL masters' projects, this project did not begin with specified goals. As with a research project, the objectives were changed many times following our weekly meetings. As below are some of the goals which were eventually set in place:
 
 \clearpage
-\subsection{Project goals}
-Unlike other EPFL masters projects, this project did not begin with specified goals. As with a research project, the objectives were changed many times following our weekly meetings. As below are some of the goals which were eventually set in place:
-
 \begin{enumerate}
-\item Explore state of the art in optical trapping
+\item Explore state-of-the-art techniques in optical trapping
 \item Build a conventional optical tweezers system
 \item Allow multi-trapping
 \item Achieve rotation of particles
@@ -128,14 +141,14 @@ Unlike other EPFL masters projects, this project did not begin with specified go
 
 As required by EPFL, this master's project will last for 25 weeks starting from September 17, 2011. The final report has to be submitted by the noon of March 16, 2012 and the oral presentation is scheduled to take place a few weeks after March 16. 
 
-The first part of this project consists of learning about the state of the art in optical trapping. Many recent publications show interesting and promising applications. Multi-trapping not only requires a good knowledge of digital holography and light propagation but also requires a practical experience with spatial light modulators and optical components. 
+The first part of this project consists of learning about the state-of-the-art techniques in optical trapping. Many recent publications show interesting and promising applications. Multi-trapping not only requires a good knowledge of digital holography and light propagation but also requires a practical experience with spatial light modulators and optical components. 
 
 The second part deals with the volume hologram setup. The alignment of this system is critical and every component has to be assembled carefully. In addition, compromises must be made to combine both of the setups due to their stringent requirements. 
 
 Finally, a solution must be designed so that the biological samples can be precisely rotated from the imaging axis. The potential problems encountered will be recorded in order to allow for further investigations. 
  
-\section{Organisation}
-This report mainly divided in two parts. The first part is a theoretical approach of optical trapping, volume holography and micro-fabrication based on scientific publications and books. Most of the illustrations are inspired from these readings. The second part is focused on experiments where results and issues are showed and explained. This part ends with a global discussion of the results and treats the possible further investigations. 
+\section{Organization}
+This report is mainly divided into two parts. The first part is a theoretical approach of optical trapping, volume holography and micro-fabrication based on scientific publications and books. Most of the illustrations found in this document are inspired from these readings. The second part is focused on experiments where results and issues are shown and explained. This part ends with a discussion of the results and suggests the possibility of further investigations. 
 
 \chapter{Optical Trapping}
 \section{Introduction}
@@ -149,40 +162,40 @@ As early as the 17$^{\textrm{th}}$ century, Johannes Kepler noticed that light i
 The detection of optical scattering and gradient forces on micrometer sized particles was first reported in 1970 by Arthur Ashkin, a scientist who worked at Bell Laboratories. His work was used one decade later by Steven Chu in a laser cooling technique called optical molasses that can cool down neutral atoms by slowing them down with laser light. This research earned Steven Chu the Nobel Prize in Physics in 1997. 
 
 \maraja{Interest of the scientific community}
-Ever since Ashkin published his work in the 80s, many researchers have developed an interest for the use of optical tweezers in biology or micro-mechanics. Therefore, a wide range of new techniques exists today. Some are complex and others are simpler, for stretching, sorting, moving, rotating or staking objects that cannot be easily held with physical tools. 
+Ever since Ashkin published his work in the 80s, many researchers have developed an interest for the use of optical tweezers in biology or micro-mechanics. Therefore, a wide range of new techniques exist today. Some are complex and others are simpler, for stretching, sorting, moving, rotating or staking objects that cannot be easily held with physical tools. 
  
 \section{Application in Biology}
 \maraja{Contact-less contact}
-In 1987, Arthur Ashkin and JM Dziedzic demonstrated the first application of optical trapping to life sciences by publishing an article that shows a successful attempt to trap tobacco mosaic viruses and living Escherichia coli bacteria without any damage with an argon laser of tens of milli-watts \cite{ASHKIN1987}. Today, optical tweezers have emerged as an essential tool for the manipulation of biological cells by allowing sophisticated biophysical or bio-mechanical characterisations. Besides showing that micrometre size particles can be moved, the principal advantage of optical tweezers explores the possibility of interacting with microorganisms without any physical contact. As a result, the risk of cross contamination is eliminated. 
+In 1987, Arthur Ashkin and JM Dziedzic demonstrated the first application of optical trapping to life sciences by publishing an article that showed a successful attempt to trap tobacco mosaic viruses and living Escherichia coli bacteria without any damage, with an argon laser of tens of milli-watts \cite{ASHKIN1987}. Today, optical tweezers have emerged as an essential tool for the manipulation of biological cells by allowing sophisticated biophysical or bio-mechanical characterisations. Besides showing that micrometer size particles can be moved, the principal advantage of optical tweezers explores the possibility of interacting with microorganisms without any physical contact. As a result, the risk of cross contamination is eliminated. 
 
 Nowadays, optical tweezers are increasingly used in biology to hold, move, stretch and sort cells \cite{DHOLAKIA2006}. For example, figure \ref{stretch} shows an attempt to measure the deformation of a erythrocyte (human red blood cell) for different forces \cite{LIM2004}. 
 
 \figc{stretch}{Deformation of a red blood cell}{Stretching a red blood cell with two silica spheres of 4.1 micrometers trapped with optical tweezers}
 
 \maraja{Force estimation}
-Another important application is force estimation. Optical tweezers can become a microforce transducer or a tensometer when correctly calibrated. It is noteworthy to say that optical forces have convincingly been calibrated down to \SI{25}{\femto\newton} on a \SI{0.53}{\um} latex bead \cite{ROHRBACH2005}. For example, an application of force measurement can be used on spermatozoa which use mechanical force for motion. By trapping them and gradually releasing the power of the trap, we can measure the propulsion force of the zygote's tail. The same principle can be applied to Kinesin motors \cite{KUO1993} or other molecular motors. 
+Another important application is force estimation. Optical tweezers can become a microforce transducer or a tensometer when correctly calibrated. It is noteworthy to mention that optical forces have convincingly been calibrated down to \SI{25}{\femto\newton} on a \SI{0.53}{\um} latex bead \cite{ROHRBACH2005}. For example, an application of force measurement can be used on spermatozoa which uses mechanical force for motion. By trapping them and gradually releasing the power of the trap, we can measure the propulsion force of the zygote's tail. The same principle can be applied to Kinesin motors \cite{KUO1993} or other molecular motors. 
 
 Without going into further details, it is worth noting other applications of optical tweezers in biology such as chromosome dissection, chromosome manipulation during mitosis, microsurgery and manipulation of cells \emph{in vivo}, controlled cell fusion or kinetic studies of DNA. 
 
 \maraja{Damages on living objects}
-In biophysics, an additional challenge is the need to manipulate particles without damaging them. This is the reason why most of the tweezers setup used in biology use infrared lasers. At such wavelengths, the absorption of living microorganism is less important than in the visible range. Nonetheless, working in the near infrared range provide some additional problems for experimental setups because the laser beam cannot be seen without the use of dedicated tools, and all the optical elements have to be chosen accordingly to this wavelength range. 
+In biophysics, an additional challenge is the need to manipulate particles without damaging them. This is the reason why most of the tweezers setup used in biology use infrared lasers. At such wavelengths, the absorption of living microorganism is less important than in the visible range. Nonetheless, working in the near infrared range causes some additional problems for experimental setups because the laser beam cannot be seen without the use of dedicated tools, and all the optical elements have to be chosen accordingly to this wavelength range. 
 
 \maraja{Forces involved}
-Optical tweezers can produce forces of between \SI{0.1}{\pico\newton} and \SI{500}{\pico\newton}. For a better representation of these values, it can be helpful to consider such forces within a biological context. \SI{1000}{\pico\newton} can break a covalent bond while  \SI{60}{\pico\newton} is sufficient to unravel DNA. But, only \SI{10}{\pico\newton} is enough to stall motor proteins \cite{OT}. 
+Optical tweezers can produce forces of between \SI{0.1}{\pico\newton} and \SI{500}{\pico\newton}. For a better representation of these values, it can be helpful to consider such forces within a biological context. \SI{1000}{\pico\newton} can break a covalent bond while  \SI{60}{\pico\newton} is sufficient to unravel DNA. But only \SI{10}{\pico\newton} is enough to stall motor proteins \cite{OT}. 
 
 In our case which is to rotate a biological cell, the main force involved is the gravitational and the buoyant forces which are proportional to the object size and in the range of few tens of pico Newtons. 
 
 \clearpage
 \section{Basic Principles}
-\fig{tw}{Optical tweezers, basic principle}
+\fig{tw}{ Basic principle of Optical Tweezers}
 
 \maraja{Mie and Rayleigh scattering}
-In this project, we will focus mainly on particles that scatter light in the Mie regime. That happens when the particle is bigger than the wavelength used. For instance, Mie scattering is responsible for the white appearance of the clouds. In contrast, we can also consider particles in the Rayleigh regime when their diameter is smaller than the wavelength of the light. Those two approaches are illustrated with the figure \ref{mie}. The figure \ref{tw} shows the basic principle of optical tweezers. A transparent particle, herein a micro-sphere, trapped into a diffraction limited Gaussian beam. 
+In this project, we will mainly focus on particles that scatter light in the Mie regime. That happens when the particle is bigger than the wavelength used. For instance, Mie scattering is responsible for the white appearance of clouds. In contrast, we can also consider particles in the Rayleigh regime when their diameter is smaller than the wavelength of the light. Those two approaches are illustrated with figure \ref{mie}. Figure \ref{tw} shows the basic principle of optical tweezers. A transparent particle, herein a micro-sphere, trapped into a diffraction limited Gaussian beam. 
 
-\figc{mie}{Particle Size Mie and Rayleigh}{Illustration of the operational regime regarding the wavelength of the light and the diameter of the particle}
+\figc{mie}{Particle Size Mie and Rayleigh}{Illustration of the operational regime with regards to the wavelength of the light and the diameter of the particle}
 
 \maraja{Ray optics model}
-Ashkin proposed a ray optics model (RO) \cite{ASHKIN1992} which can be shown to be highly accurate for the prediction of axial forces and reasonably accurate for prediction of the transverse forces in the case of microspheres bigger than $20\lambda$ \cite{WRIGHT1993}. For more accuracy, an electromagnetic-field model also exists. However, discrepancies between the measured forces and the theoretical models may indicate the presence of other forces such as radiometric forces (interactions of the particle with its surrounding). According to Ashkin, we can note that the principal relationship between the trapping force and trapping power is: 
+Ashkin proposed a ray optics model (RO) \cite{ASHKIN1992} which was shown to be highly accurate for the prediction of axial forces and reasonably accurate for the prediction of the transverse forces in the case of microspheres bigger than $20\lambda$ \cite{WRIGHT1993}. For more accuracy, an electromagnetic-field model also exists. However, discrepancies between the measured forces and the theoretical models may indicate the presence of other forces such as radiometric forces (interactions of the particle with its surrounding). According to Ashkin, we can note that the principal relationship between the trapping force and trapping power is: 
 \begin{equation}
 F = \frac{n Q P}{c}
 \label{otforce}
@@ -192,16 +205,16 @@ where $n$ is the refractive index of the surrounding medium, $Q$ is a non-dimens
 
 \label{sphereweight}
 \maraja{Forces on a micro-sphere}
-Optical forces involved in optical trapping are in the range of pico Newtons which may be considered relatively small. However, if we consider a \SI{10}{\um} silica sphere of density of \SI{2.6}{\gram\cm^3}, its mass is only $\SI{1.3}{\nano\gram}$. The force needed to cancel the gravity force is about $\SI{13}{\pico\newton}$. Moreover, we do not consider here the buoyancy if the particle is immersed. It is important to remember that the \emph{scale law} plays a very important role here. If the diameter of the particle is divided by a factor of 2, the force needed is divided by a factor of 8. The requation (\ref{force}) shows the relation between the diameter of a particle and its weight. Micro-structures do not follow the same rules. An ant if given the size of an elephant would not be able to stand on its thin legs. 
+Optical forces involved in optical trapping are in the range of pico Newtons which may be considered relatively small. However, if we consider a \SI{10}{\um} silica sphere of density of \SI{2.6}{\gram\cm^3}, its mass is only $\SI{1.3}{\nano\gram}$. The force needed to cancel the gravity force is about $\SI{13}{\pico\newton}$. Moreover, we do not consider here the buoyancy if the particle is immersed. It is important to remember that the \emph{scale law} plays a very important role here. If the diameter of the particle is divided by a factor of 2, the force needed is divided by a factor of 8. Equation (\ref{force}) shows the relation between the diameter of a particle and its weight. Micro-structures do not follow the same rules. An ant if given the size of an elephant would not be able to stand on its thin legs. 
 \begin{equation}
 F = \frac{g}{\rho }\left[ {\frac{{4\pi }}{3}{{\left( {\frac{d}{2}} \right)}^3}} \right]
 \label{force}
 \end{equation}
 
-Naturally, the laser power can be increased to get a stronger and more stable trap. But, at a certain level, the absorption of the particle or of the surrounding medium can cause a significant heat and subsequent thermal damage. 
+Naturally, the laser power can be increased to get a stronger and more stable trap. But at a certain level, the absorption of the particle or of the surrounding medium can cause a significant heat and subsequent thermal damage. 
 
 \maraja{Scattering and Gradient forces}
-Because of the radiation pressure, the light will push a particle forward. This is known as the scattering force. However, the refraction inside the particle will change the light path and thus create so called gradient force that pushes the particle back to the centre of the trap. The balance of these two forces will hold the particle at the trap position. 
+Due to the radiation pressure, the light will push a particle forward. This is known as the scattering force. However, the refraction inside the particle will change the light path, thus creating a so-called gradient force that pushes the particle back to the center of the trap. The balance of these two forces will hold the particle at the trap position. 
 
 \section{Optical Forces for Mie particles}
 \maraja{Ray Optics Model}
@@ -213,14 +226,14 @@ p=\frac{E}{c}
 \label{linearmom}
 \end{equation}
 
-where $p$ is the momentum of light, $E$ its energy and $c$ the speed of light. We note here that the photon is a relativistic particle where $E^2=(pc)^2+(m_pc^2)^2$. Because we consider a photon as a massless particle $m_p=0$, we obtain equation (\ref{linearmom}). 
+where $p$ is the momentum of light, $E$ is energy and $c$ the speed of light. We note here that the photon is a relativistic particle where $E^2=(pc)^2+(m_pc^2)^2$. Because we consider a photon as a massless particle $m_p=0$, we obtain equation (\ref{linearmom}). 
 From quantum mechanics, we know the energy can also be expressed with the Plank constant $h$ and the de Broglie wavelength $\lambda$ as:
 \begin{equation}
 E=h\nu=\frac{hc}{\lambda}
 \label{energy}
 \end{equation}
 
-The momentum of a single photon is given by combining \ref{linearmom} and \ref{energy}. 
+The momentum of a single photon is given by combining equations \ref{linearmom} and \ref{energy}. 
 \begin{equation}
 p=\frac{E}{c}=\frac{h}{\lambda}
 \label{photonmom}
@@ -234,10 +247,10 @@ F=\frac{\Delta p}{\Delta t}=\frac{\sum_i^N\Delta p_i }{\Delta t}
  
 \fig{ro}{Ray-optics model after Ashkin}
 
-Hence a simple two-light ray diagram can be used to explain the optical forces by a refractive micro sphere using Snell-Descartes law and assuming a focused Gaussian laser beam. Figure \ref{ro} shows the path of a ray striking a microsphere. For gain of space, the figure has been rotated to 90 degrees. The incoming light comes from the left through the objective. As mentioned above, the sum of all the forces caused by each individual ray is divided into two components: the gradient force which draws the object into the centre of the beam due to the Gaussian intensity profile and the high numerical aperture of the objective. The second component \emph{i.e.} the scattering force, pushes the object along the direction of light propagation. 
+Hence, a simple two-light ray diagram can be used to explain the optical forces by a refractive micro sphere using Snell-Descartes law and assuming a focused Gaussian laser beam. Figure \ref{ro} shows the path of a ray striking a microsphere. For gain of space, the figure has been rotated to 90 degrees. The incoming light comes from the left through the objective. As mentioned above, the sum of all the forces caused by each individual ray is divided into two components: the gradient force which draws the object into the center of the beam due to the Gaussian intensity profile and the high numerical aperture of the objective. The second component \emph{i.e.} the scattering force, pushes the object along the direction of light propagation. 
 
-\maraja{The need of for gradient force}
-Without gradient force, the scattering force will push the object out of the trap. Balancing the scattering force with a steep enough gradient force component is therefore a \emph{condicio sine qua non} to trap particles. Given this, it can be seen the trap location will always be above the focal point of the objective. 
+\maraja{The need for gradient force}
+Without gradient force, the scattering force will push the object out of the trap. Balancing the scattering force with a gradient force component that is steep enough is therefore a \emph{condicio sine qua non} to trap particles. Given this, it can be seen the trap location will always be above the focal point of the objective. 
 
 The efficiency factor shown on \ref{otforce} is the sum of the scattering force and the gradient force. Those coefficients can be expressed from the change of momentum. We use here the Fresnel reflection and transmission coefficient ($R$ and $T$) to relate the incident momentum $p_i$ at the efficiencies coefficients. 
 \begin{equation}
@@ -251,7 +264,7 @@ The scattering force and the gradient force can be expressed separately:
 {F_s} = \frac{{n{Q_s}P}}{c}\hfil{F_g} = \frac{{n{Q_g}P}}{c}
 \end{equation}
 
-The trapping efficiency $Q$ is the fraction of the momentum transferred to the sphere by the emergent rays. To get a complete approximation we also need to sum up all the contributions of all the rays with a convergence angle ranging from 0 to $\alpha$ where alpha is taken from the numerical aperture equation:
+The trapping efficiency $Q$ is the fraction of the momentum transferred to the sphere by the emergent rays. In order to obtain a complete approximation, we also need to sum up all the contributions of all the rays with a convergence angle ranging from 0 to $\alpha$ where alpha is taken from the numerical aperture equation:
 \begin{equation}
 N.A. = n\sin\alpha
 \end{equation}
@@ -260,9 +273,9 @@ We also need to consider, for the simplest case, a Gaussian distribution of the 
 
 As it is mainly the rays with maximum angle of convergence that contribute to the optical trap, we assume the objective lens is completely filled by the incoming beam. However, if the beam is too large and overlap the back aperture of the objective lens, it can induce some optical aberrations affecting the quality of the trap. Practically, in this case, we can observe an Airy disk around each trap. 
 
-The numerical aperture of the objective used for optical trapping is also a very important parameter. As mentioned, if the edge of the beam is not focused at a steep enough angle, it results in a dominant scattering force that pushes the particle out of the focal point. The strong field gradient is along the direction of propagation produced by the peripherals rays in the focused beam and not by those rays along the optic axis. For this reason, it can be seen that most optical tweezers setups use a high {N.A.} objective \emph{i.e.} $>0.8$. However, increasing the {N.A.} reduce the trapping depth and increase the power losses. 
+The numerical aperture of the objective used for optical trapping is also a very important parameter. As mentioned, if the edge of the beam is not focused at an angle that is steep enough, it results in a dominant scattering force that pushes the particle out of the focal point. The strong field gradient is along the direction of propagation produced by the peripherals rays in the focused beam and not by those rays along the optic axis. For this reason, it can be seen that most optical tweezers setups use a high {N.A.} objective \emph{i.e.} $>0.8$. However, increasing the {N.A.} reduces the trapping depth and increases the power losses. 
 
-Figure \ref{rays} shows the different configurations for a trapped micro-sphere. The illumination comes from the bottom. In the case of (a), the numerical aperture is not high enough, and the scattering momentum shown by the two blues arrows pointing downwards produce a force pushing the particle up. In the case of (b), the numerical aperture is high enough; the sphere is snatched by the beam. (c) and (d) show the spheres at equilibrium. It is worthy to note that this point is located slightly above the trap. This means, for an ICS microscope, a trap located on the image plane will not be able to hold a particle on in focus. 
+Figure \ref{rays} shows the different configurations for a trapped micro-sphere. The illumination comes from the bottom. In the case of (a), the numerical aperture is not high enough, and the scattering momentum shown by the two blue arrows pointing downwards produce a force pushing the particle up. In the case of (b), the numerical aperture is high enough; the sphere is snatched by the beam. (c) and (d) show the spheres at equilibrium. It is worthy to note that this point is located slightly above the trap. This means for an ICS microscope, a trap located on the image plane will not be able to hold a particle in focus. 
 
 \fig{rays}{Different trapping configurations}
 
@@ -270,45 +283,45 @@ Figure \ref{axial} is taken from Ashkin's work and shows the qualitative efficie
 
 \figc{axial}{Axial efficiency}{Qualitative axial efficiency for a 10 micron sphere in water}
 
-We can are able to observe on figure \ref{transverse} a qualitative relation between the transverse force regarding to the power of the trap. Note these values are dependent on the beam polarisation \cite{WRIGHT1993}.
+We are able to observe from figure \ref{transverse} a qualitative relation between the transverse force with regards to the power of the trap. Note these values are dependent on the beam polarization \cite{WRIGHT1993}.
 
 \figc{transverse}{Transverse force}{Transverse drag force as function of power for polystyrene microspheres suspended in water}
 
 \section{Angular Momentum}
-Electromagnetic radiation carries both energy and momentum. The momentum may have both linear and angular contributions. The angular momentum has a spin part associated with polarisation ($\sigma=\pm1$ for circular and $\sigma=0$ for linear polarisation) and an orbital part associated with spatial distribution. As we saw for optical tweezers, trapped objects induce a change in momentum. 
+Electromagnetic radiation carries both energy and momentum. The momentum may have both linear and angular contributions. The angular momentum has a spin part associated with polarization ($\sigma=\pm1$ for circular and $\sigma=0$ for linear polarization) and an orbital part associated with spatial distribution. As we saw for optical tweezers, trapped objects induce a change in momentum. 
 
-For the simplest cases, a trap beam has a Gaussian intensity distribution and does not carry any angular momentum. However, by using a higher mode of a laser beam, it is possible to transfer not only forces but also torque to the trapped object. Allen and \emph{al.} showed that a Laguerre-Gaussian amplitude distribution processes an angular momentum \cite{ALLEN1992}. Figure \ref{oam} shows the Poynting vector of a linearly polarised Laguerre-Gaussian beam. 
+For the simplest cases, a trap beam has a Gaussian intensity distribution and does not carry any angular momentum. However, by using a higher mode of a laser beam, it is possible to transfer not only forces but also torque to the trapped object. Allen et \emph{al.} showed that a Laguerre-Gaussian amplitude distribution processes an angular momentum \cite{ALLEN1992}. Figure \ref{oam} shows the Poynting vector of a linearly polarized Laguerre-Gaussian beam. 
 
-In 1995, Rubinsztien-Dunlop and his co-workers used Laguerre-Gaussian beams to hold an absorbing particle at the centre of a doughnut beam. This work aroused a great interest for biology where all the cells are not fully transparent. Moreover, using an annular beam instead of a standard Gaussian distribution protects cells from overheating. 
+In 1995, Rubinsztien-Dunlop and his co-workers used Laguerre-Gaussian beams to hold an absorbing particle at the center of a doughnut beam. This work aroused a great interest for biology where all the cells are not fully transparent. Moreover, using an annular beam instead of a standard Gaussian distribution protects cells from overheating. 
 
-\fig{oam}{Poynting vector of a linearly polarised Laguerre-Gaussian mode of radius $w(z)$}
+\fig{oam}{Poynting vector of a linearly polarized Laguerre-Gaussian mode of radius $w(z)$}
 
-This area of optical trapping is called optical spanners. Figure \ref{lg} shows on the left, the conventional Hermite-Gaussian distribution where $HG_{00}$ is the regular Gaussian distribution. On the right, an illustration of different Laguerre-Gaussian (LG) mode which carries angular momentum and can induce a torque on an isotropic particle can be seen. 
+This area of optical trapping is called optical spanners. On the left, figure \ref{lg} shows the conventional Hermite-Gaussian distribution where $HG_{00}$ is the regular Gaussian distribution. On the right, an illustration of different Laguerre-Gaussian (LG) mode which carries angular momentum and can induce a torque on an isotropic particle can be seen. 
 
 \fig{lg}{Overview of different amplitude distribution of laser beams} 
 
-The orbital angular momentum is present in wave-front with helical shapes and is its intensity is proportional to $\ell$, the order of the Laguerre-Gaussian mode.
+The orbital angular momentum is present in wave-front with helical shapes and its intensity is proportional to $\ell$, the order of the Laguerre-Gaussian mode.
 
 Moreover, it is possible to create an optical angular momentum with a combination of cylindrical lenses. A more versatile solution consists of using a diffractive optical element such as a fork grating shown on figure \ref{fork}. This figure shows the superposition of a blazing function with a circular phase shift. We note this diffractive optical element is a purely transparent phase object. 
 
 \fig{fork}{Fork-like grating to induce OAM}
 
 \section{Rotation of particles}
-If angular momentum can be used to induce a continuous spinning of trapped samples, no position control can be achieved unless a feedback loop is used combined with real-time image processing. Another approach is to reduce the symmetry of the trapping beam. Such a rotation has been realised by the use of high order cavity modes by generating a higher order of the Hermite-Gaussian beam. Or, it can also be achieved with cylindrical lenses \cite{DASGUPTA2003} or rectangular apertures \cite{ONEIL2001}. 
+If angular momentum can be used to induce a continuous spinning of trapped samples, no position control can be achieved unless a feedback loop is used in combination with real-time image processing. Another approach is to reduce the symmetry of the trapping beam. Such a rotation has been realised by the use of high order cavity modes by generating a higher order of the Hermite-Gaussian beam. Alternatively, it can also be achieved with cylindrical lenses \cite{DASGUPTA2003} or rectangular apertures \cite{ONEIL2001}. 
 
 \fig{am}{Different methods to apply a torque}
 
-Figure \ref{am} illustrates different solutions to give a torque to a trapped object. A circularly polarised beam (a) features a spin angular momentum which can rotate birefringent objects. Using an orbital angular momentum (OAM), herein $LG_{10}$ (b), particles can be trapped on the doughnut shape of the beam and forced to circulate in the direction of the angular momentum. Asymmetric objects such as bacteria (E-coli), can be held by using two beams or a shaped beam (c). Eventually, an irregular object can scatter light into an OAM-containing mode.
+Figure \ref{am} illustrates different solutions to give a torque to a trapped object. A circularly polarized beam (a) features a spin angular momentum which can rotate birefringent objects. Using an orbital angular momentum (OAM), herein $LG_{10}$ (b), particles can be trapped on the doughnut shape of the beam and forced to circulate in the direction of the angular momentum. Asymmetric objects such as bacteria (E-coli), can be held by using two beams or a shaped beam (c). Eventually, an irregular object can scatter light into an OAM-containing mode.
 
-Alexander Jesacher and \emph{al.} demonstrated a micro pump using optical vortices \cite{JESACHER2006}. Figure \ref{pump} shows a micro-pump which allows for controlled transport of released particles. 
+Alexander Jesacher et \emph{al.} demonstrated a micro pump using optical vortices \cite{JESACHER2006}. Figure \ref{pump} shows a micro-pump which allows for controlled transport of released particles. 
 
 \fig{pump}{Micro-pump demonstrated by Jesacher and co-workers}
 
-Theodor Asavei and co-workers made a micro-paddle with two-photon photopolymerization. By trapping the two edges with two laser traps, the structure can be held. Then, a third trap exerts a radiative pressure on the paddle and creates torque. Figure \ref{paddle} shows the rotation of this micro-structure \cite{ASAVEI2009}.
+Theodor Asavei and his co-workers made a micro-paddle with two-photon photopolymerization. By trapping the two edges with two laser traps, the structure can be held. Then, a third trap exerts a radiative pressure on the paddle and creates torque. Figure \ref{paddle} shows the rotation of this micro-structure \cite{ASAVEI2009}.
 
 \fig{paddle}{Optical paddle-wheel}
 
-\section{Basic Apparatus requirements}
+\section{Basic Apparatus Requirements}
 With consideration to what has been referred to, it is therefore possible to list the components needed to build a basic optical tweezers setup: 
 
 \begin{itemize}
@@ -321,46 +334,50 @@ With consideration to what has been referred to, it is therefore possible to lis
 
 \fig{setup-simple}{Simple optical tweezers setup}
 
-The Figure \ref{setup-simple} shows a simple apparatus for optical trapping. A laser source produces a laser beam enlarged by the beam expander formed by L1 and L2 in order to fit the back aperture of the objective. half wave plate (HWP) followed by a linear polarised (LP) allows the adjustment of beam power by rotating the HWP. A dichroic filter (DF) reflects the laser beam to the objective and allows the illumination to go through it. A white light source is focused on the back aperture of the objective with a convergent lens (L) and a condenser (C). This forms a Köhler illumination and avoids imaging the light source on the camera. The objective and its tube lens form an infinite corrected system (ICS) which ensure telecentricity of the imaging part. An electronic camera is positioned at the focal distance of the tube lens. An additional filter (F) can notch the spectrum to eliminate the residual laser component.
+Figure \ref{setup-simple} shows a simple apparatus for optical trapping. A laser source produces a laser beam enlarged by the beam expander formed by L1 and L2 in order to fit the back aperture of the objective. A half wave plate (HWP) followed by a linear polarizer plate (LP) allows for the adjustment of beam power by rotating the HWP. A dichroic filter (DF) reflects the laser beam to the objective and allows the illumination to go through it. A white light source is focused on the back aperture of the objective with a convergent lens (L) and a condenser (C). This forms a Köhler illumination and avoids imaging the light source on the camera. The objective and its tube lens form an infinite corrected system (ICS) which ensure telecentricity of the imaging part. An electronic camera is positioned at the focal distance of the tube lens. An additional filter (F) can notch the spectrum to eliminate the residual laser component.
 
 \subsection{Force measurement}
-When a bead is moved from the trap centre due to an external force, the trapping laser beam is deflected. This deflection can be directly measured using a four quadrant position detector (QPD). 
+When a bead is moved from the trap center due to an external force, the trapping laser beam is deflected. This deflection can be directly measured using a four quadrant position detector (QPD). 
 
-Figure \ref{forcemeas} shows the basic principle of the light deflection caused by an external force applied on the microsphere trapped. It is worthy to remember that this system needs to be calibrated. Thorlabs proposed an optical tweezers kit including a quadrant position detector. 
+Figure \ref{forcemeas} shows the basic principle of the light deflection caused by an external force applied on the trapped microsphere. It is worthy to remember that this system needs to be calibrated. Thorlabs proposed an optical tweezers kit including a quadrant position detector. 
 
 \fig{forcemeas}{Principle of force evaluation with a Quadrant Position Detector}
 
-
+\section{Project initial proposition}
+\fig{ip}{}
+Cylindrical lens used for beam asymmetry
+\fig{ip2}{}
+\todo{explain based on paper cylindrical lens, wanted to trap and rotate. Explain the issues}
 
 \chapter{Holographic Optical Tweezers}
 \section{Introduction}
-The basic setup shown in figure \ref{setup-simple} suffers from a major drawback. The trapping beam is centred at the middle of the imaging plane and cannot be moved. This elementary setup can of course be improved by adding a galvano mirror that gives an additional degree of freedom. Placed right before the beam expander telescope, the galvano mirror can be driven not only for moving the trap on the sample plane but also to create multiple traps with a fast scanning algorithm. However, if as this solution works for a few traps, the scanning speed rapidly becomes a limitation of performance as the number of traps increase. 
+The basic setup shown in figure \ref{setup-simple} suffers from a major drawback. The trapping beam is centered at the middle of the imaging plane and cannot be moved. Of course, this elementary setup can be improved by adding a galvano mirror that will give it an additional degree of freedom. Placed right before the beam expander telescope, the galvano mirror can be driven not only for moving the trap on the sample plane but also to create multiple traps with a fast scanning algorithm. However, as this solution works only for a few traps, the scanning speed rapidly becomes a limitation of performance as the number of traps increase. 
 
 \fig{hotsetup}{Holographic optical tweezers setup}
 
-Figure \ref{hotsetup} shows a schematic representation of a standard holographic optical tweezers (HOT) setup. This time instead of using a galvano mirror, a diffractive optical element (DOE) is inserted at the Fourier plane of the light path in order to get an image of its gratings at the back focal plane of the objective. 
+Figure \ref{hotsetup} shows a schematic representation of a standard holographic optical tweezers (HOT) setup. Instead of using a galvano mirror this time, a diffractive optical element (DOE) is inserted at the Fourier plane of the light path in order to get an image of its gratings at the back focal plane of the objective. 
 
-A DOE is a purely transparent phase object usually fabricated by micro lithographic technology. Its micro relief will alter the wavefront of the input illumination supposed to be a planar wave. 
+A DOE is a purely transparent phase object usually fabricated by micro lithographic technology. Its micro relief will alter the wavefront of the input illumination which is supposed to be a planar wave. 
 
 The size of the illuminating Gaussian beam is a compromise between power efficiency and resolution. On the one hand, the larger the beam, the better use it makes of the area of the DOE in which it leads to higher resolution of the produced image. On the other hand, if the illuminating beam is too large, a fraction of the incident power is lost outside of the active area of the DOE. This light, will go in the zeroth order \emph{i.e.} a bright spot on the middle of the image. 
 
 \fig{doe}{Diffractive optical element in a 2-f system}
 
-Figure \ref{doe} illustrates how a DOE works. The top row shows the intensity of the complex electric field at different positions along the light path while the bottom row shows the phase of the electric field. The diffractive optical element is positioned at the focal distance of a convex lens. A screen is placed at the same distance after the lens. A fundamental $TEM_{00}$ Gaussian illumination strikes the DOE from the left. Along the propagation, the wavefront of the beam is distorted. The lens acts as a quadratic phase object which will focus the beam on the screen. We can observe on the screen the achieved image herein a cross, a square and a circle. 
+Figure \ref{doe} illustrates how a DOE works. The top row shows the intensity of the complex electric field at different positions along the light path while the bottom row shows the phase of the electric field. The diffractive optical element is positioned at the focal distance of a convex lens. A screen is placed at the same distance after the lens. A fundamental $TEM_{00}$ Gaussian illumination strikes the DOE from the left. Along the propagation, the wavefront of the beam is distorted. The lens acts as a quadratic phase object which will focus the beam on the screen. We can observe on the screen the achieved image herein, a cross, a square and a circle. 
 
 The main benefit of this method is the use of a transparent phase object. In this way, none of the power of the illumination is lost during the propagation if the DOE is supposedly perfect. 
 
-In this example, we can envision creating a specific DOE to create an array of traps that can be used to entrap different biological cells. Nevertheless, the traps location is still static. The objective for holographic optical tweezers is to use a dynamic diffractive optical element. Such devices are call known as Spatial Light Modulator (SLM). They can work either in transmission or in reflection. Some of them can modulate the amplitude of the incoming light, others can modulate the phase. As we have seen, using amplitude SLM would be a bad choice because most of the light may be absorbed by the device. This will lead to a very low efficiency of the trapping system.
+Using this example, we can envision creating a specific DOE to create an array of traps that can be used to entrap different biological cells. Nevertheless, the traps' locations are still static. The objective for holographic optical tweezers is to use a dynamic diffractive optical element. Such devices are known as Spatial Light Modulator (SLM). They can work either in transmission or in reflection. Some of them can modulate the amplitude of the incoming light, and others can modulate the phase. As we have seen, using amplitude SLM would be a poor choice because most of the light may be absorbed by the device. This will lead to a very low efficiency of the trapping system.
 
-From now, let us call the phase object (SLM or DOE) a phase hologram. Generating this hologram is not a straight forward process because only half of the information can be encoded at the time. The 2-f system illustrated above performs a Fourier transform between the hologram and the object plane. If we want to generate two arbitrary positioned traps and we compute the inverse Fourier transform of the desired amplitude, we will get two components. But the hologram cannot modulate the amplitude of the light. Without any optimisation, we can simply ignore the amplitude part. However, a question may arise: is it possible to get a better hologram if we assume the phase component at the object plane to be non-uniform and the amplitude of the hologram to have a Gaussian profile? Iterative algorithms are usually used to improve the hologram efficiency. 
+From now, let us call the phase object (SLM or DOE) a phase hologram. Generating this hologram is not a straight forward process because only half of the information can be encoded at a time. The 2-f system illustrated above performs a Fourier transform between the hologram and the object plane. If we want to generate two arbitrary positioned traps and we compute the inverse Fourier transform of the desired amplitude, we will get two components. But the hologram cannot modulate the amplitude of the light. Without any optimization, we can simply ignore the amplitude part. However, a question may arise: Is it possible to get a better hologram if we assume the phase component at the object plane to be non-uniform and the amplitude of the hologram to have a Gaussian profile? Iterative algorithms are usually used to improve the hologram efficiency. 
 
-Holographic optical tweezers generally use Spatial Light Modulators to create and move optical traps. They usually require a dedicated computation unit to get efficient holograms resulting in good traps quality. Moreover, with more complex algorithms, it is possible to create off-plane traps and also optical angular momentum. This leads to a powerful and versatile optical tweezers system. However, the global efficiency of such systems is quite low regarding to a conventional galvano mirror setup. 
+Holographic optical tweezers generally use Spatial Light Modulators to create and move optical traps. They usually require a dedicated computation unit to get efficient holograms resulting in good traps quality. Moreover, with more complex algorithms, it is possible to create off-plane traps and also optical angular momentum. This leads to a powerful and versatile optical tweezers system. However, the global efficiency of such systems is quite low with regards to a conventional galvano mirror setup. 
 
 \clearpage
 \section{Simple trap study}
-Under the paraxial approximation, we can study the 2-f system illustrated previously. As showed on the figure \ref{2f}, the objective here is to analyse the hologram equation for a single trap located at an arbitrary position where the reference is the image plane on the right.  
+Under the paraxial approximation, we can study the 2-f system illustrated previously. As showed on figure \ref{2f}, the objective here is to analyze the hologram equation for a single trap located at an arbitrary position where the reference is the image plane on the right.  
 
-\fig{2f}{2-f system showing a Spatial Light Modulator creating diffraction limited trap located above the object plane}
+\fig{2f}{2-f system showing a Spatial Light Modulator creating a diffraction limited trap located above the object plane}
 
 First, let's describe the trap as a diffraction limited spot projected to the object plane at the location $(x_m, y_m)$: 
 
@@ -369,13 +386,16 @@ First, let's describe the trap as a diffraction limited spot projected to the ob
 \label{trapeqn}
 \end{equation}
 
-As the Fourier transform of a Dirac is a linear phase, our hologram will be a purely phase object which will allow for back propagation. 
+As the Fourier transform of a Dirac is a linear phase, our hologram will be in this case a pure phase object which will allow back propagation under Fesnel approximation. 
+
+In the following subsections, we will briefly describe the effect of an optical lens and the wavefront evolution in a free-space propagation. With this in mind, we can propagate the trap back to the SLM plane and see how the position of the trap influence the hologram. 
+
+As described later, when several traps are taken in account, the hologram become fully complex object with amplitude and phase information. Optimizations algorithms can enhance the performances in the case the amplitude component is missing. 
 
 \clearpage
 \subsection{Thin Lens}
 \fig{tlens}{A biconvex glass lens}
-The main component of the 2-f arrangement is the called the Fourier-lens. As it is an essential part, it is necessary to spend a little time on it. First, we consider figure \ref{tlens}, a double convex glass lens of thickness $T$ with two spherical surfaces of radii $R_1$ and $R_2$ which will spatially alter the phase component of the incident light. In order to get the general equation that will be used later, we can express the phase delay for each location \cite{GOODMAN} as:
-
+The main component of the 2-f arrangement is known as the Fourier-lens. As it is an essential part, it is necessary to spend a little time on it. First, we consider figure \ref{tlens}, a double convex glass lens of thickness $T$ with two spherical surfaces of radii $R_1$ and $R_2$ which will spatially alter the phase component of the incident light. In order to get the general equation that will be used later, we can express the phase delay for each location \cite{GOODMAN} as:
 \begin{equation}
 \Delta \varphi (x,y) = \Delta {\varphi _0} - {R_1}\left( {1 - \sqrt {1 - \frac{{{x^2} + {y^2}}}{{{R_1}^2}}} } \right) + {R_2}\left( {1 - \sqrt {1 - \frac{{{x^2} + {y^2}}}{{{R_2}^2}}} } \right)
 \label{phaseshit2}
@@ -388,7 +408,6 @@ where $\Delta\varphi_0$ corresponds to the total phase delay at the location $(0
 \end{equation}
 
 Finally, the phase transformation can be rewritten in terms of complex numbers: 
-
 \begin{equation}
 \begin{array}{cc}
 L(x,y) &= \exp\left( - i\frac{{2\pi }}{\lambda }\left( {n\Delta \varphi (x,y) + \Delta {\varphi _0} - \Delta \varphi (x,y)} \right)\right)\tabularnewline
@@ -408,24 +427,21 @@ L(x,y) = {e^{ - i\frac{{2\pi }}{{\lambda f}}({x^2} + {y^2})}}
 \label{lenseqn}
 \end{equation}
 
-\section{Fresnel Propagation}
-From the Rayleigh-Sommerfield diffraction theory and under the Fresnel approximation, the complex field after a travel in free-space $d$ can be expressed either with convolution or an integral form: 
-
+\subsection{Fresnel Propagation}
+From the Rayleigh-Sommerfield diffraction theory and under the Fresnel approximation, the complex field after a travel in free-space $d$ can be expressed either with convolution or an integral form \cite{GOODMAN}: 
 \begin{equation}
 {U_1}(x,y) = \frac{{{e^{i2\pi d/\lambda }}}}{{i\lambda d}}\mathop{{\int\!\!\!\!\!\int}\mkern-21mu \bigcirc}\limits_\Sigma  
  {{U_0}(\xi ,\eta )} \exp \left( {\frac{{i\pi }}{{\lambda d}}{{\left( {x - \xi } \right)}^2} + \frac{{i\pi }}{{\lambda d}}{{\left( {y - \eta } \right)}^2}} \right)d\xi d\eta 
 \label{fresneleqn}
 \end{equation}
 
-\section{Back-propagation on the SLM}
+\subsection{Back-propagation on the SLM}
 The trap on figure \ref{2f} expressed with (\ref{trapeqn}) can be back propagated to the Fourier lens using (\ref{fresneleqn}), the distance of propagation is then $d=f-z_m$.
-
 \begin{equation}
 	{U_1}(x,y) = \frac{{{e^{2\pi i(f + {z_m})/\lambda }}}}{{i\lambda (f + {z_m})}}\exp \left( {\frac{{i\pi }}{\lambda }\frac{{{{(x - {x_m})}^2} + {{(y - {y_m})}^2}}}{{(f + {z_m})}}} \right)
 \end{equation}
 
-The effect of the thin-lens is taken into account simply by multiplying the expression of the complex field before the lens with (\ref{lenseqn}). 
-
+The effect of the thin lens is taken into account simply by multiplying the expression of the complex field before the lens with (\ref{lenseqn}). 
 \begin{equation}
 {U_2}(x,y) = {U_1}(x,y) \cdot L(x,y) =  U_1(x,y)\cdot e^{ - i\frac{{2\pi }}{{\lambda f}}({x^2} + {y^2})}
 \end{equation}
@@ -437,18 +453,16 @@ The effect of the thin-lens is taken into account simply by multiplying the expr
 \end{split}
 \end{equation}
 
-We use again (\ref{fresneleqn}) to propagate $U_2$ over the distance $d=f$ to get the expression of a single trap on the spatial light modulator.
-
+Again, we use (\ref{fresneleqn}) to propagate $U_2$ over the distance $d=f$ to obtain the expression of a single trap on the spatial light modulator.
 \begin{equation}
 \begin{split}
-{U_3}(x,y) &= \frac{{{e^{\frac{{2\pi }}{\lambda }\left( {2f + {z_m}} \right)}}}}{{i\lambda f}}{e^{ - i\left( {\frac{{2\pi }}{{f\lambda }}(x \cdot {x_m} + y \cdot {y_m}) + \frac{{\pi {z_m}}}{{{f^2}\lambda }}({x^2} + {y^2})} \right)}}\\
- &= \frac{{{e^{\frac{{2\pi }}{\lambda }\left( {2f + {z_m}} \right)}}}}{{i\lambda f}}{e^{ - i{\Delta _m}}}
+{U_3}(x,y) &= \frac{{{e^{i\frac{{2\pi }}{\lambda }\left( {2f + {z_m}} \right)}}}}{{i\lambda f}}{e^{ - i\left( {\frac{{2\pi }}{{f\lambda }}(x \cdot {x_m} + y \cdot {y_m}) + \frac{{\pi {z_m}}}{{{f^2}\lambda }}({x^2} + {y^2})} \right)}}\\
+ &= \frac{{{e^{i\frac{{2\pi }}{\lambda }\left( {2f + {z_m}} \right)}}}}{{i\lambda f}}{e^{ - i{\Delta _m}}}
 \end{split}
 \label{slmeqn}
 \end{equation}
 
 where $\Delta_m$ is:
-
 \begin{equation}
 {\Delta _m} = \underbrace {\frac{{2\pi }}{{f\lambda }}(x \cdot {x_m} + y \cdot {y_m})}_a + \underbrace {\frac{{\pi {z_m}}}{{{f^2}\lambda }}({x^2} + {y^2})}_b	
 \label{deltaeqn}
@@ -459,19 +473,16 @@ The first part (a) is a blazing function that corresponds to the lateral shift o
 \section{Case of two traps}
 \label{twotrapssection}
 The superposition principle always works with complex fields. If we consider two traps or the general case $M$ traps, the hologram expression will take the form of: 
-
 \begin{equation}
 U_{SLM} = \sum_{m=1}^M\frac{e^{2\pi(2f+z_m)/\lambda}}{i\lambda f}e^{-i\Delta_m}
 \end{equation}
 
-However, the hologram has to be a pure phase object. In this general case, nothing will force the expression to take a form such as:
-
+However, the hologram has to be a pure phase object. In this general case, nothing will force the expression to take the desired form:
 \begin{equation}
 U_{SLM}(x,y) = 1\cdot e^{i\varphi(x,y)}
 \end{equation}
 
 For instance, if we consider two traps symmetric to the z-axis, the final expression is:
-
 \begin{equation}
 \begin{split}
 U_{SLM}(x,y) &= \frac{e^{2\pi(2f)/\lambda}}{i\lambda f}\left[\exp\left( -i\frac{2\pi}{\lambda f}x\cdot x_1 \right) + \exp\left( -i\frac{2\pi}{\lambda f}x\cdot (-x_1) \right)\right] \\ 
@@ -480,43 +491,36 @@ U_{SLM}(x,y) &= \frac{e^{2\pi(2f)/\lambda}}{i\lambda f}\left[\exp\left( -i\frac{
 \end{split}
 \end{equation}
 
-The phase component does not hold any information about the location of the two traps. With this in mind, the superposition principle cannot be applied here. More complex algorithms need to be used. 
+The phase component does not hold any information about the location of the two traps. With this in mind, the superposition principle cannot be directly applied here. More complex methods need to be used. 
 
 \fig{symtraps}{Three different algorithm for two symmetric traps}
 
-Figure \ref{symtraps} shows the two polar components of the hologram for 3 different algorithms. With a simple superposition of the two traps, all the information is held by the amplitude component. However, with the two other algorithms, we can minimise the intensity information and maximise the phase component. 
+Figure \ref{symtraps} shows the two polar components of the hologram for three different algorithms. With a simple superposition of the two traps, all the information is held by the amplitude component. However, with the two other algorithms, we can minimize the intensity information and maximize the phase component. 
 
 \section{Hologram Generation}
-As the hologram does not have any control on the amplitude, the best reconstruction cannot be made without compromise between efficiency, generation time, uniformity or ghost traps. Researchers have created hologram generation algorithms to maximise one specific point. Roberto Di Leonardo did a comparative test between existing algorithms and his new iterative algorithm \cite{DILEONARDO2007}. 
+As the hologram does not have any control on the amplitude, the best reconstruction cannot be made without compromise between efficiency, generation time, uniformity or ghost traps. Researchers have created hologram generation algorithms to maximize one specific point. Roberto Di Leonardo did a comparative test between existing algorithms and his new iterative algorithm \cite{DILEONARDO2007}. 
 
-He started with the expression of total complex amplitude of the electric field at the position of a trap considering that the total time-averaged energy flux through the SLM is given by: 
+He started with the expression of total complex amplitude of the electric field at the position of a trap considering that the total average time of the energy flux through the SLM is given by: 
 \begin{equation}
 W_0=\frac{c\epsilon_0N|u|^2d^2}{2}
 \end{equation}
-
 where $N$ is the total number of pixels and $d^2$ the size of each pixel on the SLM. He assumed the hologram is illuminated with a uniform plane wave and expressed the complex amplitude for each $j$ pixel. 
-
 \begin{equation}
 u_j=|u|e^{i\phi_j}
 \end{equation}
-
 From (\ref{slmeqn}) and by adding the illumination contribution and the fill factor of the SLM, this equation can be rewritten as: 
-
 \begin{equation}
 v_m=\frac{d^2 e^{i2\pi(2f+z_m)/\lambda}}{i\lambda f}\sum_{j=1}^N|u|e^{i(\phi_j-\Delta_j^m)}
 \end{equation}
-
 where $\Delta_j^m$ is (\ref{deltaeqn}) at the pixel $j$. We also note the intensity of the trap is given by:
 \begin{equation}
 I_m=|v_m|^2
 \end{equation}
-
 From this expression, Di-Leonardo established three different strategies quantified by three parameters; efficiency ($e$), uniformity ($u$), and the standard percent deviation ($\sigma$). 
 \begin{equation}
 e=\sum_mI_m, \hfil u=1-\frac{I_{max} - I_{min}}{I_{max}+I_{min}}, \hfil \sigma=\frac{\sqrt{\left<\left(I-\left<I\right>\right)^2\right>}}{\left<I\right>}
 \end{equation}
-
-A benchmark test has been performed on 10x10 traps arrays which offer a highly symmetric configuration. See table \ref{algoperf}. For numeric values, please refer to the original publication. Here, we are interested only in qualitative results. The quality is expressed from 1 to 4 stars. 
+A benchmark test has been performed on 10x10 traps arrays which offer a highly symmetric configuration. See table \ref{algoperf}. For numeric values, please refer to the original publication. Here, we are interested in qualitative results only. The quality is expressed with a range of one to four stars. 
 
 \begin{table}
 \begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
@@ -533,20 +537,20 @@ GSW & $\star~\star~\star~\star$ & $\star~\star~\star~\star$ & $\star~\star~\star
 \caption{\label{algoperf}Algorithm performance according Di Leonardo} 
 \end{table}
 
-From those results, we can first observe that the first compromise is speed against performance. The Direct Search Algorithm (DS) is a kind of brute force algorithm. Its performance is remarkable but it is realistically too slow to be used in a real-time application. Only three of these algorithms are of special interest. The Random Mask (RM) is high in speed but its efficiency decreases very fast when used with more than three traps. The Random Superposition (SR) is a very good compromise between speed and performance. It can be used from the range 3 to 10 traps with a relatively good efficiency. Finally the Weighted Gerchberg-Saxton offers very good performance but requires more calculation time. 
+From these results, we can first observe that the first compromise is speed against performance. The Direct Search Algorithm (DS) is a kind of brute force algorithm. Its performance is remarkable but it is realistically too slow to be used in a real-time application. Only three of these algorithms are of special interest. The Random Mask (RM) is high in speed but its efficiency decreases rapidly when used with more than three traps. The Random Superposition (SR) is a very good compromise between speed and performance. It can be used from the range 3 to 10 traps with a relatively good efficiency. Finally the Weighted Gerchberg-Saxton offers very good performance but requires more calculation time. 
 
-Another important point briefly discussed at section \ref{twotrapssection} is the geometry of the traps configuration. When symmetry is low, the iterative algorithm obtains less ideal results. The figure \ref{symmetry} shows what we mean by trap symmetry. 
+Another important point briefly discussed at section \ref{twotrapssection} is the geometry of the traps configuration. When symmetry is low, the iterative algorithm obtains less than ideal results. Figure \ref{symmetry} shows what we mean by trap symmetry. 
 
 \fig{symmetry}{Symmetry pattern of traps}
 
-A study shows a comparison of typical efficiency obtained for symmetric and random configuration of traps. Figure \ref{symgraph1} shows that the different algorithms used gives almost the same performances when the traps shows a low symmetry \cite{CURTIS2005}. This study also shows that the convergence of iterative algorithms is strong for symmetric patterns and almost null for random patterns. When the efficiency is computed for N traps organised along a circle with different iterative and non-iterative algorithms, the standard deviation in the intensities is worse than when N is odd. 
+A study shows a comparison of typical efficiency obtained for symmetric and random configuration of traps. Figure \ref{symgraph1} shows that the different algorithms used gives almost the same performances when the traps shows a low symmetry \cite{CURTIS2005}. This study also shows that the convergence of iterative algorithms is strong for symmetric patterns and almost null for random patterns. When the efficiency is computed for N traps organized along a circle with different iterative and non-iterative algorithms, the standard deviation in the intensities is worse than when N is odd. 
 
 \fig{symgraph1}{Efficiency obtained for different algorithms in a symmetric and random configuration}
 
 \subsection{Random Mask}
-The random mask encoding technique (RM) is a direct and non-iterative algorithm efficient for a very small amount of optical traps. Because it is fast, it can be used to quickly generate some additional traps over an existing configuration \cite{USATEGUI2006}.
+The random mask encoding technique (RM) is a direct and non-iterative algorithm efficient for a very small amount of optical traps. As it is fast, it can be used to quickly generate some additional traps over an existing configuration \cite{USATEGUI2006}.
 
-For each pixel, we compute the corresponding phase value using (\ref{deltaeqn}) for the trap $m = \rm{rand}(M)$ where $M$ is the total number of traps. Figure \ref{rm} shows the principle of random composition. For better understanding, each pixel on this figure is drawn like a group of pixels. In reality, the final phase hologram looks more like a random noise. 
+For each pixel, we compute the corresponding phase value using (\ref{deltaeqn}) for the trap $m = \rm{rand}(M)$ where $M$ is the total number of traps. Figure \ref{rm} shows the principle of random composition. For a better understanding, each pixel on this figure is drawn like a group of pixels. In reality, the final phase hologram looks more like random noise. 
 
 \fig{rm}{Random mask encoding technique}
 
@@ -554,14 +558,14 @@ Apart from its speed, this technique gives remarkably good uniformity. However, 
 \begin{equation}
 \phi(x_j,y_j)=\Delta_{\rm{rand}(M)}(x_j,y_j)
 \end{equation}
-As this algorithm is not iterative and has no dependencies on others pixels values, it can be computed using a parallel computational unit such as a GPU. Section \ref{shader} shows an implementation of this algorithm using a pixel shader. This algorithm was also tested on Matlab and the source code can be found on the annexe \ref{rmsource}. 
+As this algorithm is not iterative and has no dependencies on other pixels values, it can be computed using a parallel computational unit such as a GPU. Section \ref{shader} shows an implementation of this algorithm using a pixel shader. This algorithm was also tested on Matlab and the source code can be found on the annexe \ref{rmsource}. 
 
 \subsection{Gratings and Lenses}
 The superposition of prisms and lenses algorithm (S) consist of a complex superposition of each individual trap hologram. This algorithm is non-iterative and offers the best compromise in terms of performances and efficiency. However, this method suffers from a poor uniformity. Moreover, in the case of high symmetrical configuration, a consistent part of the energy is diverted to unwanted ghost traps as showed on \ref{symgraph1} \cite{CURTIS2005}. 
 
 \fig{s}{Superposition of prisms and lenses}
 
-The figure \ref{s} shows an example of hologram composition for three traps. The third one is off-plane. The final form can be expressed as:
+Figure \ref{s} shows an example of hologram composition for three traps. The third one is off-plane. The final form can be expressed as:
 \begin{equation}
 \phi(x_j,y_j)=\arg\left[ \sum_{m=1}^M e^{i\Delta_m(x_j,y_j)}\right]
 \end{equation}
@@ -572,7 +576,7 @@ A slightly modified form of this algorithm can lead to a better compromise. By a
 \phi(x_j,y_j)=\arg\left[ \sum_{m=1}^M e^{i(\Delta_m(x_j,y_j)+\theta_m)}\right]
 \end{equation}
 
-This second form is called Random Superposition (SR). Just like the random mask algorithm, these two forms of the superposition method can easily be implemented using OpenGL, DirectX or a specific computing platform such as CUDA on a graphics processing unit. A GSL and Matlab implementation can be found on the annexe \ref{srsource}
+This second form is called Random Superposition (SR). Just like the random mask algorithm, these two forms of the superposition method can be easily implemented using OpenGL, DirectX or a specific computing platform such as CUDA on a graphics processing unit. A GSL and Matlab implementation can be found on the annexe \ref{srsource}
 
 \subsection{Gerchberg-Saxton}
 The original Gerchberg-Saxton algorithm (GS) was developed by the crystallographers Ralph Gerchberg and Owen Saxton to complete wave function from intensity recording in the image and diffraction planes. 
@@ -591,36 +595,42 @@ u_n^H=\sqrt{I_H}\exp\left(i\varphi_{n-1}^H\right)\hfil\varphi_n^T = \arg\left(FF
 u_n^T=\sqrt{I_T}\exp\left(i\varphi_n^T\right)\hfil\varphi_n^H = \arg{FFT^{-1}\left(u_n^T\right)}
 \end{equation}
 
-This algorithm can be generalised in three dimensions and simplified using the Fresnel diffraction instead of the Fourier. Moreover, this algorithm can be improved by adding an extra degree of freedom for each trap. This is referred to as the Weighted Gerchberg-Saxton Algorithm \cite{DILEONARDO2007}. 
+This algorithm can be generalized in three dimensions and simplified using the Fresnel diffraction instead of the Fourier. Moreover, this algorithm can be improved by adding an extra degree of freedom for each trap. This is referred to as the Weighted Gerchberg-Saxton Algorithm \cite{DILEONARDO2007}. 
 
+\clearpage
 \subsection{Weighted Gerchberg-Saxton}
-Conceived in 2010, this algorithm gives better uniformity and better quality of the traps than the original Gerchberg-Saxton algorithm. Furthermore, it is a generalised three dimensional algorithm using the Fresnel propagation to create off-plane traps. 
+Conceived in 2010, this algorithm gives better uniformity and better quality of the traps than the original Gerchberg-Saxton algorithm. Furthermore, it is a generalized three dimensional algorithm using the Fresnel propagation to create off-plane traps. 
 
 \fig{gsw2}{Flowchart of the Weighted Gerchberg-Saxton algorithm}
 
 This algorithm has been successfully implemented using CUDA on a NVidia GPU for 768x768 pixels hologram at \SI{20}{\hertz} \cite{BIANCHI2010}. 
 
+It is worth mentioning this algorithm doesn't converge with 2 traps.
+
+\section{Summary}
+\todo{add a little summary of the hologram generation}
+
 \clearpage
 \section{Spatial Light Modulator}
-A Spatial Light Modulator is an object working in reflective or transmissive mode, that imposes some form of spatially varying modulation on a beam of light. There are basically two kinds of SLM. The first kind modulates the intensity of the light beam and is usually used in video projectors. The second kind modulates the phase of the light.  
+A Spatial Light Modulator is an object working in reflective or transmissive mode that imposes some form of spatially varying modulation on a beam of light. There are basically two kinds of SLM. The first kind modulates the intensity of the light beam and is usually used in video projectors. The second kind modulates the phase of the light.  
 
 They can be electrically addressed (EASLM) such as Nematic Liquid Crystals Displays or optically addressed (OASLM). The latter also known as a light valve does not have any pixels and offers a better efficiency avoiding multiorder reflection due to the periodic grating of EASLM. J. Liesener from the university of Stuttgart showed an efficiency improvement by a factor of 6 by using a OASLM compared to an EASLM for an optical tweezers application \cite{LIESENER2000}. 
 
-For optical tweezers, spatial phase modulators are used. Liquid Crystal on Silicon, reflective SLM, is a cheap and mature technology used commercially in most video projectors. Nowadays a number of different models are commercially available such as Nonlinear Systems, Holoeye Photonics AG and Hamamatsu. 
+For optical tweezers, spatial phase modulators are used. Liquid Crystal on Silicon, reflective SLM, is a cheap and mature technology used commercially in most video projectors. Nowadays, a number of different models are commercially available such as Nonlinear Systems, Holoeye Photonics AG and Hamamatsu. 
 
-Another type of SLM uses ferroelectric liquid crystals. They are much faster (>\SI{10}{\kilo\hertz}) than nematic SLM which capped around \SI{50}{\hertz}. Ferroelectric SLM have only two phase levels, phase shift 0 and $\pi$ while LCoS offer typically 256 phase levels or more. This limits the choice of algorithms for the calculation of the hologram patterns \cite{ANDREWS2008}. 
+Another type of SLM uses ferroelectric liquid crystals. They are much faster (>\SI{10}{\kilo\hertz}) than a nematic SLM which capped around \SI{50}{\hertz}. Ferroelectric SLM have only two phase levels, phase shift 0 and $\pi$ while LCoS offer typically 256 phase levels or more. This limits the choice of algorithms for the calculation of the hologram patterns \cite{ANDREWS2008}. 
  
 \subsection{Parallel Nematic LCoS}
 \fig{LCoS}{Principle of operation of a nematic LCoS display}
-Liquids Crystals are commonly used to make electro-optic devices. They can be regarded as dielectric birefringence microscopic crystals with a cigar shape. When a steady or low frequency electric field is applied on liquid crystals (LC), the electric force exerts a torque on the molecules and they rotate towards the direction of the electric field. 
+Liquids Crystals are commonly used to make electro-optic devices. They can be regarded as dielectric birefringence microscopic crystals with a cigar shape. When a steady or low frequency electric field is applied on liquid crystals (LC), the electric force exerts torque on the molecules and they rotate towards the direction of the electric field. 
 
-Nematic is a phase topology where the LC molecules are randomly distributed as in a liquid but still maintain their long-range directional order. When placed between two parallel glass plates linearly rubbed, the LC will align themselves with the direction of the glass surface grooves. Figure \ref{nematic} shows two different possible phases of LC and the direction of the two index of refractions, ordinary $n_o$ and extraordinary $n_e$. 
+Nematic is a phase topology where the LC molecules are randomly distributed as in a liquid but still maintain their long-range directional order. When placed between two parallel glass plates linearly rubbed, the LC will align themselves with the direction of the glass surface grooves. Figure \ref{nematic} shows two possible different phases of LC and the direction of the two index of refractions, ordinary $n_o$ and extraordinary $n_e$. 
 
 \fig{nematic}{Schematic of alignment for (a) smectic phase, (b) nematic mesophase and (c) the birefringence axis for a single liquid crystal molecule}
 
-A pixel representation of a Parallel Nematic Liquid Crystal on Silicon is shown on figure \ref{LCoS}. We can see the LC in between the two surfaces, a front glass with transparent electric contacts in indium tin oxide (ITO). The back surface is a reflective aluminium coating added directly on the silicon substrate which contains the driving FET. We note that reflective LCoS are usually preferred rather than transmissive SLM because of the smaller thickness needed which the molecules only make a rotation of 45$^\circ$ due to the double pass of the light through the LC.
+A pixel representation of a Parallel Nematic Liquid Crystal on Silicon is shown on figure \ref{LCoS}. We can see the LC in between the two surfaces, and a front glass with transparent electric contacts in indium tin oxide (ITO). The back surface is a reflective aluminium coating added directly on the silicon substrate which contains the driving FET. We note that reflective LCoS are usually preferred rather than transmissive SLM because of the smaller thickness needed, which the molecules only make a rotation of 45$^\circ$ due to the double pass of the light through the LC.
 
-When an electric field is applied on between the front and back surfaces, we observe a rotation of the liquid crystal molecules. The angle is expressed as:
+When an electric field is applied between the front and back surfaces, we observe a rotation of the liquid crystal molecules. The angle is expressed as:
 \begin{equation}
 \theta = \left\{\begin{array}{lc}
 0 & V\leq V_c \\
@@ -628,7 +638,7 @@ When an electric field is applied on between the front and back surfaces, we obs
 \end{array}\right.
 \end{equation}
 
-Due to the birefringence, the position of the molecule will change the index of refraction. This result in a combination of the ordinary and extraordinary index of refraction as: 
+Due to the birefringence, the position of the molecule will change the index of refraction. This results in a combination of the ordinary and extraordinary index of refraction, expressed as: 
 \begin{equation}
 \frac{1}{n^2(\theta)}=\frac{\cos^2\theta}{n_c^2}+\frac{\sin^2\theta}{n_o^2}
 \end{equation}
@@ -638,30 +648,32 @@ The final phase delay depends on the thickness of the liquid crystal layer $d$, 
 \phi=\frac{2\pi n(\theta)d}{\lambda}
 \end{equation}
 
-A typical thickness is $d=\SI{10}{\um}$ and the refractive index difference is typically $\Delta n=n_e-n_o=0.2$ \cite{SALEHTEICH}. We can observe on figure \ref{slmcurves} that a liquid crystal display has a nonlinear response. A calibration is therefore needed using a digital lookup table and with adjusting the gain and offset of the global voltage power supply. Practically, this voltage is set to get a phase shift slightly above $2\pi$.
+A typical thickness is $d=\SI{10}{\um}$ and the refractive index difference is typically $\Delta n=n_e-n_o=0.2$ \cite{SALEHTEICH}. We can observe from figure \ref{slmcurves} that a liquid crystal display has a nonlinear response. Therefore, a calibration is needed using a digital lookup table and by adjusting the gain and offset of the global voltage power supply. To be practical, this voltage is set to obtain a phase shift slightly above $2\pi$.
 
-\figc{slmcurves}{Parallal Nematic LCoS response curves}{Parallel Nematic LCoS response. The plot in (a) shows the rotation of the liquid crystal molecules when an electric field is applied between the two electrics contacts. The second plot in (b) shows the total phase shift relative to the electric field applied}
+\figc{slmcurves}{Parallal Nematic LCoS response curves}{Parallel Nematic LCoS response. The plot in (a) shows the rotation of the liquid crystal molecules when an electric field is applied between the two electric contacts. The second plot in (b) shows the total phase shift relative to the electric field applied.}
 
-In addition, an LCoS display cannot be driven with a DC voltage because it will cause a permanent rotation of the liquid crystal molecules. Most of the SLM doesn't control each pixel with an analog voltage due to the driving complexity. Typically, two references voltages can be chosen $V_{bright}$ and $V_{dark}$ which are two binary values that can be applied on each pixel. An addressing sequence modulates each pixel to get different phase levels. Because of bandwidth considerations, the refresh time is limited and a compromise has to be taken between the amount of phase levels and the refreshing rate.
+In addition, a LCoS display cannot be driven with a DC voltage because it will cause a permanent rotation of the liquid crystal molecules. Most of the SLM does not control each pixel with an analog voltage due to the driving complexity. Typically, two references voltages can be chosen $V_{bright}$ and $V_{dark}$ which are two binary values that can be applied on each pixel. An addressing sequence modulates each pixel to obtain different phase levels. Because of bandwidth considerations, the refresh time is limited and a compromise has to be made between the number of phase levels and the refreshing rate.
 
 \subsection{Digitalization}
-Hologram generation with LCoS microdisplays are digitalized in two ways. First, there is a spatial digitalization due to the discrete pixel structure and second, the phase digitalization. The number of phase level is a compromise with the refreshing rate. However, practically we observe the number of phase levels is not critical. Figure \ref{levels} shows the reconstruction of Lena with a quantitated phase. 
+Hologram generation with LCoS microdisplays are digitalized in two ways. Firstly, there is a spatial digitalization due to the discrete pixel structure and secondly, the phase digitalization. The number of phase level is a compromise with the refreshing rate. However, we have observed that the number of phase levels is not critical. Figure \ref{levels} shows the reconstruction of Lena with a quantitated phase. 
 
 \fig{levels}{Inverse Fourier transform for amplitude + phase and phase only hologram with a quantitated phase in 256, 64, 8 and 2 distinct levels}
 
 The fill factor is the ratio between the physical sizes of a pixel with its active area. The dead zones will act as a Bragg diffraction array and generate multi orders. A significant part of the reflected power will be lost in these high orders. Furthermore, the dead zone is still partially reflective and they contribute to a zeroth order spot on the image plane. 
 
 \subsection{Planarity}
-As observed with many commercial reflective SLMs, the planarity isn't perfect and shows a small quadratic phase aberration which can be measured with a Michelson interferometer as shown figure \ref{aberation} \cite{JESACHER2007}. 
+As observed with many commercial reflective SLMs, the planarity isn't perfect and shows a small quadratic phase aberration which can be measured with a Michelson interferometer as shown on figure \ref{aberation} \cite{JESACHER2007}. 
 
-\fig{aberation}{Michelson interferometer for measuring SLM surface curvature inspired from A. Jesacher's setup}
+\fig{aberation}{Michelson interferometer for measuring SLM surface curvature inspired by A. Jesacher's setup}
+
+Because most of the aberration is a quadratic phase, it can be easily cancelled by slightly adjusting the distance of the SLM from the Fourier lens because Free-space propagation also induces a quadratic phase. If the aberration is too strong, a Fresnel zone-plate can be superposed to the hologram. 
 
 \subsection{Pluto Holoeye}
-Holoeye markets a phase light modulator in two versions. One for near infrared optimized for \SI{800}{\nano\metre} and the other for the visible range. Figure \ref{pluto} shows the SLM unit. SMART bought two Pluto SLMs. One for the near infrared referred as Pluto-NIR, and the other for visible light (Pluto-VIS). The difference of these two devices is the reflection enhancer coating on the top of the aluminium layer. 
+Holoeye markets a phase light modulator in two versions. One for near infrared optimized for \SI{800}{\nano\metre} and the other for the visible range. Figure \ref{pluto} shows the SLM unit. SMART has purchased two Pluto SLMs. One for the near infrared referred as Pluto-NIR, and the other for visible light (Pluto-VIS). The difference of these two devices is the reflection enhancer coating on the top of the aluminium layer. 
 
 \fig{pluto}{Overview of an PLUTO Phase SLM from Holoeye AG}
 
-The main unit provide a DVI interface which is seen as a secondary monitor. A serial interface allows configuring the main driving voltages and the lookup-table. Table \ref{plutospec} shows the main specifications of this device.
+The main unit provides a DVI interface which is seen as a secondary monitor. A serial interface allows for configuration of the main driving voltages and the lookup-table. Table \ref{plutospec} shows the main specifications of this device.
    
 \begin{table}
 \begin{center} % @{}  X @{}
@@ -677,13 +689,15 @@ The main unit provide a DVI interface which is seen as a secondary monitor. A se
 \caption{Holoeye Pluto technical specifications \label{plutospec}}
 \end{table}
 
-Because the active display is not a square, the entire display surface cannot be used for an optical tweezers application. As mentioned, the back aperture of the objective has to be fulfilled with the incoming light. Because this aperture is also conjugated with the SLM plane, the active surface is a circle. Moreover, the active region of the SLM is surrounded with a reflective passive region which can induce artefacts on the image plane resulting in a strong zero-order spot. Figure \ref{slmill} shows a good and a bad illumination. An iris can be used for instance before the SLM to adjust the spot size. A telescope placed after the device allows matching the illumination with the back aperture of the objective. 
+\subsection{Illumination considerations}
+Due to the fact that the active display is not a square, the entire display surface cannot be used for an optical tweezers application. As mentioned previously, the back aperture of the objective has to be fulfilled with the incoming light. Because this aperture is also conjugated with the SLM plane, the active surface is a circle. Moreover, the active region of the SLM is surrounded with a reflective passive region which can induce artefacts on the image plane resulting in a strong zero-order spot. Figure \ref{slmill} shows a strong and poor illumination. For instance, an iris can be used before the SLM to adjust the spot size. A telescope placed after the device allows for matching of the illumination with the back aperture of the objective. 
 
 \fig{slmill}{The Pluto display and its active and passive regions}. 
 
-Holoeye Pluto is characterised by its digital addressing scheme. The phase level is created by pulse code modulation. The limited viscosity of the liquid crystal molecules allows them to follow each pulse modulation as a fraction. The molecules will flicker around an average value around the desired phase level. In order to reduce this flicker, Holoeye provide different addressing sequences gathered in table \ref{sequences}. 
+\subsection{Digital Addressing}
+Holoeye Pluto is characterized by its digital addressing scheme. The phase level is created by pulse code modulation. The limited viscosity of the liquid crystal molecules allows them to follow each pulse modulation as a fraction. The molecules will flicker around an average value around the desired phase level. In order to reduce this flicker, Holoeye provides different addressing sequences as gathered in table \ref{sequences}. 
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
 \begin{tabularx}{\textwidth}{|X|c|c|c|c|} \hline
 \textbf{Sequence} & \textbf{Equation} & \textbf{LUT values} & \textbf{Phase levels} & \textbf{Frequency} \\ \hline\hline
@@ -695,10 +709,14 @@ Holoeye Pluto is characterised by its digital addressing scheme. The phase level
 \caption{Sequences scheme\label{sequences}}
 \end{table}
 
-Each sequence lead to different LUT values which correspond to the number of gray level available. Since the addressing depth is only 8-bits, a maximum of 256 phase level can be obtained. 
-Figure \ref{flickr} shows the flicker occurred for the different addressing schemes \cite{HOLO2010}.  
+Each sequence leads to different LUT values which correspond to the number of gray levels available. Since the addressing depth is only 8-bits, a maximum of 256 phase levels can be obtained. 
+Figure \ref{flickr} shows the flicker which occurred for the different addressing schemes \cite{HOLO2010}.  
 
 \fig{flickr}{Flickr for different addressing scheme}
+
+\clearpage
+\section{Summary}
+\todo{what is a good slm, the parameters (fill factor), OASLM, global efficiency}
 
 \chapter{VHIS}
 \section{Background}
@@ -710,82 +728,87 @@ Figure \ref{flickr} shows the flicker occurred for the different addressing sche
 \clearpage
 
 \section{Original optical setup}
-\fig{vhsetup}{volume hologram setup currently in use at SMART}
+\fig{vhsetup}{Volume hologram setup currently in use at SMART}
 \clearpage
 
 \chapter{Micro fabrication}
+\todo{Chen Zhi ne pense pas que ce chapitre devrait etre un chapitre a part entière. Mais même si on a passé du temps sur ce projet il pense que c'est pas un chapitre, c'est trop important. Dans ce rapport je devrais}
+
 \section{Background}
 \maraja{The requirement of micro-tools}
-Optical tweezers can accurately manipulate transparent objects at micrometers scale. Biological samples are most of the time inappropriate for optical trapping due to their shape or their light absorption. Therefore, micro silica or polystyrene beads are commonly used as micro-tools. They are first attached to the biological object, and then they behave like handles. This technique is widely used to unwind DNA double-helix, stretch cells or manipulate them on a same optical plane. 
+Optical tweezers can accurately manipulate transparent objects at micrometers scale. Biological samples are most of the time inappropriate for optical trapping due to their shape or their light absorption. Therefore, micro silica or polystyrene beads are commonly used as micro-tools. They are first attached to the biological object, then they behave like handles. This technique is widely used to unwind DNA double-helix, stretch cells or manipulate them on a same optical plane. 
 
-\maraja{Nowadays a limited approch}
-The potential of approach is however limited, especially for rotating the sample around an axis perpendicular to the imaging direction. This requires two optical traps on the top of each other which cause instabilities. Figure \ref{twotraps} illustrate two configuration of optical rotation. A schematized cell is attached to two beads. The bottom trap is made from a light which has been altered while passing by the cell and the top bead (b). This trap is consequently unstable. However, in the second configuration (a), the rotation along an axis parallel to the imaging direction is not a problem, the two trap doesn't infer with the sample or with each other. 
+\maraja{A limited approach nowadays}
+However, this approach is limited, especially for the rotation of  the sample around an axis perpendicular to the imaging direction. This requires two optical traps on top of each other which cause instabilities. Figure \ref{twotraps} illustrates two configurations of optical rotation. A schematized cell is attached to two beads. The bottom trap is made from a light which has been altered while passing by the cell and the top bead (b). As a result, this trap is unstable. However, in the second configuration (a), the rotation along an axis parallel to the imaging direction is not a problem as the two traps do not interfere with the sample or with each other. 
 
 \fig{twotraps}{}
 
 \maraja{A custom tool}
-The use of a custom tool that can put at a safe distance from the cell the trapping light may offer certain advantages. First, the cell is not exposed to a potential fatal overhead and second, a more complex micro-tool offer more freedom for the manipulation of the sample.  
+The use of a custom tool that can put the cell at a safe distance from the trapping light may offer certain advantages. Firstly, the cell is not exposed to a potential fatal overhead and secondly, a more complex micro-tool offers more freedom for manipulation of the sample.  
 
 \maraja{Micro-fabrication}
-The last decade has witnessed rapid progress in micro fabrication processes. Precision of nanometric three-dimensional stages, femto second lasers and 3D design software have expanded considerably over recent years. A technique called Two-Photon Photopolymerization can polymerize a photosensitive material providing a resolution down to \SI{100}{\nm} \cite{CHICHKOV2008}. Figure \ref{2pp} presents some micro structures that can be made. 
+The last decade has witnessed rapid progress in micro fabrication processes. Precision of nanometric three-dimensional stages, femto second lasers and 3D design software have expanded considerably over recent years. A technique known as Two-Photon Photopolymerization can polymerize a photosensitive material providing a resolution as low as \SI{100}{\nm} \cite{CHICHKOV2008}. Figure \ref{2pp} presents some micro structures that can be made. 
 
 \fig{2pp}{Two-photon photopolymerization lithography examples}
 
-Various publications showed great applications of micro lithography. Micro rotors for liquid viscosity measurement has already been made in combination with optical tweezers \cite{GALAJDA2001}\cite{ASAVEI2009}. Such performances are a good sign that micro tools can be designed in this project. Figure \ref{paddle}, shows for instance a rotor hold and powered with optical trapping. 
+Various publications showed great applications of micro lithography. Micro rotors for liquid viscosity measurement has already been made in combination with optical tweezers \cite{GALAJDA2001}\cite{ASAVEI2009}. Such performances are a good indicator that micro tools can be designed in this project. For instance, figure \ref{paddle}, shows a rotor hold powered with optical trapping. 
 
 \maraja{Nanoscribe AG}
-It is worth exploring this technique in the context of this project. A micro-structure may be designed to hold the biological sample and rotate it for tomography. Several commercial systems exists and offer a much better resolution that needed. Nanoscribe, a german company offer its direct laser writing technology that can be used for making photonic crystals, microfluidic channels or diffractive optics components. Fribourg Swiss University or ETH Zürich are mentioned for using a Nanoscribe laser lithography systems on the reference page of Nanoscribe webpage. 
+It is worth exploring this technique within the context of this project. A micro-structure may be designed to hold the biological sample and rotate it for tomography. Several commercial systems exist and offer a much better resolution than needed. Nanoscribe, a German company is offering its direct laser writing technology that can be used for making photonic crystals, microfluidic channels or diffractive optics components. Fribourg Swiss University or ETH Zürich has been mentioned for using a Nanoscribe laser lithography system on the reference page of Nanoscribe's webpage. 
 
-A research group at NUS is also developing their own 2PP system. At the time this report is written, they are testing their new system and can offer their help in this project. 
+A research group at NUS is also developing their own 2PP system. They are currently testing their new system as this report is being written and will be able to offer their help for this project. 
 
-\section{Two-photons photopolymerization}
-Two-photon polymerization (2PP) is a direct laser writing technique which allows creating three-dimensional structures by using femtosecond laser with a photosensitive material. This material is usually transparent in the visible range. When tightly focussed, a short laser pulse cans initiate the polymerization process of the liquid resin. 
+\section{Two-photon photopolymerization}
+Two-photon polymerization (2PP) is a direct laser writing technique which allows for the creation of three-dimensional structures by using femtosecond laser with a photosensitive material. This material is usually transparent in the visible range. When tightly focussed, a short laser pulse can initiate the polymerization process of the liquid resin. 
 
 \maraja{Two-photon absorption}
-Two-photon absorption (TPA) was predicted in 1931 by Maria Göppert-Meyer thirty years prior to the first experimental observation. Described as a nonlinear optical process, TPA is the simultaneous absorption of two photons by a molecule which is put in a higher energy state. This absorption leads to photo dissociation, a break of a molecular bound. Because this process is non-linear, its probability to happen becomes significant only with high laser power. 
+Two-photon absorption (TPA) was predicted in 1931 by Maria Göppert-Meyer thirty years prior to the first experimental observation. Described as a nonlinear optical process, TPA is the simultaneous absorption of two photons by a molecule which is placed in a higher energy state. This absorption leads to photo dissociation, a break of a molecular bond. As this process is non-linear, its probability of happening becomes significant only with high laser power. 
 
 \maraja{Curing the resin}
-The photosensitive resin is highly transparent in the near infrared range while it is absorptive in the UV range. Therefore, UV light cannot penetrate the resin and will be absorbed at the surface. In this case we talk about one-photon absorption. With infrared laser light, the beam will pass through the resin without absorption unless the density of power is high enough to initiate TPA. Figure \ref{2pa1pa} shows the single-photon absorption with UV light that occurs at the surface (a) and the two-photon absorption with near-infrared laser. The achievable resolution is better in the plane x-y because of the diffraction limited theory. Therefore, a volume pixel (voxel) which as an ellipsoid shape is the basic unit structure. 
+The photosensitive resin is highly transparent in the near infrared range while it is absorptive in the UV range. Therefore, UV light cannot penetrate the resin and will be absorbed at the surface. In this case, we will discuss about one-photon absorption. With infrared laser light, the beam will pass through the resin without absorption unless the density of power is high enough to initiate TPA. Figure \ref{2pa1pa} shows the single-photon absorption with UV light that occurs at the surface (a) and the two-photon absorption with near-infrared laser. The achievable resolution is better in the x-y plane because of the diffraction limited theory. Therefore, a volume pixel (voxel) which is an ellipsoid shape is the basic unit structure. 
 
-\fig{2pa1pa}{Photosensitive material processing with single-photon absorption and two-photon photopolymerization allowing curing the resin in three-dimensions}
+\fig{2pa1pa}{Photosensitive material processing with single-photon absorption and two-photon photopolymerization allows the resin to be cured in three dimensions}
 
 \maraja{SU-8}
-The most often the photosensitive material is SU-8, a negative epoxy-type patented by IBM in 1989. After curing, the resin has to be developed usually with acetone or propylene glycol methyl ether acetate. After all, the result is a transparent object with a refractive index of 1.5 which is perfectly suitable for optical trapping.
+The most common photosensitive material is SU-8, a negative epoxy-type patented by IBM in 1989. After curing, the resin has to be developed typically with acetone or propylene glycol methyl ether acetate. Eventually, the result is a transparent object with a refractive index of 1.5 which is perfectly suitable for optical trapping.
 
 \section{Microstructures}
-When we realized manufacturing a custom micro tool was a relevant option for this project, Alexander Legant from Nanoscribe AG was contacted. He gave us two contacts based in Switzerland: Jakub Haberko from the physic department at Fribourg University and David Borer from ETH Zürich. We proposed collaboration on this project but they admit working with the Nanoscribe system is not a straightforward operation. Time is needed to get it working as desired. 
+Upon realizing that the option of manufacturing a custom micro tool was possible for this project, Alexander Legant from Nanoscribe AG was contacted. He gave us two contacts in Switzerland: Jakub Haberko from the physics department at Fribourg University and David Borer from ETH Zürich (ETHZ). We proposed collaboration on this project but they informed that working with the Nanoscribe system is not a straightforward operationand time is an essential component in getting the system to work as desired. 
 
-A possible short stay in ETHZ was discussed but the risk of getting nothing in the end was not taken. Later, we have been in contact with Andrew Anthony Bettiol from the department of physics at NUS. At that time, the opportunity of making a microstructure within this project was envisaged. 
+The possibility of a short stay in ETHZ was discussed but the risk of obtaining non-satisfactory results within the short time period was too high to take. We later made contact with Andrew Anthony Bettiol from the department of physics at NUS. At this time, the opportunity of making a microstructure for the project was envisaged. 
 
-Two structures were proposed. One intended to work in two dimensions and another requiring off-plane trap. For both of them spheres of \SI{10}{\um} interconnected with rods were imagined. That said the possible issues were discussed. 
+Two structures were consecutively proposed. One is intended to work in two dimensions and the other would require an off-plane trap. For both of these structures, spheres of \SI{10}{\um} interconnected with rods were imagined. The possible challenges that may arise were discussed as well. 
 
 \maraja{Cells adhesion}
-First of all, the attachment point with the biological sample. As a hydrophobic material, the cell adhesion property of SU-8 is limited due to a high degree of nonspecific adsorption of biomolecules. Therefore, it does not mean that it could not work at all for an experimental setup. Sarah L. Tao and co-workers from University of California succeed to enhance the bio functionality of SU-8 by grafting polyethylene glycol (PEG) on the surface \cite{TAO2008}. Other photoresist such as IP-G or IP-L \cite{NANOSCRIBE} may be used but no information was found regarding their bio functionality. The shape of the attachment head was also discussed. It would appear according to Shi Hui from SMART-Bio SyM that a flat surface may be enough to stick the sample on. 
+First of all, we will discuss the attachment point with the biological sample. As a hydrophobic material, the cell adhesion property of SU-8 is limited due to a high degree of nonspecific adsorption of biomolecules. Therefore, it means a small chance of success for an experimental setup. Sarah L. Tao and her co-workers from the University of California succeeded in enhancing the bio functionality of SU-8 by grafting polyethylene glycol (PEG) on the surface \cite{TAO2008}. Other photoresists such as IP-G or IP-L \cite{NANOSCRIBE} may be used but no information could be obtained with regards to their bio functionality. The shape of the attachment head was also discussed. According to Shi Hui from SMART-BioSyM, it would appear that a flat surface may be adequate to stick the sample on. 
 
 \maraja{A needle in a haystack}
-Considering all the manufacturing process including development and cleaning, the microstructure will be immerged in several liquids. If it's attachment to the substrate is too weak, the structure would be lost and better to look for a needle in a haystack with a microscope. However, is the attachment is too strong; it might be not possible of separating it without breaking the whole structure? Perhaps, a manual operation with a needle made under microscope is another option. 
+Considering all the manufacturing processes including development and cleaning, the microstructure will be submerged in several types of liquids. If the attachment to the substrate is too weak, the structure would be lost  \emph{i.e.} as useful as looking for a needle in a haystack with a microscope. However, would separation be possible without breaking the entire structure if the attachment is too strong?Perhaps, a manual operation with a needle made under a microscope is another option. 
 
-It is important to note that at one point, the solution containing the cells has to be placed with the structure. Again, from a microscopic point of view, an important quantity of liquid will flood the micro-structure, still attached to its substrate. 
+It is important to note that at one point, the solution containing the cells has to be placed with the structure. Again, from a microscopic point of view, a significant quantity of liquid will flood the micro-structure which will still be attached to its substrate. 
 
-The best option is to manufacture a certain quantity of structure that can be eventually consider as a colloidal solution. 
+The best option is to manufacture a certain quantity of structure that can be eventually be considered as a colloidal solution. 
 
-\fig{microfab}{Two microstructures designed}
-\maraja{The two structures proposed}
-Figure \ref{microfab} illustrates the two microstructure designed. Both of them offer a flat surface for a better cell adhesion. The spherical parts are intended to be optically trapped. For the first structure (a), three traps ensure the mechanical stability of the structure. The spheres 1 and 2 are held in static traps while the sphere 3 can be moved along the structure with a three-dimensional trap which allows controlling the rotation of the sample. The second structure (b), require also two static traps. The twisted road in between has an elliptical shape. A third trap that is moved along will generate a torque that will rotate the sample. Although this second structure may be more difficult to manufacture, it does not require an off-plane trap that can be easily achived only with HOT. An illustration of the traps configuration is given on figure \ref{microfab2}.
+\fig{microfab}{Design of two microstructures }
+\maraja{Proposition of two structures}
+Figure \ref{microfab} illustrates the design of two microstructures. Both of them offer a flat surface for a better cell adhesion. The spherical parts are intended to be optically trapped. For the first structure (a), three traps ensure the mechanical stability of the structure. Spheres 1 and 2 are held in static traps while sphere 3 can be moved along the structure with a three-dimensional trap which allows for controlling of the rotation of the sample. The second structure (b), also requires two static traps. The twisted path in between has an elliptical shape. A third trap that is moved along will generate a torque that will rotate the sample. Although this second structure may be more challenging to manufacture, it does not require an off-plane trap that can be easily achieved only with HOT. An illustration of the traps configuration is given in figure \ref{microfab2}.
 
 \fig{microfab2}{}
 
-\maraja{Bad news}
-Regrettably, we were unable to investigate further this option during within this project. The new 2PP setup installed at NUS needs more tests. 
+\section{Further investigations}
+\maraja{Obstacle}
+Regrettably, we were unable to investigate further with this option for the project as the new 2PP setup installed at NUS currently requires more testing. 
+
+\todo{Add a todo list for what we need to do with this microfab}
 
 \chapter{Experiments}
 \section{Optical trapping of a single particle}
 \subsection{Preliminary considerations}
-In this first experiment, the goal was to build a basic optical trapping setup and achieve optical trapping of micro silica spheres. Because no microscope was available for this project, we decided to make our own setup. The general design was inspired from the Optical Trap Kit from Thorlabs Company. 
+In this first experiment, the goal was to build a basic optical trapping setup and achieve optical trapping of micro silica spheres. As no microscope was available for this project, we decided to design our own setup. The general design was inspired by the Optical Trap Kit from Thorlabs, Inc. 
 
-A close attention was paid to the upward direction of the setup. Considering the gravity, the buoyancy and the size of the sample, it can be shown the particles will sink and accumulate on the bottom slit. If we consider a \SI{10}{\um} silicon dioxide sphere with a density of \SI{2648}{\kg\per\cm^3}. The buoyancy force is given by the medium density $\rho$ and the volume of the particle $V$ and the gravitational force $g$. Taking water as the surrounding medium, its density is twice lower \SI{1000}{\kg\per\cm^3}.
+Close attention was paid to the upward direction of the setup. Taking into consideration the gravity, buoyancy and the size of the sample, it can be deduced the particles will sink and accumulate on the bottom slit if we consider a \SI{10}{\um} silicon dioxide sphere with a density of \SI{2648}{\kg\per\cm^3}. The buoyancy force is given by the medium density $\rho$ , the volume of the particle $V$ and the gravitational force $g$. Taking water as the surrounding medium, its density is two times lower: \SI{1000}{\kg\per\cm^3}.
 
-Optical tweezers needs a high NA objective. We bought an UPLSAPO 100x objective from Olympus. Its specifications are shown in table \ref{objspecs}. The working distance is the distance between the front lens to the cover slit. The cover slit thickness is also given by the manufacturer. The field-of-view number also called field number is the diameter of the view field at the intermediate focal plane. Thus, the field size at the image plane is the field number divided by the magnification. 
+Optical tweezers need a high NA objective. We bought an UPLSAPO 100x objective from Olympus. Its specifications are shown in table \ref{objspecs}. The working distance is the distance between the front lens to the cover slit. The cover slit thickness is also given by the manufacturer. The field-of-view number also called the field number is the diameter of the view field at the intermediate focal plane. Thus, the field size at the image plane is the field number divided by the magnification. 
 
 \begin{table}
 \begin{center}
@@ -804,51 +827,155 @@ Optical tweezers needs a high NA objective. We bought an UPLSAPO 100x objective 
 \end{center}
 \end{table}
 
-\todo{mechanical tube length\ldots}
-
-The samples used are silica and Polystyrene (density of \SI{1050}{\kg\per\cm^3}) previously bought by BioSyM. Different spheres sizes were chosen, their properties are shown on table \ref{tablespheres}. 
+The samples used are polystyrene (density of \SI{1050}{\kg\per\cm^3}) spheres as previously bought by Lang's group at BioSyM. Different spheres sizes were chosen and their properties are shown in table \ref{tablespheres}. 
 
 \begin{table}
 \begin{center}
-\begin{tabular}{|l|c|} \hline
-	\textbf{Parameter} & \textbf{Value} \\ \hline \hline
+\begin{tabular}{|l|c|c|c|c|} \hline
+\textbf{Manufacturer} & \textbf{Reference} & \textbf{Material} & \textbf{Size} & $\mathbf{\sigma}$ \\ \hline\hline
+Polysciences, Inc & 07312 & Polystytene & \SI{5.883}{\um} & \SI{0.283}{\um} \\ \hline 
+Polysciences, Inc & 17133 & Polystytene & \SI{1.53}{\um} & \SI{0.035}{\um} \\ \hline 
+Polysciences, Inc & 17136 & Polystytene & \SI{9.97}{\um} & \SI{0.412}{\um} \\ \hline
 \end{tabular}
 \caption{\label{tablespheres}Micro-spheres used in this project}
 \end{center}
 \end{table}
 
-Initialy unsuitable optical parts were assembled but the mechanical stability was not good enough to trap anything. Thorlabs cage system together with a rigid damped pole was chosen to build a new setup. 
+Initially, unsuitable optical parts were assembled and the mechanical stability was not adequate to trap anything. Thorlabs cage system together with a rigid damped pole was chosen to build a new setup. 
 
 For this experiment, a \SI{488}{\nm} Sapphire SF laser from Coherent was used. It offers a maximum power of \SI{100}{\milli\watt} which is more than enough for one optical trap.
  
 \subsection{Setup}
-Once the Thorlabs parts were received, the new setup was build. Figure \ref{setup1} shows the optical diagram used. 
+Once the Thorlabs parts were received, the new setup was built. Figure \ref{setup1} shows the optical diagram used. 
 
-\fig{setup1}{Basic optical setup}
+\fig{setup1}{Basic optical setup for simple trapping}
+
+The cyan laser is first expanded to overfil the back aperture of the objective. A steering mirror allows to move the trap formed on the image place. We used first a dichroic filter (DF) to reflect the laser and transmit the image only in order to avoid saturating the camera with the trapping light. Unfortunately. we realized it is important to see the laser a little bit to align the system. The filter used was too perfect no spot could be seen on the camera. Thus, we replaced the DF with a beam splitter which induce power losses of 50\%. By adding a temporarely ND filter on the laser path, it was possible to see both, the image and the trap on the camera plane. 
+
+The camera used is a Allied Manta GE-1650. It offers a resolution of 1600(H)1200(V) pixels at 32 images per second. Its pixels has a size of 7.3x\SI{7.3}{\um}. The sensor is smaller than the field size at the intermediate image plane. With a diagonal of 11.5x\SI{8.7}{\mm} = \SI{14.5}{\mm}, only the center part of the field is keep. We didn't find a tube lens from Olympus matching our objective lens. Usually a matched tube lens reduce spherical aberations. Instead we used a \SI{200}{\mm} bi-convex tube lens. 
+
+In a infinity-corrected microscope (ICS) the distance between the objective and the tube lens is afocal because both the objective and the tube lens works at their focal point. However, this distance called tube length become important for the objective that are not infinity corrected. Note that a Möbius strip symbol is usually written on infinity corrected objectives. In a ICS configuration, the total magnification is given by the ratio of the focal lengths of the tube lens and the objective lens. Tube length varies between 160 and \SI{250}{\mm} depending of the microscope model.
+
+For this experiment, we don't have acces neither to the tube lens or the objective focal length value. We admit an arbitrary length of \SI{200}{\mm}. 
+
+The light source is provided by a SteREO CL1500 ECO from Zeiss. It is a \SI{150}{\watt} halogen lamp with a flexible light guide. A mechanical adapter was made to attach the collimating lens with the Thorlabs \SI{30}{\mm} cage system. This part is described on the appendice part \ref{partlight}. 
 
 \subsection{Alignment}
-%\fig{exptw}{Trap on focus at the image plane, objective 100x NA 1.4 oil immersion}
-%\fig{exp1align}{(a), (b)}
+To align the system, a negative 1951 USAF test target from Thorlabs was used. It was placed on the three-axis stage with oil immersion. The steering mirror was adjusted to center the trap. Unfortunately, with the propagation and the spherical aberation of the differents optical elements, the trap was not in focus with the target. Because we couldn't adjust manually the beam expander which belongs to another optical setup, we added a second telescope that shrink the beam. It was actually a good move because the initial beam was too large and most of the power was cut by the aperture of the objective. By adjusting slighlty the second lens of the second telescope, the laser trap was perfectly collimated. 
+\fig{exp1align}{First alignment with a 1951 USAF test target. (a) The laser is out of focus and (b) in focus}
+
+Note the target is chrominium coated. Its surface acts as a mirror and the laser beam is reflected to the camera. The figure \ref{exp1align} shows the target and the laser (a) out of focus and (b) in focus. A neutral density filter of density 2.5 was used to reduce the laser power. The focus point is very sensitive and if the telescope is misaligned, no laser can be seen on the target. Also, it's important to focus the laser on a reflective part and close to a structural element because the stage is not perfectly normal to the imaging axis. 
+
+\subsection{Resolution and magnification}
+The last element (6) from the last group (7) was sucessfully imaged. It offer a resolution of: 
+\begin{equation}
+R = 2^{\rm{group}+(\rm{element}-1)/6} = 2^{7+(6-1/6)} = \SI{228}{periods\per\mm}
+\end{equation}
+
+Each line has a width of 1/2R = \SI{2.19}{\um}. The block composed of three lines and two spaces presents a width of \SI{10.9}{\um}. The figure \ref{exptw2} shows the last group on focus. Ca can see the laser spot in the middle and two parasitic spots due to the internal reflection inside the beam splitter. 
+
+The theoritical resolution is given by:
+\begin{equation}
+R_{th} = \frac{\lambda}{2NA} = \frac{\SI{500}{\nm}}{2\cdot1.4} \approx \SI{180}{\nm}
+\end{equation}
+
+We have measured at the edge of a line a transition of 5 pixels from 10\% to 90\% which correspond to a physical resolution of about \SI{200}{\nm}. The laser spot has FWHM diameter of 18 pixels which correspond to \SI{0.8}{\um}. 
+
+\fig{exptw2}{Trap on focus at the image plane, objective 100x NA 1.4 oil immersion}
+
+The total magnification needs to take in account the pixels size, the number of pixels per block and the block size. 
+\begin{equation}
+M_{ph}=\frac{\rm{pixel_{\rm{size}}}\cdot\rm{N}_{\rm{pixels}}}{\rm{pattern_{\rm{width}}}}=
+\frac{\SI{7.3}{\um}\cdot172}{\SI{10.9}{\um}} \approx{115}
+\end{equation}
+
+We note that the theoritical magnification should be 100x as written on the objective. The reason why we couldn't reach this value is because we didn't use a the tube lens. 
+
+\todo{contact olympus}
 
 \subsection{Sample preparation}
-\subsection{Protocol}
-\begin{itemize}
-\item First step.
-\end{itemize}
-\subsection{Making a slide}
+A the first attempt, we droped \SI{100}{\micro\liter} of a diluted solution containing \SI{10}{\um} beads on a microscope slice. We covered it with a \SI{0.17}{\mm} glass cover slit. With this, we were not able to trap any spheres probably because the space between the slit and the cover slit was too small and the spheres were entrapped in between. 
+
+For the second attempt, we use a silicon ring spacer of thickness \SI{0.8}{\mm} and a circular cover slit. \SI{300}{\micro\liter} were put on the slice. 
+ 
+\todo{mesurer l'épaisseur du cover slit et du ring caouchouc}
+\todo{montrer photo et dessin de la préparation}
+
+\subsection{Trapping}
+With the new sample, we were able to trap and move the spheres by moving the stage or moving the steering mirror. Figure \ref{exp1trapped} illustrate some snapshots from the first trapping video. 
+\fig{exp1trapped}{First trapping attempt}
+
+The power at the objective was mesured at \SI{3.4}{\milli\watt} for a nominal output of \SI{10}{\milli\watt}. The global efficiency was therefore measured as: 
+\begin{equation}
+\eta_{tot}= \frac{P_{trap}}{P_{laser}} = \frac{\SI{3.46}{\milli\watt}}{\SI{10}{\milli\watt}}\approx35\%
+\end{equation}
+
+Not that most of the power is lost at the beam-splitter. Each lens we used offers a nominal efficiency of about 90\% and the mirrors are silver coated.
+
+Most of the spheres we tried to move seem to be stuck on the cover slit. Even with increasing the laser power, only few of them moved. Also, the concentration of spheres was too high, it was difficult to find free-space to move the spheres.
+
+The experiment was successfully repeated with the 6 and \SI{1.5}{\um} spheres. However, the minimum trapping power was not measured. 
+
+\subsection{Conclusion}
+In this experiment, we succeed to trap a \SI{1.5}{\um}, a \SI{6}{\um} and a \SI{10}{\um} polystirene sphere with a power about \SI{3}{\milli\watt} on the sample plane. With a power of \SI{30}{\milli\watt} we were able to damage the \SI{6}{\um} sphere and make the surrounding medium bubbling. 
+
+\section{Rotation of multiple particles}
+In this experiment, we wanted to reproduce the work of Raktim Dasgupta \emph{et al.} \cite{DASGUPTA2003}. They used a cylindrical lens to shape the laser beam and make a diffracted limited line on the imaging plane.
+
+We modified our existing setup to add a \SI{100}{\mm} cylindrical lens bought on Thorlabs. Also, we changed the 50:50 beam splitter with a 70:30 beam splitter in order to waiste less power and still being able to see the laser on the camera. 
+
+The new setup is shown on figure \ref{setup2}. The cylindrical lens was placed as the first lens of the second telescope. 
+\fig{setup2}{Modified setup including a second telescope, a cylindrical lens and beam-splitter}
+
+\subsection{Issues}
+After many adjustements we were able to see a line under the microscope but the quality was not really good. Moreover, the length of the line was bigger than the field of view as shown on figure \ref{cylissue2} (a). In our setup the second lens of the second telescope is too far away from the objective lens. Without considerable changes, no solution were found to reduce the size of the line. 
+
+\fig{cylissue2}{}
+
+In addition, the trapping power is distributed along the line. The longest this line is, the weakest the trap. With only one cylindrical length, it is not possible to control either the width and the length of the trap. Our objective was then to obtain a neat trap as shown on figure \ref{cylissue2} (b). Therefore, we ordered different size of cylindrical lenses. 
+
+By the time we received the new parts, we moved on the holographic optical tweezers. With the help of the SLM, we were able to generate an hologram resulting of the combinaison of different cylindrical lenses. However, in this case, a line is not anymore a good trap. A mechanical moment is the force times the distance to the center of the particle. To give the maximum torque with a limited amount of power, it is better to create two independant traps located at the edge of the sample. 
+
+Furthermore, another issue were encountered in this experiment. Despite the time we spent on the alignment. It wasn't possible to rotate the line around a fixed axis. The supposed reason may be a misaligned cementation of the lens into its SM1 holder.
+
+\subsection{Conclusion}
+During this experiment, we realized how limitating is this method. First of all, the beam cannot be moved properly using steering mirrors. Then, the alignment need to be very precise to get the control of the rotation point. Finally, a line is not a good shape to rotate a single particle. Dasgupta rotated several spheres together, or an elongated cell. When the shape of the sample is not defined, better is to adjust the trapping pattern dynamically. 
+
+No convincing results have been achieved mainly because the Sapphire SF laser doesn't offer enough power. On the camera we could see some weak movements of the spheres but no trapped particles.  
+
+%\fig{cylissue}{}
+
+\clearpage
+\section{Holographic Optical Tweezers}
+This experiment has for goal to trap several particles at the same time and move them independantely in three-dimensions. An significant part of this project was devoted to this experiment. 
+
+During the previous experiments, we realized some wickness of our setup and some changed has been made. First, we used another laser: a coherent Verdi V10 offer a powerful green beam up to \SI{10}{\watt}. Then, the 70:30 beam splitter was replaced with a polarized beam splitter which one can manually set the ratio between transmitted and reflected light up to 99:1. Two iris was added. One at the intermediate image plane to block the high order of diffraction and one just before the SLM in order to adjust the beam size. 
+
+Also, the first telescope was replaced with a spatial filter which ensure a good beam quality and an optimal beam size. Figure \ref{setuphot} shows the final setup used in this experiment. 
+\fig{setuphot}{Final setup for holographic optical tweezers}
+
+During our first tests with the spatial light modulator, we noticed a strong zero-order sport which indicate the device was not calibrated for this wavelength. A calibration setup described in section \ref{calibrationsection} shows how the SLM was calibrated. 
+
+Several subexperiments have been done. We tried first to image the Fourier transform of the SLM-plane at the objective plane. Then, several traps were created with the help of RedTweezers. An evaluation of the maximum trapping distance from the focus point was also done. 
+
+\fig{3dhot}{} 
+
+\subsection{Fourier Transform}
+\fig{exp2holo}{Several Fourier reconstruction}
+
+\subsection{Multi Trapping}
+The software RedTweezers designed by the University of Glasgow runs its visual interface on LabVIEW and a background deamon using the graphic card generate the hologram. The interface details at the section \ref{redtweezers} was mainly used in this project. 
+
+\fig{exp2align}{(a) One trap located at the zero-order position (b) MIT written with 29 traps}
 
 \subsection{Maximum Distance}
 \fig{referencespheres}{-}
 \fig{trapped}{-}
 
-\section{Rotation of multiple particles}
-
-\section{Holographic Optical Tweezers}
-\fig{exp2align}{}
-\fig{exp2holo}{}
-\fig{exp2second}{}
-
+\clearpage
 \section{SLM Calibration}
+\label{calibrationsection}
+
 \fig{slm-setup}{Optical setup used for calibrating the Spatial Light Modulator}
 
 \fig{slm-setup3D}{3D view of the setup}
@@ -932,16 +1059,35 @@ Once the Thorlabs parts were received, the new setup was build. Figure \ref{setu
 
 
 \section{VHIS}
+\fig{vhmiti}{}
+
 \section{Volume Hologram with Holographic Optical Tweezers}
 
 \chapter{Software, optical tweezers interface}
-\section{Pixel-shader}
+\section{Existing projects}
+\subsection{Red Tweezers}
+
+\section{Hologram generation}
+\subsection{Performances}
+\subsection{Pixel-shader}
 \label{shader}
+
+\section{Spoty, a CSharp interface}
+
+\subsection{Issues}
+\subsection{Status of development}
 
 \chapter{Discussion}
 \section{Results}
 \section{Further investigations}
 Most biological materials absorb only weakly in the near infrared region of the electromagnetic spectrum. 
+
+\todo{Expliquer le but intermédiaire qui est de optical tweezers intermédiaire}
+
+\todo{On n'a pas utilisé TIE et on n'a jamais fait de tomographie donc c'est mal d'emphasier cette partie trop}
+
+\todo{Faire un nouveau VH avec une seule lentille mais pour ca il faut reréenregistrer un hologramme mais c'est le bordel}
+
 \section{Conclusion}
 
 
@@ -975,6 +1121,16 @@ Most biological materials absorb only weakly in the near infrared region of the 
 \section{Electronic elements}
 
 \chapter{Custom mechanical parts}
+\section{Hologram Holder}
+\section{Light source holder}
+\label{partlight}
+
+\section{Backup plan}
+
+\chapter{Practical tricks}
+\section{Telescope alignment}
+\section{Beam alignment}
+\section{USA 1951 Target}
 
 \chapter{Kodak Adapter}
 
@@ -992,7 +1148,13 @@ Most biological materials absorb only weakly in the near infrared region of the 
 \printindex
 
 \clearpage
-\input{Z.colophon}
+\Large\textbf{Colophon:}\par\normalsize
+\thispagestyle{empty}
+The quality of this document returns to the outstanding text engine, \LaTeX. The page layout and formatting are inspired from the O'Reilly book entitled \emph{Version Control with Subversion}. 
+All the diagrams and illustration in this report were created with Adobe Illustrator, SolidWorksand Matlab with being imported as Encapsuled PostScript. 
+
+The typefaces in this documents are Computed Modern created by Donald Knuth with his METAFONT program. 
+
 \end{document}
 
 %vim: set spell:
