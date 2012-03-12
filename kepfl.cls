@@ -148,7 +148,9 @@ Supervised by:\\
 	\pagenumbering{arabic}
 }
 
+%\newcommand{\todo}[1]{\mbox{}\marginpar{\raggedright\tiny\textcolor{red}{\textbf{TODO:} \emph{#1}}}\hspace{-0.5em}}
 \newcommand{\todo}[1]{\textcolor{red}{\begin{center}\textbf{TODO:} \emph{#1}\end{center}}}
+%
 
 % Acknowledgements
 \newcommand\ackname{Acknowledgements}
