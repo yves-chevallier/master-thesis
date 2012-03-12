@@ -6,6 +6,7 @@
 \usepackage[small,bf]{caption}
 \usepackage{glossaries}
 \usepackage{appendix}
+\usepackage{rotating}
 \usepackage{morefloats}
 \makeglossaries
 \lstset{%
@@ -15,6 +16,8 @@ breakatwhitespace=false,
 basicstyle=\footnotesize}
 
 \makeindex
+
+\newglossaryentry{nus}{name=NUS, description={National University of Singapore}}
 
 \begin{document}
 
@@ -661,7 +664,7 @@ The fill factor is the ratio between the physical sizes of a pixel with its acti
 \subsection{Planarity}
 As observed with many commercial reflective SLMs, the planarity is not perfect and shows a small quadratic phase aberration which can be measured with a Michelson interferometer as shown on figure \ref{aberation} \cite{JESACHER2007}. 
 
-\fig{aberation}{Michelson interferometer for measuring SLM surface curvature inspired by A. Jesacher's setup}
+\figc{aberation}{Michelson Interferometer}{Michelson interferometer for measuring SLM surface curvature inspired by A. Jesacher's setup}
 
 As most of the aberration is a quadratic phase, it can be easily cancelled by slightly adjusting the distance of the SLM from the Fourier lens because Free-space propagation also induces a quadratic phase. If the aberration is too strong, a Fresnel zone-plate can be superposed to the hologram. 
 
@@ -760,7 +763,9 @@ The important point in this setup is that all components are conjugated. The ima
 
 \section{Illumination spectrum}
 As seen before, the bandwith of the illumination is proportional to the field of view. Using a halogen white light source is far away and too broad. Practically, \SI{40}{\nm} is enough. Adding a filter 
-\todo{continue here}
+
+\fig{vhiscolor}{USAF 1951 observation through different band-pass filters}
+\fig{vhistarget}{}
   
 \clearpage
 
@@ -788,7 +793,7 @@ Various publications showed great applications of micro lithography. Micro rotor
 \maraja{Nanoscribe AG}
 It is worth exploring this technique within the context of this project. A micro-structure may be designed to hold the biological sample and rotate it for tomography. Several commercial systems exist and offer a much better resolution than needed. Nanoscribe, a German company is offering its direct laser writing technology that can be used for making photonic crystals, microfluidic channels or diffractive optics components. Fribourg Swiss University and ETH Zürich has been mentioned for using a Nanoscribe laser lithography system on the reference page of Nanoscribe's webpage. 
 
-A research group at NUS is also developing their own 2PP system. They are currently testing their new system as this report is being written and will be able to offer their help for this project. 
+A research group at \gls{nus} is also developing their own 2PP system. They are currently testing their new system as this report is being written and will be able to offer their help for this project. 
 
 \section{Two-photon photopolymerization}
 Two-photon polymerization (2PP) is a direct laser writing technique which allows for the creation of three-dimensional structures by using femtosecond laser with a photosensitive material. This material is usually transparent in the visible range. When tightly focussed, a short laser pulse can initiate the polymerization process of the liquid resin. 
@@ -911,7 +916,7 @@ The light source is provided by a SteREO CL1500 ECO from Zeiss. It is a \SI{150}
 \subsection{Alignment}
 To align the system, a negative 1951 USAF test target from Thorlabs was used. It was placed on the three-axis stage with oil immersion. The steering mirror was adjusted to center the trap. Unfortunately, with the propagation and the spherical aberration of the different optical elements, the trap was not in focus with the target. As we could not manually adjust the beam expander which belongs to another optical setup, we added a second telescope to shrink the beam. This turned out to be a good move because the initial beam was too large and most of the power was cut by the aperture of the objective. By slightly adjusting the second lens of the second telescope, the laser trap was perfectly collimated. 
 
-\fig{exp1align}{First alignment with a 1951 USAF test target. (a) The laser is out of focus and (b) in focus}
+\figc{exp1align}{First alignment}{First alignment with a 1951 USAF test target. (a) The laser is out of focus and (b) in focus}
 
 Note the target is chromium coated. Its surface acts as a mirror and the laser beam is reflected to the camera. Figure \ref{exp1align} shows the target and the laser (a) out of focus and (b) in focus. A neutral density filter of density 2.5 was used to reduce the laser power. The focus point is very sensitive and if the telescope is misaligned, no laser can be seen on the target. Also, it is important to focus the laser on a reflective part and close to a structural element because the stage is usually not perfectly normal to the imaging axis. 
 
@@ -971,7 +976,7 @@ In this experiment, we wanted to reproduce the work of Raktim Dasgupta \emph{et 
 We modified our existing setup to add a \SI{100}{\mm} cylindrical lens bought from Thorlabs. We also changed the 50:50 beam splitter with a 70:30 beam splitter in order to waste less power and still be able to see the laser on the camera. 
 
 The new setup is shown on figure \ref{setup2}. The cylindrical lens was placed as the first lens of the second telescope. 
-\fig{setup2}{Modified setup including a second telescope, a cylindrical lens and beam-splitter}
+\figc{setup2}{Setup with cylindrical lens}{Modified setup including a second telescope, a cylindrical lens and beam-splitter}
 
 \subsection{Issues}
 After many adjustments we were able to see a line under the microscope but the quality was not ideal. Moreover, the length of the line was larger than the field of view as shown on figure \ref{cylissue2} (a). In our setup the second lens of the second telescope is too far away from the objective lens. Without considerable changes to our setup, no solutions were found to reduce the size of the line trap. 
@@ -1040,7 +1045,7 @@ RedTweezers, a software designed by the University of Glasgow runs its visual in
 
 Our first attempt is shown on figure \ref{exp2align} where the alignment was checked using the USAF 1951 resolution target and a neutral filter placed on the laser path. We were able to easily create, delete, move and rotate traps. 
 
-\fig{exp2align}{(a) One trap located at the zero-order position (b) MIT written with 29 traps}
+\figc{exp2align}{Multi traps with HOT}{(a) One trap located at the zero-order position (b) MIT written with 29 traps}
 
 Obtaining the first trapping results were pretty straightforward. RedTweezer was loaded on the PC just as the camera interface. A diluted sample was prepared in the same way explained above and the laser power was increased up to \SI{1.5}{\watt}. Compared to our first trapping experiment, the overall efficiency of the HOT setup is pretty low. A significant part of the power is lost at the spatial filter in order to get a uniform and good beam quality. The iris placed just before the SLM also cut a part of the power so that only 60\% of the laser power hit the device. Next, if we consider the efficiency of the SLM itself, only 50\% of the incident power is reflected into the zero order. Then, there are still two lenses, the beam-splitter and the objective lens. The final efficiency is about $\eta=20\%$. At the end, only \SI{300}{\milli\watt} got through the objective. This power is equally distributed in the 4 traps used which results in about \SI{80}{\milli\watt} per trap. 
 
@@ -1132,10 +1137,10 @@ Based on Di-Leonardo's work \cite{DILEONARDO2007}, the efficiency, the uniformit
 \begin{center}
     \begin{tabular}{|p{4cm}|c|c|c|} \hline        
         Algorithm & e    & u    & $\sigma$ \tabularnewline \hline
-        RM        & 0.27\% & 0.33 & 66       \tabularnewline \hline
-        S         & 0.61\% & 0.70 & 20       \tabularnewline \hline
-        SR        & 0.73\% & 0.74 & 15       \tabularnewline \hline
-        GSW       & 0.73\% & 0.68 & 16       \tabularnewline \hline
+        RM        & 15\% & 0.38 & 60       \tabularnewline \hline
+        S         & 41\% & 0.69 & 25       \tabularnewline \hline
+        SR        & 48\% & 0.73 & 21       \tabularnewline \hline
+        GSW       & 48\% & 0.74 & 19       \tabularnewline \hline
     \end{tabular}
     \caption{Average for all the targets \label{eff1}}
 \end{center}
@@ -1145,59 +1150,74 @@ These qualitative measurements deserve to be repeated for more consistent result
 
 \subsection{Uniformity} 
 The uniformity for each of the five targets is shown in the table \ref{unif}. 
-
-\todo{Ces résultats sont vraiment curieux\ldots}
 \begin{table}[h]
 	\begin{center}
     \begin{tabular}{|p{5cm}|c|c|c|c|c|} \hline
         Algorithm & 1    & 2    & 3    & 4    & 5    \tabularnewline\hline
-        RM        & 0.44 & 0.40 & 0.77 & 0.01 & 0.03 \tabularnewline\hline
-        S         & 0.90 & 0.90 & 0.64 & 0.35 & 0.75 \tabularnewline\hline
-        SR        & 0.88 & 0.90 & 0.64 & 0.61 & 0.67 \tabularnewline\hline
-        GSW       & 0.93 & 0.68 & 0.65 & 0.47 & 0.68 \tabularnewline\hline
+        RM        & 0.47 & 0.41 & 0.26 & 0.00 & 0.29 \tabularnewline\hline
+        S         & 0.85 & 0.91 & 0.39 & 0.33 & 0.84 \tabularnewline\hline
+        SR        & 0.90 & 0.91 & 0.37 & 0.58 & 0.77 \tabularnewline\hline
+        GSW       & 0.97 & 0.92 & 0.39 & 0.51 & 0.82 \tabularnewline\hline
     \end{tabular}
     \caption{Uniformity for the 5 targets \label{unif}}
 \end{center}
 \end{table}
 
 \subsection{Efficiency}
-\begin{table}
-    \begin{tabularx}{\textwidth}{|X|c|c|c|c|c|} \hline
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|p{5cm}|c|c|c|c|c|} \hline
         Algorithm & 1    & 2    & 3    & 4     & 5    \\ \hline
-        RM        & 12\% & 16\% & 57\% & 10\%  & 39\% \\ \hline
-        S         & 40\% & 52\% & 63\% & 69\%  & 80\% \\ \hline
-        SR        & 52\% & 53\% & 64\% & 100\% & 94\% \\ \hline
-        GSW       & 54\% & 53\% & 63\% & 96\%  & 98\% \\ \hline
-    \end{tabularx}
+        RM        & 7\%  & 9\%  & 23\% & 6\% & 3\% \tabularnewline\hline
+        S         & 28\% & 39\% & 39\% & 67\% & 30\% \tabularnewline\hline
+        SR        & 38\% & 39\% & 40\% & 85\% & 42\% \tabularnewline\hline
+        GSW       & 39\% & 39\% & 39\% & 81\% & 44\% \tabularnewline\hline
+    \end{tabular}
     \caption{Relative efficiency for the 5 targets}
+\end{center}
 \end{table}
 
-\begin{table}
-    \begin{tabularx}{\textwidth}{|X|c|c|c|c|c|} \hline
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|p{5cm}|c|c|c|c|c|} \hline
         Algorithm & 1  & 2  & 3  & 4   & 5   \\ \hline
-        RM        & 38 & 41 & 18 & 186 & 101 \\ \hline
-        S         & 7  & 7  & 34 & 46  & 13  \\ \hline
-        SR        & 8  & 7  & 33 & 17  & 13  \\ \hline
-        GSW       & 5  & 7  & 33 & 27  & 11 \\ \hline
-    \end{tabularx}
+        RM        & 36 & 39 & 83 & 157 & 34 \\ \hline
+        S         & 11  & 7  & 66 & 44  & 12  \\ \hline
+        SR        & 6  & 7  & 66 & 21  & 15  \\ \hline
+        GSW       & 2  & 6  & 66 & 23  & 11 \\ \hline
+    \end{tabular}
     \caption{Standard deviation for the 5 targets}
+\end{center}
 \end{table}
 
-\begin{table}
-    \begin{tabularx}{\textwidth}{|X|c|c|c|} \hline
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|p{5cm}|c|c|c|c|c|} \hline
         Algorithm & e  & u    & $\sigma$ \\ \hline
-        RM        & 39 & 0.03 & 101      \\ \hline
-        S         & 80 & 0.76 & 13       \\ \hline
-        SR        & 94 & 0.67 & 13       \\ \hline
-        GSW       & 98 & 0.68 & 11       \\ \hline
-        Holoeye   & 98 & 0.69 & 12       \\ \hline
-    \end{tabularx}
+        RM        & 3  & 0.29 & 34        \\ \hline
+        S         & 30 & 0.84 & 12       \\ \hline
+        SR        & 42 & 0.77 & 15       \\ \hline
+        GSW       & 44 & 0.82 & 11       \\ \hline
+        Holoeye   & 45 & 0.85 & 10       \\ \hline
+    \end{tabular}
     \caption{Comparaison with holoeye target point-rings}
+\end{center}
 \end{table}
 
 \subsection{Ghost Traps}
-
-
+\fig{targetsghost}{Ghost Traps}
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|p{5cm}|c|c|c|c|c|} \hline
+        Algorithm & 1  & 2  & 3  & 4   & 5   \\ \hline
+        RM        & 86 & 89 & 36 & 100 & 92 \\ \hline
+        S         & 39  & 55  & 20 & 71  & 32  \\ \hline
+        SR        & 38 & 56  & 21 & 48  & 37  \\ \hline
+        GSW       & 43  & 55  & 21 & 49  & 38 \\ \hline
+    \end{tabular}
+    \caption{Comparaison with holoeye target point-rings}
+\end{center}
+\end{table}
 
 
 \clearpage
@@ -1257,8 +1277,11 @@ The new VH has been successfully aligned and it is ready to be integrated with t
 
 \section{Volume Hologram with HOT}
 In this experiment, we mounted the previously made VH setup with the HOT setup as described earlier. 
-
+\subsection{Setup}
+\fig{setup3}{HOT + VH Setup}
+\fig{hot-vh3d}{3D overview of the setup HOT + VH}
 \fig{vhmiti}{}
+\fig{expbeads}{\SI{10}{\um} spheres seen in reflexion mode (a) and with fluorescence (b)}
 
 \chapter{Softwares, optical tweezers interface}
 Generating a hologram with Matlab or another software is one thing, but for real-time trapping, the traps pattern must be calculated continuously. Moreover, an intuitive user interface that allows creating, deleting, moving, grouping and rotating traps is fundamentally essential. 
@@ -1388,7 +1411,19 @@ This is the OpenGL implementation of a pixel shader. Uniforms passed to the shad
 \lstinputlisting{matlab/gsw.m}
 
 \chapter{List of the Equipment used}
+
 \section{Opto-mechanical elements}
+{\small
+\begin{tabularx}{\textwidth}{|p{5cm}|X|c|} \hline
+\textbf{Model} & \textbf{Description} & \textbf{Serial} \\ \hline
+Zeiss SteREO CL1500 ECO & 150W Hallogen light source & - \\ \hline
+Zeiss 518F & Immersion Oil ne=1.518 & - \\ \hline
+Coherent Sapphire CW CDRH & Laser 488nm 100mW & LDP.1154754.136047 \\ \hline
+Thorlabs PM300 & Dual Channel power meter & - \\ \hline
+Andor X-600 & Camera & X-6493/C6440 \\ \hline
+Allied GE1650 & Camera 1600x1200 & 02-207SC-06143 \\ \hline
+\end{tabularx}}
+%\end{sideways}
 \section{Electronic elements}
 
 \chapter{Pluto Holoeye softwares}
@@ -1396,18 +1431,49 @@ This is the OpenGL implementation of a pixel shader. Uniforms passed to the shad
 
 \chapter{Custom mechanical parts}
 \section{Hologram Holder}
-
+\begin{center}
 \includegraphics{fig/drwg-hologram.pdf}
-
+\end{center}
+\clearpage
+\section{Calibration Mask}
+\begin{center}
+\includegraphics{fig/mask.pdf}
+\end{center}
 \section{Light source holder}
 \label{partlight}
 
-\section{Backup plan}
+
 
 \chapter{Practical tricks}
 \section{Telescope alignment}
-\section{Beam alignment}
-\section{USA 1951 Target}
+\includegraphics[width=\textwidth]{fig/alignment1.pdf}
+\includegraphics[width=\textwidth]{fig/alignment2.pdf}
+
+\section{1951 USAF Target}
+The 1951 USAF resolution test chart is a resolution test pattern set by US Air Force in 1951. 
+\subsection{Find the smallest group}
+\includegraphics[width=\textwidth]{fig/1951.pdf}
+\includegraphics[width=\textwidth]{fig/1951-2.pdf}
+\includegraphics[width=\textwidth]{fig/1951-3.pdf}
+
+\subsection{Obtain group size and resolution}
+Resolution in periods per millimeters (line-pair/mm):
+\begin{equation}
+R = 2^{\rm{group}+(\rm{element}-1)/6} 
+\end{equation}
+
+Line width $w$:
+\begin{equation}
+w = \frac{1}{2R} = \frac{1}{2^{\rm{group}+(\rm{element}-1)/6}}
+\end{equation}
+ 
+Block size:
+\begin{equation}
+L = \frac{5}{2R} = \frac{5}{2^{\rm{group}+(\rm{element}-1)/6}}
+\end{equation}
+
+\subsection{Target orientation}
+\includegraphics[width=\textwidth]{fig/1951-4.pdf}
 
 \chapter{Experimental setup pictures}
 \section{Hologram Holder}
@@ -1421,6 +1487,10 @@ This is the OpenGL implementation of a pixel shader. Uniforms passed to the shad
 
 \listoffigures
 \listoftables
+
+\makeglossaries
+\printglossaries
+
 \printindex
 
 \clearpage
@@ -1430,10 +1500,9 @@ The quality of this document returns to the outstanding text engine, \LaTeX. The
 
 All the diagrams and illustrations in this report were created with Adobe Illustrator CS5, SolidWorks 2012 and Matlab. All the figures were converted in PDF files. 
 
-This document was compiled with pdflatex and bibtex using Vim and vim-latex.
+This document was compiled with pdflatex and bibtex using Vim and vim-latex. The references was managed with JabRef 
 
 The typefaces in this document are Computed Modern created by Donald Knuth with his METAFONT program. 
-
 \end{document}
 
 %vim: set spell:
