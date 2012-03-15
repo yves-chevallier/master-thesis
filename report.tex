@@ -862,7 +862,7 @@ A research group at \gls{nus} is also developing their own \gls{2pp} system. The
 Two-photon polymerization (2PP) is a direct laser writing technique which allows for the creation of three-dimensional structures by using femtosecond laser with a photosensitive material. This material is usually transparent in the visible range. When tightly focussed, a short laser pulse can initiate the polymerization process of the liquid resin. 
 
 \maraja{Two-photon absorption}
-Two-photon absorption (\gls{tpa}) was predicted in 1931 by Maria Göppert-Meyer thirty years prior to the first experimental observation. Described as a nonlinear optical process, TPA is the simultaneous absorption of two photons by a molecule which is placed in a higher energy state. This absorption leads to photo dissociation, a break of a molecular bond. As this process is non-linear, its probability of happening becomes significant only with high laser power. 
+Two-photon absorption (\gls{tpa}) was predicted in 1931 by Maria Göppert-Meyer thirty years prior to the first experimental observation. Described as a nonlinear optical process, TPA is the simultaneous absorption of two photons by a molecule which is placed in a higher energy state. This absorption leads to photo dissociation \emph{i.e.} a break of a molecular bond. As this process is non-linear, its probability of happening becomes significant only at high laser power. 
 
 \maraja{Curing the resin}
 The photosensitive resin is highly transparent in the near-infrared range while it is absorptive in the \gls{uv} range. Therefore, UV light cannot penetrate the resin and will be absorbed at the surface. In this case, we will discuss about one-photon absorption. With infrared laser light, the beam will pass through the resin without absorption unless the density of power is high enough to initiate TPA. Figure \ref{2pa1pa} shows the single-photon absorption with UV light that occurs at the surface (a) and the two-photon absorption with near-infrared laser. The achievable resolution is better in the x-y plane because of the diffraction limited theory. Therefore, a volume pixel (voxel) which is an ellipsoid shape is the basic unit structure. 
@@ -870,7 +870,7 @@ The photosensitive resin is highly transparent in the near-infrared range while 
 \figc{2pa1pa}{Single-photon and Two-photon photopolymerization}{Photosensitive material processing with single-photon absorption and two-photon photopolymerization allows the resin to be cured in three dimensions}
 
 \maraja{SU-8}
-The most common photosensitive material is SU-8, a negative epoxy-type patented by IBM in 1989. After curing, the resin has to be developed typically with acetone or propylene glycol methyl ether acetate. Eventually, the result is a transparent object with a refractive index of 1.5 which is perfectly suitable for optical trapping.
+The most common photosensitive material is SU-8, a negative epoxy-type patented by IBM in 1989. After curing, the resin has to be developed typically with acetone or \emph{propylene glycol methyl} ether \emph{acetate}. Eventually, the result is a transparent object with a refractive index close to 1.5 which is perfectly suitable for optical trapping.
 
 \section{Microstructures}
 \maraja{Potential collaboration}Upon realizing that the option of manufacturing a custom micro tool was possible for this project, Alexander Legant from Nanoscribe AG was contacted. He gave us two contacts in Switzerland: Jakub Haberko from the physics department at Fribourg University and David Borer from \gls{eth} Zürich (ETHZ). We proposed collaboration on this project but they informed that working with the Nanoscribe system is not a straightforward operation and time is an essential component in getting the system to work as desired. 
@@ -887,11 +887,11 @@ Considering all the manufacturing processes including development and cleaning, 
 
 It is important to note that at one point, the solution containing the cells has to be placed with the structure. Again, from a microscopic point of view, a significant quantity of liquid will flood the micro-structure which will still be attached to its substrate. 
 
-The best option is to manufacture a certain quantity of structure that can be eventually be considered as a colloidal solution. 
+The best option is to manufacture a certain quantity of structures that can be eventually be considered as a colloidal solution. 
 
 \fig{microfab}{Design of two microstructures }
 \maraja{Proposition of two structures}
-Figure \ref{microfab} illustrates the design of two microstructures. Both of them offer a flat surface for a better cell adhesion. The spherical parts are intended to be optically trapped. For the first structure (a), three traps ensure the mechanical stability of the structure. Spheres 1 and 2 are held in static traps while sphere 3 can be moved along the structure with a three-dimensional trap which allows for controlling of the rotation of the sample. The second structure (b), also requires two static traps. The twisted path in between has an elliptical shape. A third trap that is moved along will generate a torque that will rotate the sample. Although this second structure may be more challenging to manufacture, it does not require an off-plane trap that can be easily achieved only with HOT. An illustration of the traps configuration is given in figure \ref{microfab2}.
+Figure \ref{microfab} illustrates the design of two microstructures. Both of them offer a flat surface for a better cell adhesion. The spherical parts are intended to be optically trapped. For the first structure (a), three traps ensure the mechanical stability of the structure. Spheres 1 and 2 are held is static traps while sphere 3 can be moved along the structure with a three-dimensional trap which allows for controlling of the rotation of the sample. The second structure (b), also requires two static traps. The twisted path in between has an elliptical cross-section. A third trap that is moved along will generate a torque that will rotate the sample. Although this second structure may be more challenging to manufacture, it does not require any off-plane trap that can be easily achieved only with HOT. An illustration of the traps configuration is given in figure \ref{microfab2}.
 
 \fig{microfab2}{Trapped micro structures for rotation of a biological cell}
 
@@ -916,15 +916,18 @@ To summarize these points, let's list the next steps:
 \item Apply TIE and Random to get a 3D reconstruction
 \end{enumerate}
 
+\maraja{In competition}
 To conclude, let us note that the University of Glasgow is planning to make such micro tools for biological manipulation. A brief webpage was found hidden in their research website. If a group renowned for optical trapping is interested in making micro structures, perhaps this means this track deserves further investigations. 
 
 \chapter{Experiments}
 \section{Optical trapping of a single particle}
 \subsection{Preliminary considerations}
-In this first experiment, the goal was to build a basic optical trapping setup and achieve optical trapping of micro silica spheres. As no microscope was available for this project, we decided to design our own setup. The general design was inspired by the Optical Trap Kit from Thorlabs, Inc. 
+In this first experiment, the goal was to build a basic optical trapping setup and achieve optical trapping of micro silica spheres. As no microscope was available for this project, we decided to design our own setup. The general design was inspired by the Optical Trap Kit from Thorlabs Inc. 
 
+\maraja{The spheres sinks}
 Close attention was paid to the upward direction of the setup. Taking into consideration the gravity, buoyancy and the size of the sample, it can be deduced the particles will sink and accumulate on the bottom slit if we consider a \SI{10}{\um} silicon dioxide sphere with a density of \SI{2648}{\kg\per\cm^3}. The buoyancy force is given by the medium density $\rho$ , the volume of the particle $V$ and the gravitational force $g$. Taking water as the surrounding medium, its density is two times lower: \SI{1000}{\kg\per\cm^3}.
-
+i
+\maraja{The objective lens}
 Optical tweezers need a high N.A. objective. We bought an UPLSAPO 100x objective from Olympus. Its specifications are shown in table \ref{objspecs}. The working distance is the distance between the front lens to the cover slit. The cover slit thickness is also given by the manufacturer. The field-of-view number also called the field number is the diameter of the view field at the intermediate focal plane. Thus, the field size at the image plane is the field number divided by the magnification. 
 
 \begin{table}
@@ -944,21 +947,21 @@ Optical tweezers need a high N.A. objective. We bought an UPLSAPO 100x objective
 \end{center}
 \end{table}
 
-The samples used are polystyrene (density of \SI{1050}{\kg\per\cm^3}) spheres as previously bought by Lang's group at BioSyM. Different spheres sizes were chosen and their properties are shown in table \ref{tablespheres}. 
+The samples used are polystyrene spheres (density of \SI{1050}{\kg\per\cm^3}) as previously bought by Lang's group at BioSyM. Different spheres sizes were chosen and their properties are shown in table \ref{tablespheres}. 
 
 \begin{table}
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|} \hline
 \textbf{Manufacturer} & \textbf{Reference} & \textbf{Material} & \textbf{Size} & $\mathbf{\sigma}$ \\ \hline\hline
+Polysciences, Inc & 17136 & Polystytene & \SI{9.97}{\um} & \SI{0.412}{\um} \\ \hline
 Polysciences, Inc & 07312 & Polystytene & \SI{5.883}{\um} & \SI{0.283}{\um} \\ \hline 
 Polysciences, Inc & 17133 & Polystytene & \SI{1.53}{\um} & \SI{0.035}{\um} \\ \hline 
-Polysciences, Inc & 17136 & Polystytene & \SI{9.97}{\um} & \SI{0.412}{\um} \\ \hline
 \end{tabular}
-\caption{\label{tablespheres}Micro-spheres used in this project}
+\caption{\label{tablespheres}Micro-spheres used in this experiment}
 \end{center}
 \end{table}
 
-Initially, unsuitable optical parts were assembled and the mechanical stability was not adequate to trap anything. Thorlabs cage system combined with a rigid damped pole was chosen to build a new setup. 
+Initially, unsuitable optical parts were assembled and the overall mechanical stability was not adequate to trap anything. Thorlabs cage system combined with a rigid damped pole was chosen to build a new setup. 
 
 For this experiment, a \SI{488}{\nm} Sapphire SF laser from Coherent was used. It offers a maximum power of \SI{100}{\milli\watt} which is more than enough for one optical trap.
  
@@ -967,9 +970,9 @@ Once the Thorlabs parts were received, the new setup was built. Figure \ref{setu
 
 \fig{setup1}{Basic optical setup for simple trapping}
 
-The cyan laser is first expanded to overfill the back aperture of the objective. A steering mirror allows moving the trap formed on the image place. First, we used a dichroic filter (DF) to reflect the laser and transmit the image only in order to avoid saturating the camera with the trapping light. Unfortunately, we realized it is important to see the laser a little bit so as to align the system. The filter used was too perfect and no spot could be seen on the camera. Thus, we replaced the DF with a beam splitter which induces power losses of 50\%. By adding a temporarily ND filter on the laser path, it was possible to see both, the image and the trap on the camera plane. 
+The cyan laser is first expanded to overfill the back aperture of the objective. A steering mirror allows for moving at the trap formed on the image place. First, we used a dichroic filter (DF) to reflect the laser and transmit the image. Unfortunately, we realized it is useful to see the laser a little bit so as to align the system. The filter used was too perfect and no spot could be seen on the camera. Thus, we replaced the DF with a beam splitter which induces power losses of 50\%. By adding a temporarily ND filter on the laser path, it was possible to see both, the image and the trap on the camera plane. 
 
-The camera used is an Allied Manta GE-1650. It offers a resolution of 1600(H)1200(V) pixels at 32 images per second. Its pixels has a size of 7.3x\SI{7.3}{\um}. The sensor is smaller than the field size at the intermediate image plane. With a diagonal of 11.5x\SI{8.7}{\mm} = \SI{14.5}{\mm}, only the center part of the field is kept. We did not find a tube lens from Olympus matching our objective lens. Usually a matched tube lens reduces spherical aberrations. Instead we used a \SI{200}{\mm} bi-convex tube lens. 
+The camera used is an Allied Manta GE-1650. It offers a resolution of 1600(H)1200(V) pixels at 32 images per second. Its pixels has a size of 7.3x\SI{7.3}{\um}. The sensor is smaller than the field size at the intermediate image plane. With a diagonal of 11.5x\SI{8.7}{\mm} = \SI{14.5}{\mm}, only the center part of the field is kept. We did not find a tube lens from Olympus matching our objective lens. Usually a matched tube lens reduces spherical aberrations. Instead we used a regular pano-convex tube lens. 
 
 In an infinity-corrected microscope (\gls{ics}) the distance between the objective and the tube lens is afocal because both the objective and the tube lens works at their focal point. However, this distance called tube length becomes important for the objective that is not infinity corrected. Note that a Mobius strip symbol is usually written on infinity corrected objectives. In this ICS configuration, the total magnification is given by the ratio of the focal lengths of the tube lens and the objective lens. Tube length varies between 160 and \SI{250}{\mm} depending of the microscope model.
 
@@ -1011,14 +1014,14 @@ We note that the theoretical magnification should be 100x as written on the obje
 \subsection{Sample preparation}
 On the first attempt, we dropped \SI{100}{\micro\liter} of a diluted solution containing \SI{10}{\um} beads on a microscope slice. The slice was then covered with a \SI{0.17}{\mm} glass cover. Unfortunately, we were unable to trap any spheres with this preparation because the space between the slit and the cover slit was too small and the spheres were entrapped in between. 
 
-We were inspired by Lang's group's method which would be to use a double adhesive tape to create a microchannel. The procedure is illustrated in figure \ref{slice}. Firstly, the glass cover is recovered with double adhesive tape. During this operation, close attention must be paid to ensure air is not trapped. The microchannel will have a width of about \SI{2}{\mm}. The sharp edge of the slice of glass can be used to cut off the excess tape. Then a glass cover is placed on the channel (5). Better adhesion is ensured by pressing firmly on both sides. The slice is then flipped upside down and with a dispenser, the colloidal solution can be applied in the opening of the microchannel. Through capillarity, the liquid will fill the channel (6). In the event of air bubbles, a small vacuum pipette can be placed at the other opening while the channel is being filled with the solution. Once the channel is filled properly, it can be sealed with glue by applying both edges with a small stick. With this method, the sample was able to last for a long time. 
+We were inspired by Lang's group's method which would be to use a double sided adhesive tape to create a microchannel. The procedure is illustrated in figure \ref{slice}. Firstly, the glass cover is recovered with double adhesive tape. During this operation, close attention must be paid to ensure air will be trapped. The microchannel will have a width of about \SI{2}{\mm}. The sharp edge of the slice of glass can be used to cut off the excess tape. Then a glass cover is placed on the channel (5). Better adhesion is ensured by pressing firmly on both sides. The slice is then flipped upside down and with a dispenser, the colloidal solution can be applied in the opening of the microchannel. Through capillarity, the liquid will fill the channel (6). In the event of air bubbles, a small vacuum pipette can be placed at the other opening while the channel is being filled with the solution. Once the channel is filled properly, it can be sealed with glue by applying on both edges with a small stick. With this method, the sample was able to last for a long time. 
 
 \fig{slice}{Slice preparation}
 
-The colloidal solution has to be diluted correctly. To proceed, concentrated spheres solution is added with water. \SI{200}{\micro\liter} is dropped on a cover slit and imaged by the microscope. The average amount of visible particles is counted and this value is written on the container. Depending on the concentration level, the solution can be adjusted to become more diluted. 
+The colloidal solution has to be diluted correctly. To proceed, concentrated spheres solution is added with water. \SI{200}{\micro\liter} is dropped on a cover slit and imaged by the microscope. The average amount of visible particles is counted and this value is written on the tiny vessel. Depending on the concentration level, the solution can be adjusted to become more diluted. 
 
 \subsection{First time spheres imaged}
-Our first attempt to visualise and trap some spheres was a fail. Figure \ref{firstspheres} shows in (a) air bubbles on our first sample which has been mistaken for spheres. The second image (b) shows the \SI{10}{\um} spheres in a concentration much too high. 
+We had no success on our first attempt to trap some spheres. Figure \ref{firstspheres} shows in (a) air bubbles on our first sample which was mistaken for spheres. The second image (b) shows the overconcentration of \SI{10}{\um} spheres. 
 \figc{firstspheres}{First attempt to image and trap spheres}{First attempt to image and trap spheres. (a) Air bubbles, (b) high concentration of spheres}
 
 \subsection{Trapping}
@@ -1032,9 +1035,9 @@ The power at the objective was measured at \SI{3.4}{\milli\watt} for a nominal o
 
 Note that most of the power is lost at the beam-splitter. Each lens we used offer a nominal efficiency of about 90\% and the mirrors are silver coated.
 
-Most of the spheres we tried to move seem to be stuck on the cover slit. Only a few of them moved even though we increased the laser power. It was also difficult to find free space to move the spheres as the concentration of spheres was too high.
+Most of the spheres we tried to move seem to be stuck on the cover slit. Only a few of them moved even though we increased the laser power. It was also difficult to find free space to move the spheres as the concentration of the spheres was too high.
 
-The experiment was successfully repeated with the \SI{1.5}{\um} spheres. However, the minimum trapping power was not measured. We also tried to trap the \SI{6}{\um} spheres but were not able to move them. They seem to be all stuck on the slit. 
+The experiment was successfully repeated with the \SI{1.5}{\um} spheres. However, the minimum trapping power was not measured. We also tried to trap the \SI{6}{\um} spheres but were not able to move them. All of them seem to be stuck on the slit. 
 
 \subsection{Conclusion}
 In this experiment, we succeeded in trapping a \SI{1.5}{\um} and a \SI{10}{\um} polystyrene sphere with a power of about \SI{3}{\milli\watt} on the sample plane. Moreover, with a power of \SI{30}{\milli\watt} we could damage some \SI{6}{\um} spheres and make the surrounding medium bubble. 
@@ -1059,7 +1062,7 @@ As described above, a shorter line was obtained by holding manually a second cyl
 
 \figc{cylissue2}{Cylindrical lens issues}{Representation of the different issues encountered with the use of a cylindrical lens}
 
-In addition, the trapping power is distributed along the line. The longer this line is, the weaker the trap. With only one cylindrical length, it is not possible to control both the width and the length of the trap. Our objective was then to obtain a neat trap as shown on figure \ref{cylissue2} (b). Therefore, we ordered different sizes of cylindrical lenses. 
+In addition, the trapping power is distributed along the line. The longer this line is, the weaker the trap. With only one cylindrical length, it is not possible to control both the width and the length of the trap. Our objective was then to obtain a neat trap as shown on figure \ref{cylissue2} (b). Therefore, we ordered different sizes of cylindrical lenses compatible SM1. 
 
 By the time we received these new parts, we moved on to the holographic optical tweezers. With the help of the \gls{slm}, we were able to generate a hologram resulting from the combination of different cylindrical lenses. However, in this case, a line is no longer an ideal trap. A mechanical moment is the force times the distance to the center of the particle. To give the maximum torque with a limited amount of power, it is better to create two independent spots located at the edge of the sample. 
 
@@ -1117,7 +1120,7 @@ Another point we noticed is the importance of a good polarization of the laser b
 \subsection{Multi Trapping}
 The goal of this experiment was to trap several particles simultaneously in three-dimensions. Here, we used \SI{10}{\um} polystyrene beads diluted colloidal solution. 
 
-RedTweezers, a software designed by the University of Glasgow runs its visual interface on LabVIEW and a background daemon generates the hologram using a graphic card computational power. The use of this software is detailed at section \ref{redtweezers}. RedTweezers was mainly used during this project because of its good trap quality and its intuitive interface. 
+\maraja{RedTweezers from Glasgow}RedTweezers, a software designed by the University of Glasgow runs its visual interface on LabVIEW and a background daemon generates the hologram using a graphic card computational power. The use of this software is detailed at section \ref{redtweezers}. RedTweezers was mainly used during this project because of its good trap quality and its intuitive interface. 
 
 Our first attempt is shown on figure \ref{exp2align} where the alignment was checked using the USAF 1951 resolution target and with a neutral filter placed on the laser path. We were able to easily create, delete, move and rotate traps. 
 
@@ -1131,16 +1134,16 @@ Figure \ref{hottrap} shows some frames of a video recorded. The first four image
 \fig{hottrap}{Demonstration of rotation along the x/y-axis and the z-axis}
 
 \subsection{Rotation of Escherichia coli}
-Another laboratory from NUS was asked to grow Escherichia coli bacteria. These bacteria have an elongated rod shape and are suitable for rotation with a shaped optical trap. We use here an line of traps to get and rotate. Figure \ref{ecoli} shows some frames of a video recorded. 
+Another laboratory from NUS was cultivating the growth of Escherichia coli bacteria. These bacteria have an elongated rod shape and are suitable for rotation with a shaped optical trap. We use here an line of traps to get and rotate. Figure \ref{ecoli} shows some frames of a video recorded. 
 
 \fig{ecoli}{Rotation of an e-coli bacterium with HOT} 
 \fig{mitrotate}{Rotation of MIT logo with \SI{0.75}{\um} spheres}
 
-The e-coli chosen here was particularly long. Our previous attempt with shortest ones was quite tough because the bacterium aim to align itself with the axial direction of the trapping beam. Figure \ref{ecoli2} shows on (a) several e-coli trapped in the vertical position in our 5 traps. In (b), we can observe the same case with two beams. 
+The e-coli chosen here was particularly long. Our previous attempt with the shortest ones were challenging because the bacterium aim to align itself with the axial direction of the trapping beam. Figure \ref{ecoli2} shows on (a) several e-coli trapped in the vertical position in our 5 traps. In (b), we can observe the same case with two beams. 
 
 \fig{ecoli2}{E-coli trapped in the vertical position}
 
-With this experiment we succeed in the rotation of an organic object by the use of a shaped beam composed of an alignment of several traps. This lead to the same result we can obtain with the use of a cylindrical lens. 
+With this experiment we succeeded in the rotation of an organic object by the use of a shaped beam which is composed of an alignment of several traps. This leads to the same result which we can obtain with the use of a cylindrical lens. 
 
 Before this experiment, we ensure we could trap and rotate as small objects. Figure \ref{mitrotate} shows a configuration of 25 traps displaying MIT that we rotated over 360$^\circ$ in about 20 seconds. The spheres chosen had a diameter of \SI{0.75}{\um} which is approximately the width of an e-coli. 
 
@@ -1159,13 +1162,13 @@ Despite this qualitative side, we were able to trap a sphere up to \SI{70}{\um} 
 \clearpage
 \section{SLM Calibration}
 \label{calibrationsection}
-Holoeye provides a tool to calibrate the Pluto SLM. However, this tool is not very adapted and has several bugs. For instance, it is only compatible with a limited type of camera such as webcams. 
+Holoeye provides a tool to calibrate their Pluto SLM. However, this tool is not very adapted and has several bugs. For instance, it is only compatible with a limited type of camera such as webcams. 
 
 We attempted to buy a webcam and remove the front lens but the first measurement was not optimal because it was not possible to disable the automatic gain control. So it was decided that we would write our own calibration script using Matlab. 
 
 \subsection{Optical Setup}
 \fig{slm-setup}{Optical setup used for calibrating the Spatial Light Modulator}
-The calibration procedure is the same proposed by Holoeye. Figure \ref{slm-setup} shows the setup used. The Verdi laser beam is expanded through a spatial filter and divided in two spots with two circular apertures. A linear polarizer ensures the polarization is in the same direction of the liquid crystals molecules and provides parasitic reflections. The lens L1 focuses the two spots slightly after the back aperture of a Newport 20x objective. The interference pattern is then enlarged and imaged with a camera. It is worth noting the angle between the two arms is as small as possible, about 8 degrees. 
+The calibration procedure is the same proposed by Holoeye. Figure \ref{slm-setup} shows the setup used. The Verdi laser beam is expanded through a spatial filter and divided in two spots with two circular apertures. A linear polarizer ensures the polarization is in the same direction of the liquid crystals molecules and provides parasitic reflections. The lens L1 focuses the two spots slightly after the back aperture of a Newport 20x objective. The interference pattern is then enlarged and imaged with a USB camera. It is worth noting the angle between the two arms is as small as possible, about 8 degrees. 
 
 The mask has a diameter of \SI{25}{\mm} and offers two \SI{3}{\mm} holes separated by \SI{7}{\mm}. It was printed using the uPrint 3D printer available at \gls{smart}. The interference pattern for a two-holes aperture is shown on figure \ref{slm-interferences}. The first image shows the mask (a) and the second the corresponding interference pattern (b). Note the interference is the Fourier transform of the mask which is an Airy disk with cosine modulation. The phase of this modulation is proportional to the phase difference of the two beams. 
 
@@ -1432,7 +1435,7 @@ A proper illumination also has to be focused at the back focal plane as shown on
 
 In a further step, it is worth replacing the top beam-splitter with a dichroic glass that will reflect the trapping laser \SI{532}{\nm} and transmit the illumination which may come from a LED\index{LED} source. The second beam-splitter can also be replaced with a dichroic filter that will reflect the LED bandwidth and transmit another band from a second illumination. As the spheres are almost transparent, a reflecting illumination will produce bad results. In this experiment, we used a second white light source to shine the sample from the top to see the sphere with the GE-1650 camera. 
 
-After modifying the tweezers illumination portion, we realigned the system and acquired new images. Figure \ref{vhtw1} shows group 7th with a better magnification but with a smaller field of view as the illumination is collimated. The two images (a) and (b) illustrate the focus on the target in both planes which have a separation of \SI{30}{\um}.
+After modifying the tweezers illumination portion, we realigned the system and acquired new images. Figure \ref{vhtw1} shows group 7th with a better magnification but with a smaller field of view. Unfortunately we did not succeed to obtain a collimated beam after the objective lens. Worse, the light source is almost focused on the imaging plane. The two images (a) and (b) illustrate the focus on the target in both planes which have a separation of \SI{30}{\um}.
 
 \fig{vhtw1}{Target imaged on the tweezers side}
 
@@ -1723,16 +1726,16 @@ All these parts come from Thorlabs Inc.\par
 
 \section{1951 USAF Target}
 The 1951 USAF resolution test chart is a resolution test pattern set by US Air Force in 1951. It is a common resolution pattern in optics. The microscope versions are chromium coated on a glass substrate. It exists a positive and a negative version in Thorlabs. Both offer a resolution down to 288 lines per millimeter.  
-\subsection{Find the smallest group}
-It is always tough to find the smallest group when used with a high magnification objective. However, a method allows to considerably reducing the time spent. Firstly, we notice the block numbers are always located at the side of horizontal lines (a) and the group numbers are located above vertical (b) or horizontal lines (c). Secondly we notice a smaller pattern is always located at a vertical position that is in between the block numbers 3 and 4 (d). 
+\subsection{Finding the smallest group}
+It is always tough to find the smallest group when used with a high magnification microscope. However, a method allows to considerably reducing the time spent. Firstly, we notice the block numbers are always located at the side of horizontal lines (a) and the group numbers are located above vertical (b) or horizontal lines (c). Secondly we notice a smaller pattern is always located at a vertical position that is in between the block numbers 3 and 4 (d). 
 
 \includegraphics[width=\textwidth]{fig/1951.pdf}
 \includegraphics[width=\textwidth]{fig/1951-2.pdf}
 
-Here we randomly started on the edge of the top horizontal line group -4 block 2. By moving on the left we notice there is number, too big to be seen. It is obviously a block number. By moving the target on the right we will find the opposite block number belongs to a smaller group. Here we can read 1 then we go down to a position between 3 and 4 and we move left again to find the smaller pattern. Again we find the 3 and 4 until we find the smaller group.
+Here we randomly started on the edge of the top horizontal line group -4 block 2. By moving on the left we notice there is a number, too big to be seen. It is obviously a block number. By moving the target on the right we will find the opposite block number belongs to a smaller group. Here we can read 1 then we go down to a position between 3 and 4 and we move left again to find the smaller pattern. Again we find the 3 and 4 until we find the smaller group.
 \clearpage 
 \subsection{Obtain group size and resolution}
-The documentation that comes with the targets are usually not very clear. The notion of line-pair should called instead spatial period.\par 
+The documentation that comes with the targets are usually not very clear. The notion of line-pair should be called instead spatial period.\par 
 \includegraphics[width=\textwidth]{fig/1951-3.pdf}
 
 The resolution in periods per millimeters (line-pair/mm) is given by: 

@@ -294,4 +294,9 @@ Supervised by:\\
     \vskip 40\p@
   }}   
 
-\newcommand{\maraja}[1]{\mbox{}\marginpar{\raggedright\tiny#1}\hspace{-0.5em}}
+\newcommand\maraja[1]{% 
+  \mbox{}% 
+  \marginpar{\raggedright \tiny#1}% 
+  \ignorespaces % sic 
+} 
+
