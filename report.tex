@@ -818,7 +818,7 @@ On figure \ref{debris}, we can observe a dead cell focused on each plane. The pl
 
 However, the purpose of the VH is to image a specimen at different depths without the need to adjust its position. In this case, only objects smaller than the field of view can be observed with this volume holographic imaging system. 
 
-\fig{debris}{Dead cell imaged on the existing five planes with VH installed at BioSyM}
+\figc{debris}{Dead cell}{Dead cell imaged on the existing five planes with VH installed at BioSyM}
 
 \section{Illumination spectrum}
 As seen before, the bandwidth of the illumination is proportional to the field of view. A halogen white light source is for instance far away and too broad. The holograms used in this project are designed for an illumination range of about \SI{30}{\nm}. Therefore, a band-pass filter is required if the illumination is broader. Figure \ref{vhiscolor} shows 4 images aquired with different filters of the 1951 USAF resolution target. We observe a shift of the two planes on the left as the center wavelength is increased.
@@ -1002,7 +1002,7 @@ R_{th} = \frac{\lambda}{2NA} = \frac{\SI{500}{\nm}}{2\cdot1.4} \approx \SI{180}{
 \end{equation}
 We have measured at the edge of a line a transition of 5 pixels from 10\% to 90\% which corresponds to a physical resolution of about \SI{200}{\nm}. The laser spot has \gls{fwhm} diameter of 18 pixels which corresponds to \SI{0.8}{\um}. However, due to the \gls{ccd} technology used by the camera, the strong intensity of the laser spot may spread to the surrounding pixels and give a biased result. 
 
-\fig{exptw2}{Trap on focus at the image plane, objective 100x NA 1.4 oil immersion}
+\figc{exptw2}{Trap on focus}{Trap on focus at the image plane, objective 100x NA 1.4 oil immersion}
 
 The total magnification needs to take into account the pixels size, the number of pixels per block and the block size. 
 \begin{equation}
@@ -1255,7 +1255,7 @@ In terms of uniformity, the S algorithm showed slightly better results than SR e
 \begin{table}[h]
 	\begin{center}
     \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|} \hline
-        Algorithm & 1    & 2    & 3    & 4    & 5    \tnl
+        Algorithm & 1    & 2    & 3    & 4    & 5    \tnl\hline
         RM        & 0.47 & 0.41 & 0.26 & 0.00 & 0.29 \tnl
         S         & 0.85 & 0.91 & 0.39 & 0.33 & 0.84 \tnl
         SR        & 0.90 & 0.91 & 0.37 & 0.58 & 0.77 \tnl
@@ -1270,7 +1270,7 @@ As we did not measure the incident laser power on the camera, the absolute effic
 \begin{table}[h]
 	\begin{center}
     \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|} \hline
-        Algorithm & 1    & 2    & 3    & 4    & 5    \tnl
+        Algorithm & 1    & 2    & 3    & 4    & 5    \tnl\hline
         RM        & 8\%  & 11\% & 27\% & 7\% & 3\% \tabularnewline\hline
         S         & 33\% & 46\% & 47\% & 79\% & 36\% \tabularnewline\hline
         SR        & 45\% & 46\% & 47\% & 100\% & 49\% \tabularnewline\hline
@@ -1286,7 +1286,7 @@ The standard deviation of the intensity of each traps are shown on table \ref{st
 \begin{table}[h]
 	\begin{center}
     \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|} \hline
-        Algorithm & 1    & 2    & 3    & 4    & 5    \tnl
+        Algorithm & 1    & 2    & 3    & 4    & 5    \tnl\hline
         RM        & 36 & 39 & 83 & 157 & 34 \\ \hline
         S         & 11  & 7  & 66 & 44  & 12  \\ \hline
         SR        & 6  & 7  & 66 & 21  & 15  \\ \hline
@@ -1302,7 +1302,7 @@ Holoeye AG provides with its SLM, a tool for hologram generation. We also used a
 \begin{table}[h]
 \begin{center}
     \begin{tabularx}{\linewidth}{|X|c|c|c|} \hline
-        Algorithm & e  & u    & $\sigma$ \\ \hline
+        Algorithm & e  & u    & $\sigma$ \\ \hline\hline
         RM        & 3  & 0.29 & 34        \\ \hline
         S         & 36 & 0.84 & 12       \\ \hline
         SR        & 49 & 0.77 & 15       \\ \hline
@@ -1322,7 +1322,7 @@ We observed the strongest ghost trap for image (c). Table \ref{gstra} shows the 
 \begin{table}[h]
 	\begin{center}
     \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|} \hline
-        Algorithm & 1    & 2    & 3    & 4    & 5    \tnl
+        Algorithm & 1    & 2    & 3    & 4    & 5    \tnl\hline
         RM        & 86 & 89 & 36 & 100 & 92 \\ \hline
         S         & 39  & 55  & 20 & 71  & 32  \\ \hline
         SR        & 38 & 56  & 21 & 48  & 37  \\ \hline
@@ -1410,7 +1410,7 @@ During this experiment, we were compelled to replace the Coherent Verdi V10 with
 
 Initially we wanted to use only one objective lens for both of the VHIS and the HOT setups. However this change requires a new hologram to be recorded with the new setup and a specific laser is required for this operation. Hence we designed the setup the way we did. 
 \figc{setup3}{HOT + VH Setup}{Functional diagram of the holographic optical tweezers setup (on the bottom) combined with the volume holographic imaging system (on the top)}
-\fig{hot-vh3d}{Three-dimensional view of the final setup assembled with Thorlabs' parts}
+\figc{hot-vh3d}{3D view of the final setup}{Three-dimensional view of the final setup assembled with Thorlabs' parts}
 
 \subsection{Alignment}
 The alignment of the tweezers was smooth-going. All the components were clamped onto the optical table and even though the new laser required some of the components to be readjusted, we managed to obtain good traps on the sample plane easily. However, the VH has to be adjusted either in the z, x or y direction. As the whole of the VH is attached to the vertical damped pole, the x/y alignment is limited to one degree of freedom. But, the thick hologram can also be slightlymoved to adjust the viewing position. With regards to the z-axis, we added a precise Z-Axis translation mount 30mm cage system\index{SM1Z} (SM1Z) at the tweezers objective, after which, we were able to adjust the position of the focal point precisely. We also added another translation stage to move the whole of the VH vertically.\index{alignment} 
